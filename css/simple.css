@@ -45,6 +45,23 @@ sup a {
 footer {
 	float: right;
 }
+
+footer > * {
+    margin: 10px;
+    float: left;
+}
+
+blockquote {
+    font-style: italic;
+    border-left: 5px solid #F1F1F1;
+    padding-left: 15px;
+    color: #666;
+}
+
+footer .rss {
+    margin-top: 20px;
+}
+
 .hyphenate {
 	text-align: justify;
 }
