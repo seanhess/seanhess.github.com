@@ -31,9 +31,15 @@ strong a {
 img.right {
 	float: right;
 }
-ol, ul {
+
+/*ol, ul {
 	padding-left: 0;
+}*/
+
+ul, ol {
+    margin-left: 1.35em;
 }
+
 sup {
 	line-height: 0;
 }
