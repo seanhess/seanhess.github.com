@@ -57,6 +57,10 @@ footer .nav {
     margin-top: 15px;
 }
 
+footer .nav a {
+
+}
+
 blockquote {
     font-style: italic;
     border-left: 5px solid #F1F1F1;
