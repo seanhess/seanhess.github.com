@@ -7,10 +7,11 @@ title: Sean Hess
   <h1>Blog Posts</h1>
   <ul class="posts">
     {% for post in site.posts %}
-      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
+      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a> {{ post.intro }}</li>
     {% endfor %}
   </ul>
 
+  <!--
   <h1>Projects</h1>
   <ul class="posts">
     <li><a href="http://github.com/github/gollum/">Gollum</a> — A simple, Git-powered wiki with a sweet API and local frontend.</li>
@@ -20,5 +21,6 @@ title: Sean Hess
   <ul class="posts">
     <li><span>14 Apr 2011</span> &raquo; <a href="http://skillsmatter.com/podcast/agile-testing/optimizing-for-happiness">Video: ACCU Conference - Optimizing For Happiness</a></li>
   </ul>
+  -->
 
 </div>
