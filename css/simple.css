@@ -42,13 +42,17 @@ sup {
 sup a {
 	text-decoration: none;
 }
+
 footer {
-	float: right;
     font-size: 14px;
 }
 
-footer > * {
+footer .contact, footer .rss {
     margin: 10px;
+    float: right;
+}
+
+footer .contact {
     float: left;
 }
 
