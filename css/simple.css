@@ -45,6 +45,7 @@ sup a {
 
 footer {
     font-size: 14px;
+    border-top: solid 5px #F1F1F1;
 }
 
 footer .contact, footer .rss {
@@ -57,8 +58,8 @@ footer .nav {
     margin-top: 15px;
 }
 
-footer .nav a {
-
+footer .nav h2 {
+    margin: 0px;
 }
 
 blockquote {
