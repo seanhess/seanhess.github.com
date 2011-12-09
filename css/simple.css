@@ -48,7 +48,7 @@ footer {
 }
 
 footer .contact, footer .rss {
-    margin: 10px;
+    margin-left: 20px;
     float: right;
 }
 
