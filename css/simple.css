@@ -54,6 +54,7 @@ footer .contact, footer .rss {
 
 footer .nav {
     float: left;
+    margin-top: 15px;
 }
 
 blockquote {
@@ -64,7 +65,7 @@ blockquote {
 }
 
 footer .rss {
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 .hyphenate {
