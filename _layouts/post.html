@@ -1,10 +1,20 @@
 ---
 layout: default
 ---
+        <div class="nav">
+          <a href="/">← all posts</a>
+        </div>
+        
 <article id="post">
     <div class="meta">
-        <div class="date">{{ page.date | date_to_string }}</div>
-        <div><a href="{{ page.url }}#disqus_thread">Hello</a></div>
+        <div class="date">
+            <span class="day">{{ page.date | date: "%d" }}</span>
+            <span class="month">{{ page.date | date: "%b" }}</span>
+            <span class="year">{{ page.date | date: "%Y" }}</span>
+        </div>
+
+
+        <!--<div><a href="{{ page.url }}#disqus_thread" data-disqus-identifier="{{ page.url }}">Hello</a></div>-->
     </div>
 
 {{ content }}
@@ -21,8 +31,9 @@ layout: default
 </div>
 -->
 
-<div id="disqus_thread"></div>
+<div id="disqus_thread" data-disqus-identifier="{{ page.url }}"></div>
 <script type="text/javascript">
+    var disqus_developer = 1;
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'seanhess'; // required: replace example with your forum shortname
 

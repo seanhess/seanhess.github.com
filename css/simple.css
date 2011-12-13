@@ -9,7 +9,7 @@ body {
 	font-family: sans-serif;
 	font-size: 16px;
 	line-height: 1.5em;
-    background-color: whiteSmoke;
+    background-color: #334;
 }
 
 h1 {
@@ -17,7 +17,7 @@ h1 {
     line-height: 1em;
     font-size: 67px;
     text-transform: uppercase;
-    color: #333;
+    color: #334;
     font-family: "LeagueGothicRegular", "Droid Sans", Arial, Helvetica, sans-serif;
 }
 
@@ -56,21 +56,29 @@ sup a {
 
 footer {
     font-size: 14px;
-    border-top: solid 5px #F1F1F1;
+    background-color: #334;
+    color: #FFF;
+    clear: both;
+    padding-top: 10px;
 }
 
-footer .contact, footer .rss {
+footer a {
+    color:#FF7C80;
+}
+
+footer .contact {
     margin-left: 20px;
     float: right;
 }
 
-footer .nav {
-    float: left;
-    margin-top: 15px;
+.nav {
+    position: absolute;
+    right: 10px;
+    top: 10px;
 }
 
-footer .nav h2 {
-    margin: 0px;
+.nav a {
+    text-decoration: none;
 }
 
 blockquote {
@@ -87,10 +95,22 @@ footer .rss {
 .hyphenate {
 	text-align: justify;
 }
+
+.main {
+    background-color: #F5F5F5;
+    padding-top: 1px; /* no idea why this fixes the background */
+    padding-bottom: 1px;
+}
+
 .site {
 	margin: auto;
 	width: 80%;
     max-width: 600px;
+}
+
+.mascot {
+    margin-top:2em;
+    float: left;
 }
 
 
@@ -147,8 +167,8 @@ ul.posts {
     line-height: 1.75em;
   }
 
-  ul.posts span, .date {
-    color: #aaa;
+  ul.posts span {
+    color: #888;
     font-family: Monaco, "Courier New", monospace;
     font-size: 80%;
   }
@@ -158,11 +178,29 @@ ul.posts {
 #post .meta {
     float:left; 
     position:relative; 
-    left:-100px; 
-    top: 38px; 
+    left:-80px; 
+    top: 0px; 
     width:0px;
 }
 
 #post .meta div {
     width: 100px;
+}
+
+#post .meta .date {
+    color: #888;
+
+}
+
+#post .meta .date span {
+    display:block;
+}
+
+#post .meta .date span.day {
+    font-size: 2em;
+    line-height: 1em;
+}
+
+#post .meta .date span.month {
+    font-size: 1.2em;
 }
