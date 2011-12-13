@@ -119,14 +119,14 @@ footer .rss {
 #post pre {
     border: 1px solid #DEDEDE;
     background-color: #F8F8FF;
-    padding: 0.5 1.0em;
+    padding: 0.5em 1.0em;
 }
 
 #post code {
     border: 1px solid #DEDEDE;
     background-color: #F8F8FF;
     font-size: 85%;
-    padding: 0.5 1.0em;
+    padding: 0.5em 1.0em;
 }
 
 #post pre code {
