@@ -1,21 +1,32 @@
+@import url(http://posterous.com/themes/choice/font.css);
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
 body {
 	font-family: sans-serif;
 	font-size: 16px;
 	line-height: 1.5em;
-	margin: 0;
-	padding: 2em 2em 4em;
+    background-color: whiteSmoke;
 }
+
 h1 {
-	color: #4e443c;
-	font-size: 48px;
-	line-height: 1em;
-	margin: .6em 0 0;
+	margin: 0.6em 0 0;
+    line-height: 1em;
+    font-size: 67px;
+    text-transform: uppercase;
+    color: #333;
+    font-family: "LeagueGothicRegular", "Droid Sans", Arial, Helvetica, sans-serif;
 }
+
 h2 {
 	color: #e44f3a;
 	font-size: 28px;
 	margin: 1.5em 0 0;
 }
+
 hr {
 	background-color: #999;
 	border: none;
@@ -79,6 +90,7 @@ footer .rss {
 .site {
 	margin: auto;
 	width: 80%;
+    max-width: 600px;
 }
 
 
@@ -135,8 +147,22 @@ ul.posts {
     line-height: 1.75em;
   }
 
-  ul.posts span {
+  ul.posts span, .date {
     color: #aaa;
     font-family: Monaco, "Courier New", monospace;
     font-size: 80%;
   }
+
+
+/* POSTS */
+#post .meta {
+    float:left; 
+    position:relative; 
+    left:-100px; 
+    top: 38px; 
+    width:0px;
+}
+
+#post .meta div {
+    width: 100px;
+}
