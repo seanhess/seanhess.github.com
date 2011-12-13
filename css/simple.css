@@ -117,14 +117,14 @@ footer .rss {
 /* CODE */
 
 #post pre {
-    border: 1px solid #ddd;
-    background-color: #eef;
+    border: 1px solid #DEDEDE;
+    background-color: #F8F8FF;
     padding: 0 .4em;
 }
 
 #post code {
-    border: 1px solid #ddd;
-    background-color: #eef;
+    border: 1px solid #DEDEDE;
+    background-color: #F8F8FF;
     font-size: 85%;
     padding: 0 .2em;
 }
