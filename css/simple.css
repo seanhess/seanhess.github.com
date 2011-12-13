@@ -131,6 +131,7 @@ footer .rss {
 
 #post pre code {
     border: none;
+    background: none;
 }
 
 #post pre.terminal {
