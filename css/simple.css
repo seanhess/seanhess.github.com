@@ -6,7 +6,7 @@ html, body {
 }
 
 body {
-	font-family: sans-serif;
+	font-family: Helvetica;
 	font-size: 16px;
 	line-height: 1.5em;
     background-color: #334;
@@ -107,7 +107,7 @@ footer .rss {
     padding-bottom: 1px;
 }
 
-.site {
+.content {
 	margin: auto;
 	width: 80%;
     max-width: 600px;
@@ -178,17 +178,23 @@ ul.posts li {
 
 ul.posts span {
     color: #888;
-    font-family: Monaco, "Courier New", monospace;
-    font-size: 80%;
+    font-family: "Courier", monospace;
+    font-size: 0.9em;
+    font-weight: bold;
 }
 
 
 /* POSTS */
+
+#post {
+    position: relative;
+
+}
+
 #post .meta {
-    float:left; 
-    position:relative; 
+    position:absolute; 
     left:-80px; 
-    top: 0px; 
+    top: 10px; 
     width:0px;
 }
 
@@ -198,7 +204,8 @@ ul.posts span {
 
 #post .meta .date {
     color: #888;
-
+    font-family: "Courier", monospace;
+    font-weight: bold;
 }
 
 #post .meta .date span {
@@ -206,10 +213,16 @@ ul.posts span {
 }
 
 #post .meta .date span.day {
-    font-size: 2em;
-    line-height: 1em;
+    font-size: 2.4em;
+    letter-spacing: -2px;
+    margin-left: -2px;
 }
 
 #post .meta .date span.month {
-    font-size: 1.2em;
+    font-size: 1.4em;
+    margin-bottom: -5px;
+}
+
+#post .meta .date span.year {
+
 }
