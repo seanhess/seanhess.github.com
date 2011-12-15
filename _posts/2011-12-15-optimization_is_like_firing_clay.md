@@ -21,7 +21,7 @@ But pay attention when you come to a [trade-off][t] — where you must make some
 I have to learn this again?
 ---------------------------
 
-For our new product (a [backbone][b] app), our CEO suggested that we support up to 10,000 items on a page at once. We were able to make it perform well *by assuming that each item had a static height*. This allowed us to calculate the exact position of each item on the screen without drawing it. We coudl then load and unload items as the user scrolled. After a few days of work, we acheived great performance, even for 10,000 items. 
+For [our](http://corp.i.tv) new product (a [backbone][b] app), our CEO suggested that we support up to 10,000 items on a page at once. We were able to make it perform well *by assuming that each item had a static height*. This allowed us to calculate the exact position of each item on the screen without drawing it. We coudl then load and unload items as the user scrolled. After a few days of work, we acheived great performance, even for 10,000 items. 
 
 Then, our designer showed us higher-fidelity designs. The items needed dynamic heights. 
 
