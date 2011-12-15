@@ -54,6 +54,7 @@ ol {
 sup {
 	line-height: 0;
 }
+
 sup a {
 	text-decoration: none;
 }
@@ -87,10 +88,12 @@ footer .contact {
 
 blockquote {
     font-style: italic;
-    border-left: 5px solid #BBB;
     padding-left: 15px;
     color: #666;
     margin: 0;
+    border: 1px solid #DEDEDE;
+    border-left: 5px solid #BBB;
+    background-color: #FAFAFA;
 }
 
 footer .rss {
@@ -225,4 +228,14 @@ ul.posts span {
 
 #post .meta .date span.year {
 
+}
+
+
+#post div.footnotes {
+    font-size: smaller;
+    margin-left: 4px;
+}
+
+#post div.footnotes a {
+    text-decoration: none;
 }
