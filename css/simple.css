@@ -239,3 +239,23 @@ ul.posts span {
 #post div.footnotes a {
     text-decoration: none;
 }
+
+
+
+#home .stuff {
+    list-style-type: none;
+    margin-top: 0.5em;
+    margin-bottom: 2em;
+    padding:0px;
+}
+
+#home .stuff li {
+    display: inline-block;
+    height: 100px;
+    overflow: hidden;
+    margin: 2px;
+}
+
+#home .stuff img {
+    width: 100px;
+}
