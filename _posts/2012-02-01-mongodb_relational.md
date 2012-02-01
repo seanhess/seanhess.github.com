@@ -171,6 +171,8 @@ Don't fight the Mongo
 ---------------------
 MongoDB just lets you get stuff done. Don't become a [NoSQL][nosql] or [Document Store][doc] purist, just write code that works. It's the mongo way. It's easy to store relationships in a separate collection, and the joins are pretty cheap if you don't split up your data too much. Don't be overly tempted to store everything in a nested document, because at least in my experience, you end up needing to query against them sooner rather than later. 
 
+[Discuss on Hacker News](http://news.ycombinator.com/item?id=3539385)
+
 [d]: http://en.wikipedia.org/wiki/Denormalization "Denormalization"
 [in]: http://www.mongodb.org/display/DOCS/Advanced+Queries#AdvancedQueries-%24in "MongoDB Advanced Queries - $in"
 [doc]: http://en.wikipedia.org/wiki/Document-oriented_database "Document Oriented Database"
