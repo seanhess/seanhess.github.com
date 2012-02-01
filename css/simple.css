@@ -169,22 +169,63 @@ footer .rss {
 
 /* HOME */
 
-ul.posts {
+
+#home ul, ul.posts {
     list-style-type: none;
     margin-bottom: 2em;
     padding:0px;
 }
 
-ul.posts li {
+#home ul li, ul.posts li {
     line-height: 1.75em;
 }
 
-ul.posts span {
+#home ul span, ul.posts span {
     color: #888;
     font-family: "Courier", monospace;
     font-size: 0.9em;
     font-weight: bold;
 }
+
+ul.wip {
+
+}
+
+ul.wip span {
+    display: inline-block;
+    background-color: #000;
+    margin-right: 10px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+ul.wip span.p10 {
+    background-color: #000;
+    width: 10px;
+}
+
+ul.wip span.p25 {
+    background-color: #000;
+    width: 25px;
+}
+
+ul.wip span.p50 {
+    background-color: #000;
+    width: 50px;
+}
+
+ul.wip span.75 {
+    background-color: #000;
+    width: 75px;
+}
+
+ul.wip span.100 {
+    background-color: #000;
+    width: 100px;
+}
+
+
+
 
 
 /* POSTS */
