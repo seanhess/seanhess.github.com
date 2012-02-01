@@ -11,6 +11,7 @@ MongoDB = Get Stuff Done
 ------------------------
 
 **Update:** Changed blog example to use a normal belongs-to relationship.
+**Update:** Added examples of $slice and $elemMatch to show why they don't work
 
 When choosing the stack for our TV guide service, we became interested in [NoSQL][nosql] dbs because we anticipated needing to scale horizontally. We evaluated several and settled on [MongoDB][mongodb]. The main reason was that MongoDB got out of the way and let us get work done. You can read a little more about our production setup [here](http://seanhess.posterous.com/surviving-a-production-launch-with-nodejs-and).  
 
@@ -61,7 +62,7 @@ function addComment(postId, comment) {
 When Nested Documents Become a Problem
 --------------------------------------
 
-The minute you need just a little control over querying against those comments, you're stuck. While you can use [`$slice`](http://www.mongodb.org/display/DOCS/Retrieving+a+Subset+of+Fields#RetrievingaSubsetofFields-RetrievingaSubrangeofArrayElements) to limit comments to a certain number/offset, what if you want to display all comments made by a certain user? You're first tempted to try this:
+The minute you need just a little control over querying against those comments, you're stuck. While you can use [`$slice`][slice] to limit comments to a certain number/offset, what if you want to display all comments made by a certain user? You're first tempted to try this:
 
 {% highlight javascript %}
 // bad idea
@@ -173,6 +174,28 @@ Don't fight the Mongo
 ---------------------
 MongoDB just lets you get stuff done. Don't become a [NoSQL][nosql] or [Document Store][doc] purist, just write code that works. It's the mongo way. It's easy to store relationships in a separate collection, and the joins are pretty cheap if you don't split up your data too much. Don't be overly tempted to store everything in a nested document, because at least in my experience, you end up needing to query against them sooner rather than later. 
 
+What about X?
+-------------
+
+**[$slice][slice]** doesn't solve the problem, because you can only give it offsets, which is great for paging, but doesn't return the comments you matched on. 
+
+{% highlight javascript %}
+db.posts.save({comments:[{num:1, name:"sean"}, {num:2, name:"bob"}]})
+db.posts.find()
+// { "comments" : [ { "num" : 1, "name" : "sean" }, { "num" : 2, "name" : "bob" } ] }
+db.posts.find({"comments.name":"bob"}, {comments:{$slice: 1}})
+// { "comments" : [ { "num" : 1, "name" : "sean" } ] }
+// I want the 2nd comment, not this one ^^
+{% endhighlight %}
+
+**[$elemMatch][elem]** doesn't work either, it was intended to help you match nested documents more accurately, but still doesn't give you only the matched comments 
+
+{% highlight javascript %}
+db.posts.find({comments: {$elemMatch: {name:"bob"}}})
+// { "comments" : [ { "num" : 1, "name" : "sean" }, { "num" : 2, "name" : "bob" } ] }
+{% endhighlight %}
+
+
 [Discuss on Hacker News](http://news.ycombinator.com/item?id=3539385)
 
 [d]: http://en.wikipedia.org/wiki/Denormalization "Denormalization"
@@ -180,4 +203,5 @@ MongoDB just lets you get stuff done. Don't become a [NoSQL][nosql] or [Document
 [doc]: http://en.wikipedia.org/wiki/Document-oriented_database "Document Oriented Database"
 [nosql]: http://en.wikipedia.org/wiki/NoSQL "NoSQL"
 [mongodb]: http://www.mongodb.org/ "MongoDB"
-
+[slice]: http://www.mongodb.org/display/DOCS/Retrieving+a+Subset+of+Fields#RetrievingaSubsetofFields-RetrievingaSubrangeofArrayElements "Slice"
+[elem]: http://www.mongodb.org/display/DOCS/Dot+Notation+%28Reaching+into+Objects%29#DotNotation%28ReachingintoObjects%29-Matchingwith%24elemMatch "elemMatch"
