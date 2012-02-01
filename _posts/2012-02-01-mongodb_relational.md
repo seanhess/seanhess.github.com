@@ -11,6 +11,7 @@ MongoDB = Get Stuff Done
 ------------------------
 
 **Update:** Changed blog example to use a normal belongs-to relationship.
+
 **Update:** Added examples of $slice and $elemMatch to show why they don't work
 
 When choosing the stack for our TV guide service, we became interested in [NoSQL][nosql] dbs because we anticipated needing to scale horizontally. We evaluated several and settled on [MongoDB][mongodb]. The main reason was that MongoDB got out of the way and let us get work done. You can read a little more about our production setup [here](http://seanhess.posterous.com/surviving-a-production-launch-with-nodejs-and).  
