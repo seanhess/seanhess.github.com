@@ -61,11 +61,12 @@ function addComment(postId, comment) {
 When Nested Documents Become a Problem
 --------------------------------------
 
-The minute you need just a little control over querying against those comments, you're stuck. For example, you might want to display all comments made by a certain user, or there are tons of comments on a post, and you want to page them. You're first tempted to try this:
+The minute you need just a little control over querying against those comments, you're stuck. While you can use [`$slice`](http://www.mongodb.org/display/DOCS/Retrieving+a+Subset+of+Fields#RetrievingaSubsetofFields-RetrievingaSubrangeofArrayElements) to limit comments to a certain number/offset, what if you want to display all comments made by a certain user? You're first tempted to try this:
 
 {% highlight javascript %}
 // bad idea
 function commentsByUser(username) {
+    // $slice can't help you here
     return db.posts.find({"comments.name": username}, {comments: 1}).toArray()
 }
 {% endhighlight %}
