@@ -10,6 +10,8 @@ title: You Only Wish MongoDB Wasn't Relational
 MongoDB = Get Stuff Done
 ------------------------
 
+**Update:** Changed blog example to use a normal belongs-to relationship.
+
 When choosing the stack for our TV guide service, we became interested in [NoSQL][nosql] dbs because we anticipated needing to scale horizontally. We evaluated several and settled on [MongoDB][mongodb]. The main reason was that MongoDB got out of the way and let us get work done. You can read a little more about our production setup [here](http://seanhess.posterous.com/surviving-a-production-launch-with-nodejs-and).  
 
 So when you read that MongoDB is a [document store][doc], you might get the wonderful idea to store your relationships in a big document. Since mongo lets you [reach into objects](http://www.mongodb.org/display/DOCS/Dot+Notation+%28Reaching+into+Objects%29), you can query against them, right?  
@@ -81,38 +83,38 @@ function commentsBetweenTimes(start, end) {
 }
 {% endhighlight %}
 
-Collections are Cheap and [$in][in] is Your Friend
+Collections are Cheap
 ---------------------
 
 It turns out it isn't hard to put the comments in their own collection. If you restructure your posts to look like this, everything falls into place:
 
 {% highlight javascript %}
 // db.posts
-{ title: "My First Blog Post"
+{ _id: "4f297e550b3e6d9e2b7aa58e"
+, title: "My First Blog Post"
 , content: "Here is my super long post ..." 
-, comments: [ "4f297e550b3e6d9e2b7aa58e", "4f297e5c0b3e6d9e2b7aa58f" ] 
 }
 
 // db.comments
-{ _id: "4f297e550b3e6d9e2b7aa58e" 
+{ postId: "4f297e550b3e6d9e2b7aa58e"
 , text: "This post sucks!"
 , name: "seanhess"
 , created: 1328118162000 }
 {% endhighlight %}
 
-Your client doesn't have to be aware of the change, just use an [$in][in] query. It's a single join, but since both are indexed, it's plenty fast. The join is easy to write, and the comment-specific queries return only comments.
+Your client doesn't have to be aware of the change, just add the comments with a second query. Now the comment-specific queries return only comments.
 
 {% highlight javascript %}
 function postWithAllComments(id) {
     var post = db.posts.findOne({_id: id})
-    post.comments = db.comments.find({_id: {$in: post.comments}).toArray()
+    post.comments = db.comments.find({postId: id}).toArray()
     return post
 }
 
 function addComment(postId, comment) {
     comment.created = Date.now()
+    comment.postId = postId
     db.comments.save(comment)
-    db.posts.update({_id: postId}, {$push: {'comments': comment._id}})
 }
 
 function commentsByUser(username) {
@@ -122,10 +124,9 @@ function commentsByUser(username) {
 function commentsBetweenTimes(start, end) {
     return db.comments.find({"created": {$gte: start, $lt: end}).toArray()
 }
-
 {% endhighlight %}
 
-While our postWithAllComments function requires a 2-step query (a join), it's very fast. Everything comes out of memory, from an index (make sure to index the fields you use). The other functions are fast or faster and are easy to write. 
+While our postWithAllComments function requires 2 queries, it's very fast. Everything comes out of memory, and from an index. The other functions are as fast or faster and are easy to write. 
 
 Many-to-Many Relationships
 --------------------------
@@ -139,7 +140,7 @@ db.posts.find({ tags: "awesome" }) // works!
 
 Let's say you want to record users that are attending events. You could store this data a variety of ways, but it's very likely that you'll want to get both the users attending an event, and the events a user is attending. It doesn't make sense to put either users under event, or events under users. 
 
-Even though you're forced to be relational, a HUGE advantage over SQL is that you don't have to have a separate joining collection. We can store the relationships like we did with the blog posts. Put the relationship on both objects if you want. 
+Even though you're forced to be relational, a HUGE advantage over SQL is that you don't have to have a separate joining collection. We can store the relationships inside the documents. Put the relationship on both if you want to query both directions. 
 
 {% highlight javascript %}
 var party = { _id: "chessparty"
