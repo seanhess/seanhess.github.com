@@ -128,6 +128,7 @@ footer .rss {
     border: 1px solid #DEDEDE;
     background-color: #FAFAFA;
     padding: 0.5em 1.0em;
+    overflow: scroll;
 }
 
 #post code {
