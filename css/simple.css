@@ -65,6 +65,8 @@ footer {
     color: #FFF;
     clear: both;
     padding-top: 10px;
+    box-shadow: inset 0px 1px 100px 0px black;
+    height: 400px;
 }
 
 footer a {
@@ -124,25 +126,15 @@ footer .rss {
 
 /* CODE */
 
+code {
+    font-size: 85%;
+}
+
 #post pre {
     border: 1px solid #DEDEDE;
     background-color: #FAFAFA;
     padding: 0.5em 1.0em;
-    overflow: scroll;
-}
-
-#post code {
-    border: 1px solid #DEDEDE;
-    background-color: #FAFAFA;
-    font-size: 85%;
-    padding: 0.5em 1.0em;
-}
-
-#post pre code {
-    border: none;
-    background: none;
-    padding: 0px;
-    margin: 0px;
+    overflow: auto;
 }
 
 #post pre.terminal {
