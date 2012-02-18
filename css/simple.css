@@ -135,6 +135,7 @@ code {
     background-color: #FAFAFA;
     padding: 0.5em 1.0em;
     overflow: auto;
+    line-height: 1.3em;
 }
 
 #post pre.terminal {
