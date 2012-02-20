@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Haskell Teaches Javascript — Higher Order Functions, Partial Application, and Composition
+title: Learn from Haskell - Functional, Resuable JavaScript 
 ---
 
 {{ page.title }}
