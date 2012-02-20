@@ -117,16 +117,13 @@ count([1,3,3,4,5], applyFirst(eq, 3))
 
 Now we don't need a `makeEq` function. We can use any 2-argument library function the same way. With partial application, defining functional versions of even simple things like `==` makes sense because we can use them in higher-order functions more easily. 
 
-What about functions with more than 2 arguments? This version lets us apply as many arguments as we want, and the higher order function can add as many as it wants later.[^3] 
+What about functions with more than 2 arguments? This version[^3] lets us apply as many arguments as we want, and the higher order function can add one argument of its own.
 
 {% highlight javascript %}
 function apply(f) {
-    // arguments doesn't behave exactly like an array
-    var appliedArgs = Array.prototype.slice.call(arguments, 1)
-    return function() {
-        var innerArgs = Array.prototype.slice.call(arguments)
-        var args = appliedArgs.concat(innerArgs)
-        return f.apply(null, args)
+    var args = Array.prototype.slice.call(arguments, 1)
+    return function(x) {
+        return f.apply(null, args.concat(x))
     }
 }
 
@@ -134,10 +131,10 @@ function propertyEquals(propertyName, value, obj) {
     return (obj[propertyName] == value)
 }
 
-count([{name:"bob"},{name:"john"}], apply(propertyEquals, "name", "bob"))
+count([{name:"bob"},{name:"john"}], apply(propertyEquals, "name", "bob")) // == 1
 {% endhighlight %}
 
-We applied 2 arguments, "name" and "bob", and count provides the last one to complete the call. Partial function application lets us take generic functions, like `eq`, and use them other generic higher order functions, like `count`, to solve specific problems.[^3]
+We applied 2 arguments, "name" and "bob", and count provides the last one to complete the call. Partial function application lets us take generic functions, like `eq`, and use them other generic higher order functions, like `count`, to solve specific problems.
 
 Partial Application with ES5 Map and Filter
 -------------------------------------------
@@ -208,10 +205,9 @@ But I don't want to define `lookupFlipped`, that's dumb. Instead, let's make a f
 
 {% highlight javascript %}
 function applyr(f) {
-    var appliedArgs = Array.prototype.slice.call(arguments, 1)
-    return function() {
-        var args = Array.prototype.concat.call(arguments, appliedArgs)
-        return f.apply(null, args)
+    var args = Array.prototype.slice.call(arguments, 1)
+    return function(x) {
+        return f.apply(null, [x].concat(args))
     }
 }
 
@@ -226,9 +222,8 @@ function friendsNames(usersById, user) {
 
 Partial Application requires defining a bunch of functional versions of common things, like `lt`, but that's the point. You can use partially applied `lt` for both `count` and `Array.filter`. They're reusable and composable. 
 
-
-Function Composition
---------------------
+[Function Composition][fc]
+--------------------------
 
 In the previous example, we looped through the array twice, once to get the users, and again to get the names. It would be more efficient to loop through once, and do both mappings at the same time.
 
@@ -241,24 +236,23 @@ function friendsNames(usersById, user) {
 }
 {% endhighlight %}
 
-We are taking the result of the first lookup, and passing it into the second lookup. *Function composition* means to chain multiple functions into a new, single function, with each step passing its result to the next. 
+We are taking the result of the first lookup, and passing it into the second lookup. [Function composition][fc] means to chain multiple functions into a new, single function, with each step passing its result to the next. 
 
-Let's create a higher-order function to do this for us. 
+Let's create a higher-order function to do this for us, then we can rewrite `friendsNames` with a single mapping function. Note that the functions happen in right-to-left order, just as they would if you were writing `f(g(x))`.
 
 {% highlight javascript %}
 function compose(f, g) {
-    return function(a) {
-        return g(f(a))
+    return function(x) {
+        return f(g(x))
     }
 }
 
-// Now we can rewrite `friendsNames`.
 function friendsNames(usersById, user) {
-    return user.friends.map(compose(apply(lookup, usersById), applyr(lookup, "name")))
+    return user.friendIds.map(applyr(lookup, "name")), compose(apply(lookup, usersById))
 }
 {% endhighlight %}
 
-This only loops through the array once, and creates a single mapping function exactly like the first example. 
+This only loops through the array once, and creates a single mapping function exactly like the first example.
 
 We weren't able to use the `friends` function we created, because while it contains the logic for how to get a friend, it also contains the mapping. **The `friends` function is less reusable because it does too much — It's too specific**. What if, instead, we created a `friend` function that mapped only one friend, and a `name` function that returns the name of something?
 
@@ -268,14 +262,16 @@ var name = applyr(lookup, "name")
 
 function friendsNames(usersById, user) {
     // this line is now more semantic. 
-    return user.friends.map(compose(apply(friend, usersById), name))
+    return user.friends.map(compose(name, apply(friend, usersById)))
 }
 {% endhighlight %}
 
-Instead of defining a `friends` function, which does both the conversion *and* the iteration, we define `friend`, which does the conversion, and we already have `map` which does the iteration. `friends` is more reusable than `friends` because it is less specific, and can be used in more ways. 
+Instead of defining a `friends` function, which does both the conversion *and* the iteration, we define `friend`, which does the conversion, and we already have `map` which does the iteration. `friends` is more reusable than `friends` because it is less specific, and can be used in more situations. 
 
-Worth it? 
----------
+See [here][jfc] for more information on function composition in JavaScript.
+
+Functional and Focused Makes a Clean Codebase
+---------------------------------------------
 
 I find myself writing a lot of JavaScript logic from scratch. This isn't just slower than using existing tools, it's more bug-prone and harder to read and maintain. With higher order functions and partial function application, we can create reusable tools that focus on exactly the part of a problem they are trying to solve.  
 
@@ -285,7 +281,7 @@ Over time, instead of a project increasing in complexity and this becomes more a
 
 [^2]: "Matching functions" are called [predicates][pred], but I'm trying to avoid introducing new terminology. 
 
-[^3]: See [here][pajmsdn] for better versions of `apply` and `applyr`.
+[^3]: See [here][pajmsdn] for more general implementations of `apply`.
 
 [pred]: http://en.wikipedia.org/wiki/Predicate_(mathematical_logic) "Predicate"
 [hof]: http://en.wikipedia.org/wiki/Higher-order_function "Higher Order Function"
@@ -295,5 +291,7 @@ Over time, instead of a project increasing in complexity and this becomes more a
 [rwh]: http://book.realworldhaskell.org/read/ "Real World Haskell"
 [pa]: http://en.wikipedia.org/wiki/Partial_application "Partial Application"
 [pajmsdn]: http://msdn.microsoft.com/en-us/scriptjunkie/gg575560 "Partial Application in Javascript"
+[jfc]: http://javascriptweblog.wordpress.com/2010/04/14/compose-functions-as-building-blocks/ "Compose: functions as building blocks"
+[fc]: http://en.wikipedia.org/wiki/Function_composition_(computer_science) "Function Composition"
 
 
