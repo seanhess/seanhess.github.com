@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Learn from Haskell - Functional, Resuable JavaScript 
+title: Learn from Haskell - Functional, Reusable JavaScript 
 ---
 
 {{ page.title }}
