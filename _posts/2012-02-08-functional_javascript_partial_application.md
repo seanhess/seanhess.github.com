@@ -13,7 +13,7 @@ For the last couple months I have been [learning][lyah] [Haskell][rwh]. Because 
 
 There are Haskell library functions for *everything*. At first I thought this was just because it was mature, but then I noticed that these functions could be applied to a wider variety of problems than in other languaes. This makes them more useful, as you are less likely to have to write your own solution to a common problem. 
 
-These functions are *composable*: They are focused on solving one problem without making any assumptions about your code, so you can mix and match the ones you need to solve bigger problems.[^1]
+These functions are *composable*[^1]: They are focused on solving one problem without making any assumptions about your code, so you can mix and match the ones you need to solve bigger problems.
 
 
 Higher Order Functions
@@ -36,7 +36,9 @@ function countMatching(array, value) {
 countMatching([1,3,3,4,5], 3) 
 {% endhighlight %}
 
-It's inflexible because you can only use this function to count the number of items *exactly matching a value*. Below is a more flexible version, which takes a function instead of a value. We can use it for any kind of matching, and any kind of object. 
+It's inflexible because you can only use this function to count the number of items *exactly matching a value*. 
+
+Below is a more flexible version, which takes a function instead of a value. We can use it for any kind of matching, and any kind of object. 
 
 {% highlight javascript %}
 // more flexible
@@ -60,12 +62,12 @@ count([{name:"bob"}, {name:"henry"}, {name:"jon"}], function(obj) {
 })
 {% endhighlight %} 
 
-Since higher order functions are more flexible, you're less likely to have to write them. You can create or find libraries of useful functions and use them in many different situations. 
+Since higher order functions are more flexible, you're less likely to have to write them. Once you write one, you can use it in many different situations. 
 
 Reusable Matching Functions
 ---------------------------
 
-You probably noticed that `count` is more verbose when we do an exact match. In addition, while `count` is really reusable, the matching functions are not. While this seems fine for these simple cases, it's very likely we'll want more complicated matching functions. These matching functions could be used for all kinds of things, not just counting, so creating or finding them will save us time and bugs in the long run. 
+You probably noticed that `count` is more verbose than `countMatching`. In addition, while `count` is reusable, the matching functions[^2] are not. While this seems fine for these simple cases, it's very likely we'll want more complicated matching functions. These matching functions could be used for all kinds of things, not just counting, so creating or finding them will save us time and bugs in the long run. 
 
 Let's define some reusable matching functions to clean this up. `==` isn't a function. Would it help if we had a function `eq` that did the same thing?
 
@@ -81,7 +83,7 @@ count([1,3,3,4,5], function(num) {
 
 We've made a step forward: We are using a library function to match instead of custom code. If `eq` were more complicated, we would test it and use it elsewhere. 
 
-This doesn't help the verbosity, though, because `count` takes a function with one parameter, the item, and eq takes two parameters. We still had to define our own anonymous function. Let's try to reduce the verbosity a little bit. 
+This doesn't help the verbosity, though, because `count` takes a function with one parameter, the item, and `eq` takes two parameters. We still had to define our own anonymous function. Let's try to reduce the verbosity a little bit. 
 
 {% highlight javascript %} 
 function makeEq(a) {
@@ -96,7 +98,7 @@ function makeEq(a) {
 count([1,3,3,4,5], makeEq(3))
 {% endhighlight %}
 
-We're generating a function that is compatible with `count` (one argument, the item, and returns true or false). It's as if `count` is calling `eq` with (3, item). We created a function that calls `eq` with the first argument frozen at 3. This is called partial function application.
+We're generating a function that is compatible with `count` (one argument, the item, and returns true or false). It's as if `count` is calling `eq(3, item)`. We created a function that calls `eq` with the first argument frozen at 3. This is called partial function application.
 
 Partial Application
 -------------------
@@ -106,7 +108,7 @@ Partial Application
 {% highlight javascript %}
 function applyFirst(f, a) {
     return function(b) {
-        f.call(null, a, b)
+        return f.call(null, a, b)
     }
 }
 
@@ -115,15 +117,16 @@ count([1,3,3,4,5], applyFirst(eq, 3))
 
 Now we don't need a `makeEq` function. We can use any 2-argument library function the same way. With partial application, defining functional versions of even simple things like `==` makes sense because we can use them in higher-order functions more easily. 
 
-What about functions with more than 2 arguments? This version lets us apply as many arguments as we want, and the higher order function can add as many as it wants later. 
+What about functions with more than 2 arguments? This version lets us apply as many arguments as we want, and the higher order function can add as many as it wants later.[^3] 
 
 {% highlight javascript %}
 function apply(f) {
-    // arguments isn't an array, so it doesn't have slice
+    // arguments doesn't behave exactly like an array
     var appliedArgs = Array.prototype.slice.call(arguments, 1)
     return function() {
-        var args = appliedArgs.concat(arguments)
-        f.apply(null, args)
+        var innerArgs = Array.prototype.slice.call(arguments)
+        var args = appliedArgs.concat(innerArgs)
+        return f.apply(null, args)
     }
 }
 
@@ -134,12 +137,12 @@ function propertyEquals(propertyName, value, obj) {
 count([{name:"bob"},{name:"john"}], apply(propertyEquals, "name", "bob"))
 {% endhighlight %}
 
-We applied 2 arguments, "name" and "bob", and count provides the last one to complete the call. Partial function application lets us take generic functions, like `eq`, and use them other generic higher order functions, like `count`, to solve specific problems. 
+We applied 2 arguments, "name" and "bob", and count provides the last one to complete the call. Partial function application lets us take generic functions, like `eq`, and use them other generic higher order functions, like `count`, to solve specific problems.[^3]
 
 Partial Application with ES5 Map and Filter
 -------------------------------------------
 
-There are some great higher order functions built in to ES5, and underscore has many more. Let's look at `filter`, which filters an array, given a matching function. 
+There are some great higher order functions built in to [ES5](http://kangax.github.com/es5-compat-table/), and [underscore](http://documentcloud.github.com/underscore/) has many more. Let's look at `filter`, which filters an array, given a matching function. 
 
 {% highlight javascript %}
 // this equals [1,3,3]
@@ -158,7 +161,7 @@ function lt(a, b) {
 [1,3,3,4,5].filter(apply(lt, 4))
 {% endhighlight %}
 
-It might seem silly to have created `lt` at all, but we can partially apply them to create a concise matching function, and if it were any more complicated we'd benefit from reuse. 
+It might seem silly to have created `lt` at all, but we can partially apply it to create a concise matching function, and if it were any more complicated we'd benefit from reuse. 
 
 `map` lets you convert an array of things into other things.  
 
@@ -208,7 +211,7 @@ function applyr(f) {
     var appliedArgs = Array.prototype.slice.call(arguments, 1)
     return function() {
         var args = Array.prototype.concat.call(arguments, appliedArgs)
-        f.apply(null, args)
+        return f.apply(null, args)
     }
 }
 
@@ -222,6 +225,7 @@ function friendsNames(usersById, user) {
 `applyr(lookup, "name")` creates a function to be called with one argument, the object, and returns the object's name. We no longer need to flip anything: we can apply arguments to either side of the function. 
 
 Partial Application requires defining a bunch of functional versions of common things, like `lt`, but that's the point. You can use partially applied `lt` for both `count` and `Array.filter`. They're reusable and composable. 
+
 
 Function Composition
 --------------------
@@ -279,6 +283,11 @@ Over time, instead of a project increasing in complexity and this becomes more a
 
 [^1]: Composable in the generic sense. This doesn't refer to either function or object composition, just the idea that you work with small tools to build large ones. 
 
+[^2]: "Matching functions" are called [predicates][pred], but I'm trying to avoid introducing new terminology. 
+
+[^3]: See [here][pajmsdn] for better versions of `apply` and `applyr`.
+
+[pred]: http://en.wikipedia.org/wiki/Predicate_(mathematical_logic) "Predicate"
 [hof]: http://en.wikipedia.org/wiki/Higher-order_function "Higher Order Function"
 [composition]: http://en.wikipedia.org/wiki/Object_composition "Object Composition"
 [node]: http://nodejs.org/ "Node.js"
