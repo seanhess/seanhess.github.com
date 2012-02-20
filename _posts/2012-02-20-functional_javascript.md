@@ -294,4 +294,4 @@ Over time, instead of a project increasing in complexity and this becomes more a
 [jfc]: http://javascriptweblog.wordpress.com/2010/04/14/compose-functions-as-building-blocks/ "Compose: functions as building blocks"
 [fc]: http://en.wikipedia.org/wiki/Function_composition_(computer_science) "Function Composition"
 
-
+[Discuss on Hacker News](http://news.ycombinator.com/item?id=3614099)
