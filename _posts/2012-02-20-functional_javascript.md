@@ -11,7 +11,7 @@ Learn You a Haskell: For Great Good?
 
 For the last couple months I have been [learning][lyah] [Haskell][rwh]. Because there are so many unfamiliar concepts, it feels like learning to program all over again. At [i.TV](http://corp.i.tv), we write a lot of JavaScript ([node.js][node] and front end). While many functional/haskell paradigms don't translate, there are a few techniques that JS can benefit from. 
 
-There are Haskell library functions for *everything*. At first I thought this was just because it was mature, but then I noticed that these functions could be applied to a wider variety of problems than in other languaes. This makes them more useful, as you are less likely to have to write your own solution to a common problem. 
+There are Haskell library functions for *everything*. At first I thought this was just because it was mature, but then I noticed that these functions could be applied to a wider variety of problems than in other languages. This makes them more useful, as you are less likely to have to write your own solution to a common problem. 
 
 These functions are *composable*[^1]: They are focused on solving one problem without making any assumptions about your code, so you can mix and match the ones you need to solve bigger problems.
 
