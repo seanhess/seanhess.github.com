@@ -251,7 +251,7 @@ function compose(f, g) {
 }
 
 function friendsNames(usersById, user) {
-    return user.friendIds.map(applyr(lookup, "name")), compose(apply(lookup, usersById))
+    return user.friendIds.map(compose(applyr(lookup, "name"), apply(lookup, usersById)))
 }
 {% endhighlight %}
 
