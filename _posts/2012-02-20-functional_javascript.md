@@ -139,28 +139,9 @@ We applied 2 arguments, "name" and "bob", and count provides the last one to com
 Partial Application with ES5 Map and Filter
 -------------------------------------------
 
-There are some great higher order functions built in to [ES5](http://kangax.github.com/es5-compat-table/), and [underscore](http://documentcloud.github.com/underscore/) has many more. Let's look at `filter`, which filters an array, given a matching function. 
+There are some great higher order functions built in to [ES5](http://kangax.github.com/es5-compat-table/), and [underscore](http://documentcloud.github.com/underscore/) has many more. 
 
-{% highlight javascript %}
-// this equals [1,3,3]
-[1,3,3,4,5].filter(function(num) {
-    return (num < 4)
-})
-{% endhighlight %}
-
-Let's use a reusable matching function `lt` (less than) instead. 
-
-{% highlight javascript %}
-function lt(a, b) {
-    return (a < b)
-}
-
-[1,3,3,4,5].filter(apply(lt, 4))
-{% endhighlight %}
-
-It might seem silly to have created `lt` at all, but we can partially apply it to create a concise matching function, and if it were any more complicated we'd benefit from reuse. 
-
-`map` lets you convert an array of things into other things.  
+`Array.map` lets you convert an array of things into other things.  
 
 {% highlight javascript %}
 var usersById = {"u1":{name:"bob"}, "u2":{name:"john"}}
@@ -219,6 +200,28 @@ function friendsNames(usersById, user) {
 {% endhighlight %}
 
 `applyr(lookup, "name")` creates a function to be called with one argument, the object, and returns the object's name. We no longer need to flip anything: we can apply arguments to either side of the function. 
+
+Now let's look at `Array.filter`, which filters an array, given a matching function. 
+
+{% highlight javascript %}
+// this equals [1,3,3]
+[1,3,3,4,5].filter(function(num) {
+    return (num < 4)
+})
+{% endhighlight %}
+
+Let's use a reusable matching function `lt` (less than) instead of defining an anonymous one. 
+
+{% highlight javascript %}
+function lt(a, b) {
+    return (a < b)
+}
+
+// filter by: lt(x, 4)
+[1,3,3,4,5].filter(applyr(lt, 4))
+{% endhighlight %}
+
+It might seem silly to have created `lt` at all, but we can partially apply it to create a concise matching function, and if it were any more complicated we'd benefit from reuse. 
 
 Partial Application requires defining a bunch of functional versions of common things, like `lt`, but that's the point. You can use partially applied `lt` for both `count` and `Array.filter`. They're reusable and composable. 
 
