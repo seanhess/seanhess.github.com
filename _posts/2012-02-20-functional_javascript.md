@@ -108,7 +108,7 @@ Partial Application
 {% highlight javascript %}
 function applyFirst(f, a) {
     return function(b) {
-        return f.call(null, a, b)
+        return f(a, b)
     }
 }
 
