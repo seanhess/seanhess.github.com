@@ -278,7 +278,7 @@ Functional and Focused Makes a Clean Codebase
 
 I find myself writing a lot of JavaScript logic from scratch. This isn't just slower than using existing tools, it's more bug-prone and harder to read and maintain. With higher order functions and partial function application, we can create reusable tools that focus on exactly the part of a problem they are trying to solve.  
 
-Over time, instead of a project increasing in complexity and this becomes more and more coupled, we benefit from a growing library of useful tools that can be tested independently of each other, resulting in a healthier, more stable code base. 
+Over time, instead of a project increasing in complexity becoming more and more coupled, we benefit from a growing library of useful tools that can be tested independently of each other, resulting in a healthier, more stable code base. 
 
 [^1]: Composable in the generic sense. This doesn't refer to either function or object composition, just the idea that you work with small tools to build large ones. 
 
