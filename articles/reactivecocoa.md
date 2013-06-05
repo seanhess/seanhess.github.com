@@ -44,6 +44,7 @@ Reactive Cocoa
         // - same problems
         // - (+) now multiple listeners
         // - but this funky global notification center.
+        // - have to remember to remove observer!
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userDidLogin) name:@"login" object:self.user];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userDidLogut) name:@"login" object:self.user];
         
@@ -53,6 +54,7 @@ Reactive Cocoa
         // - data driven
         // - error prone: "loggedIn" string
         // - bad syntax: in 3 places. Big if/else statement
+        // - have to remember to remove observer!
         [self.user addObserver:self forKeyPath:@"loggedIn" options:NSKeyValueObservingOptionNew context:nil];
         
         
