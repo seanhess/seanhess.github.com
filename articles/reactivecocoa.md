@@ -95,6 +95,13 @@ Reactive Cocoa
     @end
 
 
+### What what is it?
+
+> "OK, so it’s like KVO, plus Cocoa Bindings, except not sucking" 
+> Alex Curylo
+
+Yeah, but a lot more.
+
 
 ### What is Reactive Programming?
 
@@ -107,9 +114,6 @@ Reactive Cocoa
 * Common semantics for UI Events, network callbacks, data changes
 
 ### Reactive Cocoa
-
-> "OK, so it’s like KVO, plus Cocoa Bindings, except not sucking" 
-> Alex Curylo
 
 https://github.com/blog/1107-reactivecocoa-for-a-better-world
 
