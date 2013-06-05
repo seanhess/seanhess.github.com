@@ -17,7 +17,7 @@ Simple Example: https://gist.github.com/seanhess/5710745
 ### Reactive Cocoa
 
 > "OK, so it’s like KVO, plus Cocoa Bindings, except not sucking" 
-> - Alex Curylo
+> Alex Curylo
 
 https://github.com/blog/1107-reactivecocoa-for-a-better-world
 
