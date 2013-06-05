@@ -66,6 +66,10 @@ Reactive Cocoa
         [RACAble(self.user.loggedIn) subscribeNext:^(id x) {
             [self setButtonsBasedOnLogin];
         }];
+
+
+
+        // 5. Even better???
     }
 
     // 1/2. DELEGATES and NOTIFICATIONS
