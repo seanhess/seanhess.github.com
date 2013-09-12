@@ -1,5 +1,3 @@
-@import url(http://posterous.com/themes/choice/font.css);
-
 html, body {
     margin: 0;
     padding: 0;
@@ -18,7 +16,7 @@ h1 {
     font-size: 67px;
     text-transform: uppercase;
     color: #334;
-    font-family: "LeagueGothicRegular", "Droid Sans", Arial, Helvetica, sans-serif;
+    font-family: "league_gothicregular", "Impact",Arial, Helvetica, sans-serif; /* "Droid Sans", "Impact", */
 }
 
 h2 {
