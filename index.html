@@ -5,12 +5,41 @@ title: Sean Hess
 
 <div id="home">
   <h1>Sean Hess</h1>
-  <h2>Posts</h2>
+  
+  <h2 id="posts">Posts</h2>
   <ul class="posts">
     {% for post in site.posts %}
       <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
     {% endfor %}
   </ul>
+
+  <h2 id="projects">Projects</h2>
+  <section class="projects">
+    <article class="project">
+      <a href="http://github.com/seanhess/wizardwar#wizardwar">
+      <img src="http://i.imgur.com/bk7x8b9.png">
+      <h4>Wizard War</h4>
+      </a>
+      <div class="status">2013</div>
+      <div>Multiplayer iOS game with hidden spells and angry wizards.</div>
+    </article>
+    <article class="project">
+      <a href="http://appstore.com/librosyaudiolibrosgratis">
+      <img src="http://i.imgur.com/IfkRh1W.png">
+      <h4>Libros y Audiolibros en Español</h4>
+      </a>
+      <div class="status">2013</div>
+      <div>Spanish book and audiobook reader and store for iOS. </div>
+    </article>
+    <article class="project">
+      <a href="http://bazookaguys.com">
+      <img src="http://i.imgur.com/GESHiMB.png">
+      <h4>Underwater Adventure Rocket Bazooka Guys II</h4>
+      </a>
+      <div class="status">2013</div>
+      <div>A watery, deadly competitive multiplayer web game. </div>
+    </article>
+  </section>
 
   <h2>Talks</h2>
   <ul class="posts">
