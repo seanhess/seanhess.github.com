@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+<style>
+    button.active {
+      color: #F00;
+    }
+</style>
+<meta charset=utf-8 />
+</head>
+<body ng-controller="SomeController">
+    <div><pre>{{preferences}}</pre></div> 
+    <div>
+    <button toggle="preferences.showDetails">Show Details</button>
+    <span ng-show="preferences.showDetails">Fake Detail Information Here</span>
+    </div>
+    
+  
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
+
+    <script>
+        angular.module('app', [])
+        .directive('toggle', function() {
+          return {
+            scope: {
+              toggle: "="
+            },
+            link: function($scope, element, attrs) {
+              $scope.$watch("toggle", function(value) {
+                element.toggleClass('active', value) 
+              })
+              
+              element.click(function() {
+                $scope.$apply(function() {
+                  $scope.toggle = !$scope.toggle
+                })
+              })
+            }
+          }
+        })
+
+        function SomeController($scope) {
+          $scope.preferences = {
+            showDetails: false
+          }
+        }    
+    </script>
+</body>
+</html>

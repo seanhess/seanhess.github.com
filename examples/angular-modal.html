@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+<style>
+    .modal {
+        width: 500px;
+        height: 500px;
+        border: solid 2px #00F;
+        padding: 10px;
+        margin: 20px;
+    }
+
+    .modal header button {
+        float: right;
+    }
+</style>
+<meta charset=utf-8 />
+</head>
+<body ng-controller="SomeController">
+    
+    <modal>
+      <p>Some contents</p>
+    </modal>
+  
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
+
+<script type="text/ng-template" id="modal.html">
+<div class="modal">
+    <header>
+        <button>Close</button>
+        <h2>Modal</h2>
+    </header>
+    <div class="body" ng-transclude></div>
+</div>
+</script>
+
+    <script>
+angular.module('app', [])
+.directive('modal', function() {
+    console.log("WAHOO")
+    return {
+        restrict: 'E',
+        templateUrl: 'modal.html',
+        replace: true,
+        transclude: true,
+    }
+})
+
+        function SomeController($scope) {
+
+        }    
+    </script>
+</body>
+</html>

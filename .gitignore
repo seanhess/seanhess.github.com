@@ -3,3 +3,4 @@ _site
 _examples/
 .DS_Store
 Notes.txt
+*.sublime*
