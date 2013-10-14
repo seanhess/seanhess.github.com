@@ -213,8 +213,8 @@ Notice that we don't pass the offset in as the first parameter, we pass a hash o
 
 <a href="/examples/angular-scroll.html" target="_blank">Working Demo</a>
 
-How to have dynamic contents
-----------------------------
+How to have HTML content
+------------------------
 
 Directives can have html content by default, but the minute you specify a template the content is replaced by the template. 
 
