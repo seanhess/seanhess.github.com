@@ -268,8 +268,7 @@ More Information
 
 There is a lot more to directives. This article doesn't nearly cover everything they can do. Please visit the [directive documentation page][directives] for more information. 
 
-
-
+[Discuss on Hacker News](https://news.ycombinator.com/item?id=6549617)
 
 
 
