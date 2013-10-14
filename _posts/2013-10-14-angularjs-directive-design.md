@@ -1,6 +1,6 @@
 ---
 layout: post
-title: AngularJS Directive Design made easy
+title: AngularJS Directive Design Made Easy
 ---
 
 {{ page.title }}
