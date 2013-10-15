@@ -129,7 +129,7 @@ Some directives need to write data too, like `ng-model`.
 
 Let's make a button toggle directive. This directive will automatically set its toggle state based on some boolean in the scope, and when clicked, it will set the boolean.
 
-When passing data this way, you don't use curly braces, you use an "Expression". An Expression is any JS code that would run if it were on the scope. Use expressions whenever you need to write data, or when it passing an Object or Array into the directive instead of a string.
+When passing data this way, you don't use curly braces, you use an "Expression". An Expression is any JS code that would run if it were on the scope. Use expressions whenever you need to write data, or when passing in an Object or Array into the directive instead of a string.
 
 {% highlight html %}
 {% raw %}
@@ -138,7 +138,7 @@ When passing data this way, you don't use curly braces, you use an "Expression".
 {% endraw %}
 {% endhighlight %}
 
-First we use `=` on the `scope:` settings to make `scope.toggle` availabe within our directive. Anywhere in our directive, `scope.toggle` reads and writes to whatever the user set in the attribute. 
+First we use `=` on the `scope:` settings to make `scope.toggle` available within our directive. Anywhere in our directive, `scope.toggle` reads and writes to whatever the user set in the attribute. 
 
 {% highlight js %}
 app.directive('toggle', function() {
@@ -170,7 +170,7 @@ Finally, let's listen to the jQuery click event and update the scope. We need to
 })
 {% endhighlight %}
 
-<a href="/examples/button-toggle.html" target="_blank">Working Demo</a>
+<a href="/examples/angular-button-toggle.html" target="_blank">Working Demo</a>
 
 
 How to expose events
