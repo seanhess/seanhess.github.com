@@ -277,7 +277,7 @@ There is a lot more to directives. This article doesn't nearly cover everything 
 
 
 
-[angular]: http://angualrjs.org
+[angular]: http://angularjs.org
 [directives]: http://docs.angularjs.org/guide/directive
 [backbone]: http://backbonejs.org/
 [ng-repeat]: http://docs.angularjs.org/api/ng.directive:ngRepeat
