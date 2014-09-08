@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Swift - why annoying is good
+title: Swift - Why Annoying is Good
 ---
 
 {{ page.title }}
@@ -140,8 +140,7 @@ Strictness forces us to pay a price up front to minimize complexity in the futur
 
 [^1]: Using `!` isn't always bad. Sometimes you want to make assumptions about your code. For example, I pretty much always mark `IBOutlet` variables as `!`, because if they aren't set I probably forgot to attach them, and *I want the program to crash*. But this isn't cheating, it's the intended behavior. 
 
-
-
+[Discuss on Hacker News](https://news.ycombinator.com/item?id=8286458)
 
 [wolfpack]: https://github.com/seanhess/wolfpack-ios
 [swift]: https://developer.apple.com/swift/
