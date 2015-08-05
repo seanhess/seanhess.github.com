@@ -54,7 +54,7 @@ First, let's make a new directory
     $ mkdir my-project
     $ cd my-project
 
-Now create a file called `my-project.cabal` and paste this in. You'll use this later to specify dependencies on other people's code.
+Now create a file called `my-project.cabal` and paste this in. Another day we'll edit this file to specify dependencies on other people's code.
 
     name:                my-project
     version:             0.1.0.0
