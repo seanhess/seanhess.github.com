@@ -99,7 +99,7 @@ Your project folder should now look like this:
 Installing Dependencies and GHC
 -------------------------------
 
-Stack will install the correct version of GHC for our project. This is cool because people working with you will all be in step. Let's give it a shot: run this in your project folder
+Stack will install the correct version of GHC for our project. This is cool because everyone working on your project will be on the same version. Let's give it a shot: run this in your project folder
 
     $ stack setup
 
@@ -113,12 +113,12 @@ Which results in:
     Installed GHC.     
     Would add the following to PATH: /Users/seanhess/.stack/programs/x86_64-osx/ghc-7.10.2/bin
 
-It says to add to your PATH, but that's only if you want a `ghc` executable available globally. For this tutorial we don't need it.
+You can add the folder to your PATH, but we don't need it because we're going to use stack commands instead.
 
 Run the Code!
 -------------
 
-Now we're ready to run some code! Let's fire up the REPL, called ghci
+Now we're ready to run some code! Let's use stack to fire up ghci, which is a [REPL](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop).
 
     $ stack ghci
     Configuring GHCi with the following packages: my-project
