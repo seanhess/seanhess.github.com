@@ -33,8 +33,8 @@ Then, follow the instructions on the download page for your operating system. He
 1. Unzip the file by double clicking it
 2. Move it to `/usr/local/bin`
 
-```bash
-> mv stack-0.1.2.0-x86_64-osx /usr/local/bin/stack asdf
+```
+> mv stack-0.1.2.0-x86_64-osx /usr/local/bin/stack
 ```
 
 3. Give it executable permissions
