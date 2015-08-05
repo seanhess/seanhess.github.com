@@ -37,11 +37,11 @@ Then, follow the instructions on the download page for your operating system. He
 
 3. Give it executable permissions
 
-        $ chmod +x /usr/local/bin/stack
+       $ chmod +x /usr/local/bin/stack
 
 4. Check to make sure it is working
 
-        $ stack --version
+       $ stack --version
        Version 0.1.2.0, Git revision 65246552936b7da4b64b38372feac903d96a8911
 
 Setting up a new project
