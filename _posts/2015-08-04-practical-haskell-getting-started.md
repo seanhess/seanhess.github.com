@@ -30,16 +30,16 @@ The only thing you need to download is Stack. It will install everything else fo
 
 Then, follow the instructions on the download page for your operating system. Here's what I did on a mac:
 
-* Unzip the file by double clicking it
-* Move it to `/usr/local/bin`
+1. Unzip the file by double clicking it
+2. Move it to `/usr/local/bin`
 
     $ mv stack-0.1.2.0-x86_64-osx /usr/local/bin/stack
 
-* Give it executable permissions
+3. Give it executable permissions
 
     $ chmod +x /usr/local/bin/stack
 
-* Check to make sure it is working
+4. Check to make sure it is working
 
     $ stack --version
     Version 0.1.2.0, Git revision 65246552936b7da4b64b38372feac903d96a8911
