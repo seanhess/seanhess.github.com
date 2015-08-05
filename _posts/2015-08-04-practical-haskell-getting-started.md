@@ -176,6 +176,7 @@ Let's add it to our main program! Edit `src/Main.hs`
       putStrLn (hello "World!")
 
 Reload again with `:r` and then run `main`
+
     Main> :r
     Main> main
     Hello bobby
