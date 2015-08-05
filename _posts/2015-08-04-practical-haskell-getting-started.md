@@ -6,11 +6,11 @@ title: Practical Haskell - Getting Started
 {{ page.title }}
 ================
 
-The learning curve for Haskell is notorious for being very steep. As a web developer we're used to clear tutorials that we can understand and complete within an hour or two. Haskell introduces many new concepts not found in other languages, but we can learn faster by spending an as much time coding as we do reading.
+Haskell is famous for having a steep learning curve. As a web developer we're used to clear tutorials that we can understand and complete within an hour or two. Haskell introduces many new concepts not found in other languages, but we can learn faster by spending as much time coding as we do reading.
 
-This is the first of a tutorial series intended to make to introduce Haskell by coding things that work.
+This is the first of a tutorial series intended to introduce Haskell by coding things that work.
 
-In this article we will show the user how to get Haskell installed, how to set up a new project, and run your code.
+In this article we will show you how to get Haskell installed, how to set up a new project, and run your code.
 
 Tools and Names
 ---------------
@@ -203,5 +203,9 @@ Read [chapter 2 of Learn You a Haskell](http://learnyouahaskell.com/starting-out
 
 Use the `getLine` function to read a name from the command-line, and print out a message saying hello to that name. Will require using the Prelude Documentation, and probably some googling.
 
-[Answers]()
+Answers: [numbers](https://github.com/seanhess/practical-haskell/blob/master/01-getting-started/src/AssignmentNumbers.hs) [getLine](https://github.com/seanhess/practical-haskell/blob/master/01-getting-started/src/AssignmentGetLine.hs)
 
+
+
+
+[stack]: https://github.com/commercialhaskell/stack
