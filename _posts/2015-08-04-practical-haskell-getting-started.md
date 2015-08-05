@@ -87,7 +87,7 @@ Finally, create a file `src/Main.hs` with your source code:
       putStrLn "Hello"
       putStrLn "World!"
 
-Your project folder should now look like the following. [Here's the full source if you get stuck]().
+Your project folder should now look like the following. [Here's the full source if you get stuck][source].
 
     my-project.cabal
     stack.yaml
@@ -195,6 +195,7 @@ Hopefully I'll add more tutorials in the series soon, but here are some resource
 
 * [Learn You a Haskell for Great Good](http://learnyouahaskell.com/) - Good (free) introductory Haskell book.
 * [Prelude Documentation](https://hackage.haskell.org/package/base-4.8.1.0/docs/Prelude.html) - All the functions that come built in
+* [Complete source code][source] for this tutorial
 
 Assignment
 ----------
@@ -209,3 +210,4 @@ Answers: [numbers](https://github.com/seanhess/practical-haskell/blob/master/01-
 
 
 [stack]: https://github.com/commercialhaskell/stack
+[source]: https://github.com/seanhess/practical-haskell/tree/master/01-getting-started
