@@ -17,9 +17,9 @@ Tools and Names
 
 *GHC* is the semi-official compiler for Haskell. It takes Haskell source code and turns it into an executable.
 
-*Cabal* is the package description format. You'll have a file called my-project.cabal with information about your project. There's an executable called cabal too, but we are going to use stack instead.
+*Cabal* is the package description format. You'll have a file called `my-project.cabal` with information about your project. There's an executable called cabal too, but we are going to use stack instead.
 
-[*Stack*][stack] is the package manager. It reads `my-project.cabal` and `stack.yaml` to link in 3rd party code. It will install GHC for you too.
+[*Stack*][stack] is the package manager. It reads `my-project.cabal` and `stack.yaml` to link in third party code. It will install GHC for you too.
 
 Installing Stack
 ----------------
@@ -33,8 +33,8 @@ Then, follow the instructions on the download page for your operating system. He
 1. Unzip the file by double clicking it
 2. Move it to `/usr/local/bin`
 
-```
-> mv stack-0.1.2.0-x86_64-osx /usr/local/bin/stack
+```bash
+> mv stack-0.1.2.0-x86_64-osx /usr/local/bin/stack asdf
 ```
 
 3. Give it executable permissions
@@ -89,12 +89,14 @@ Finally, create a file `src/Main.hs` with your source code:
       putStrLn "Hello"
       putStrLn "World!"
 
-Your project folder should now look like the following. [Here's the full source if you get stuck][source].
+Your project folder should now look like this:
 
     my-project.cabal
     stack.yaml
     src/
       Main.hs
+
+[Here's the full source if you get stuck][source].
 
 Installing Dependencies and GHC
 -------------------------------
