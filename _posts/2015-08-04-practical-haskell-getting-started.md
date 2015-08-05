@@ -118,7 +118,7 @@ You can add the folder to your PATH, but we don't need it because we're going to
 Run the Code!
 -------------
 
-Now we're ready to run some code! Let's use stack to fire up ghci, which is a [REPL](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop).
+Now we're ready to run some code! Let's use stack to fire up GHCI: the Haskell [REPL](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop).
 
     $ stack ghci
     Configuring GHCi with the following packages: my-project
@@ -135,7 +135,7 @@ There are [other great tutorials that will teach you how to use ghci](http://lea
 
 Use the `:load` command to load our code:
 
-    Prelude> :load Main
+    Prelude> :load src/Main.hs
     [1 of 1] Compiling Main             ( src/Main.hs, interpreted )
     Ok, modules loaded: Main.
 
