@@ -33,15 +33,15 @@ Then, follow the instructions on the download page for your operating system. He
 * Unzip the file by double clicking it
 * Move it to `/usr/local/bin`
 
-    > mv stack-0.1.2.0-x86_64-osx /usr/local/bin/stack
+    $ mv stack-0.1.2.0-x86_64-osx /usr/local/bin/stack
 
 * Give it executable permissions
 
-    > chmod +x /usr/local/bin/stack
+    $ chmod +x /usr/local/bin/stack
 
 * Check to make sure it is working
 
-    > stack --version
+    $ stack --version
     Version 0.1.2.0, Git revision 65246552936b7da4b64b38372feac903d96a8911
 
 Setting up a new project
@@ -51,8 +51,8 @@ We're going to need a few files to get our first project going: some haskell sou
 
 First, let's make a new directory
 
-    > mkdir my-project
-    > cd my-project
+    $ mkdir my-project
+    $ cd my-project
 
 Now create a file called `my-project.cabal` and paste this in:
 
@@ -101,7 +101,7 @@ Installing Dependencies and GHC
 
 Stack will install the correct version of GHC for our project. Let's give it a shot: run this in your project folder
 
-    > stack setup
+    $ stack setup
 
 Which results in:
 
@@ -124,7 +124,7 @@ Run the Code!
 
 Now we're ready to run some code! Let's fire up the REPL, called ghci
 
-    > stack ghci
+    $ stack ghci
     Configuring GHCi with the following packages: my-project
     GHCi, version 7.10.2: http://www.haskell.org/ghc/  :? for help
     Prelude> 
@@ -185,11 +185,11 @@ Building an Executable
 
 When you are done, you can build an executable with `stack build`
 
-    stack build
+    $ stack build
 
 It will tell you where the executable is, but it's usually easier to run it with `stack exec`
 
-    stack exec my-project
+    $ stack exec my-project
 
 Where to go from here
 ---------------------
