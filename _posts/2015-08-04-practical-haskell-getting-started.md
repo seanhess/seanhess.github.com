@@ -120,14 +120,14 @@ Then open a new terminal window to get it to reload and we're ready!
 Run the Code!
 -------------
 
-Now we're ready to run some code! Let's fire up the REPL.
+Now we're ready to run some code! Let's fire up the REPL, called ghci
 
     > stack ghci
     Configuring GHCi with the following packages: my-project
     GHCi, version 7.10.2: http://www.haskell.org/ghc/  :? for help
     Prelude> 
 
-There are [other great tutorials that will teach you how to use the REPL](http://learnyouahaskell.com/starting-out), but here are a few examples:
+There are [other great tutorials that will teach you how to use ghci](http://learnyouahaskell.com/starting-out), but here are a few examples:
 
     Prelude> 2 + 15
     17
@@ -135,13 +135,13 @@ There are [other great tutorials that will teach you how to use the REPL](http:/
     Prelude> 5 == 5
     True
 
-Let's try running our code! Use the `:load` command to load our code:
+Use the `:load` command to load our code:
 
     Prelude> :load Main
     [1 of 1] Compiling Main             ( src/Main.hs, interpreted )
     Ok, modules loaded: Main.
 
-Then we can run our main function by typing `main`
+Then we can run our program by typing `main`
 
     Main> main
     Hello
@@ -150,11 +150,11 @@ Then we can run our main function by typing `main`
 Making Changes
 --------------
 
-We can use the REPL to test our changes as we go. Let's make a `hello` function! Add this to `src/Main.hs`
+We can use ghci to test our changes as we go. Let's make a `hello` function! Add this to `src/Main.hs`
 
     hello name = "Hello " ++ name
 
-Now go back to your REPL and type `:r`
+Now go back to ghci and type `:r`
 
     Main> :r
     [1 of 1] Compiling Main   (/Users/seanhess/projects/practical-haskell/getting-started/src/Main.hs, interpreted )
