@@ -186,6 +186,8 @@ When you are done, you can build an executable with `stack build`
 It will tell you where the executable is, but it's easier to run it with `stack exec`
 
     $ stack exec my-project
+    Hello bobby!
+    Hello World!
 
 Where to go from here
 ---------------------
