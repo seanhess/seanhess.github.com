@@ -73,7 +73,7 @@ Now create a file called `my-project.cabal` and paste this in. Another day we'll
       default-language:    Haskell2010
       build-depends:       base
 
-Then let's create a `stack.yaml` file in the same directory. The resolver field tells stack which version of GHC and your dependencies to use.
+Next let's create a [`stack.yaml`](https://github.com/commercialhaskell/stack/wiki/stack.yaml) file in the same directory. The resolver tells stack which version of GHC and your dependencies to use.
 
     flags: {}
     packages:
