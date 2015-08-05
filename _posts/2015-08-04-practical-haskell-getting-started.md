@@ -33,16 +33,16 @@ Then, follow the instructions on the download page for your operating system. He
 1. Unzip the file by double clicking it
 2. Move it to `/usr/local/bin`
 
-      $ mv stack-0.1.2.0-x86_64-osx /usr/local/bin/stack
+       $ mv stack-0.1.2.0-x86_64-osx /usr/local/bin/stack
 
 3. Give it executable permissions
 
-      $ chmod +x /usr/local/bin/stack
+        $ chmod +x /usr/local/bin/stack
 
 4. Check to make sure it is working
 
-      $ stack --version
-      Version 0.1.2.0, Git revision 65246552936b7da4b64b38372feac903d96a8911
+        $ stack --version
+       Version 0.1.2.0, Git revision 65246552936b7da4b64b38372feac903d96a8911
 
 Setting up a new project
 ------------------------
