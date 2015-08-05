@@ -210,7 +210,5 @@ Assignment
 Answers: [numbers](https://github.com/seanhess/practical-haskell/blob/master/01-getting-started/src/AssignmentNumbers.hs) [getLine](https://github.com/seanhess/practical-haskell/blob/master/01-getting-started/src/AssignmentGetLine.hs)
 
 
-
-
 [stack]: https://github.com/commercialhaskell/stack
 [source]: https://github.com/seanhess/practical-haskell/tree/master/01-getting-started
