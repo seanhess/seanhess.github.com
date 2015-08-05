@@ -33,16 +33,16 @@ Then, follow the instructions on the download page for your operating system. He
 1. Unzip the file by double clicking it
 2. Move it to `/usr/local/bin`
 
-        $ mv stack-0.1.2.0-x86_64-osx /usr/local/bin/stack
+      $ mv stack-0.1.2.0-x86_64-osx /usr/local/bin/stack
 
 3. Give it executable permissions
 
-        $ chmod +x /usr/local/bin/stack
+      $ chmod +x /usr/local/bin/stack
 
 4. Check to make sure it is working
 
-        $ stack --version
-        Version 0.1.2.0, Git revision 65246552936b7da4b64b38372feac903d96a8911
+      $ stack --version
+      Version 0.1.2.0, Git revision 65246552936b7da4b64b38372feac903d96a8911
 
 Setting up a new project
 ------------------------
@@ -54,7 +54,7 @@ First, let's make a new directory
     $ mkdir my-project
     $ cd my-project
 
-Now create a file called `my-project.cabal` and paste this in:
+Now create a file called `my-project.cabal` and paste this in. You'll use this later to specify dependencies on other people's code.
 
     name:                my-project
     version:             0.1.0.0
@@ -73,7 +73,7 @@ Now create a file called `my-project.cabal` and paste this in:
       default-language:    Haskell2010
       build-depends:       base
 
-Then let's create a `stack.yaml` file in the same directory.
+Then let's create a `stack.yaml` file in the same directory. The resolver field tells stack which version of GHC and your dependencies to use.
 
     flags: {}
     packages:
