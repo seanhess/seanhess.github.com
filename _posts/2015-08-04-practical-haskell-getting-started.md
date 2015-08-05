@@ -33,7 +33,9 @@ Then, follow the instructions on the download page for your operating system. He
 1. Unzip the file by double clicking it
 2. Move it to `/usr/local/bin`
 
-    > mv stack-0.1.2.0-x86_64-osx /usr/local/bin/stack
+```
+> mv stack-0.1.2.0-x86_64-osx /usr/local/bin/stack
+```
 
 3. Give it executable permissions
 
@@ -191,7 +193,7 @@ It will tell you where the executable is, but it's usually easier to run it with
 Where to go from here
 ---------------------
 
-Hopefully I'll add more tutorials in the series soon, but here are some resources to whet your appetite.
+Hopefully I'll add more tutorials in the series soon, but here are some resources to keep you busy.
 
 * [Learn You a Haskell for Great Good](http://learnyouahaskell.com/) - Good (free) introductory Haskell book.
 * [Prelude Documentation](https://hackage.haskell.org/package/base-4.8.1.0/docs/Prelude.html) - All the functions that come built in
