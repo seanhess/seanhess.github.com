@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Practical Haskell: Getting Started
+title: Practical Haskell - Getting Started
 ---
 
 {{ page.title }}
