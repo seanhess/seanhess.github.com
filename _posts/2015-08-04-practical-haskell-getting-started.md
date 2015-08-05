@@ -99,7 +99,7 @@ Your project folder should now look like this:
 Installing Dependencies and GHC
 -------------------------------
 
-Stack will install the correct version of GHC for our project. Let's give it a shot: run this in your project folder
+Stack will install the correct version of GHC for our project. This is cool because people working with you will all be in step. Let's give it a shot: run this in your project folder
 
     $ stack setup
 
@@ -113,11 +113,7 @@ Which results in:
     Installed GHC.     
     Would add the following to PATH: /Users/seanhess/.stack/programs/x86_64-osx/ghc-7.10.2/bin
 
-It says we need to add that folder to our path, so let's do that. On my mac, I add the following line to `~/.bash_profile`
-
-    export PATH=/Users/seanhess/.stack/programs/x86_64-osx/ghc-7.10.2/bin:$PATH
-
-Then open a new terminal window to get it to reload and we're ready!
+It says to add to your PATH, but that's only if you want a `ghc` executable available globally. For this tutorial we don't need it.
 
 Run the Code!
 -------------
@@ -152,9 +148,9 @@ Then we can run our program by typing `main`
 Making Changes
 --------------
 
-We can use ghci to test our changes as we go. Let's make a `hello` function! Add this to `src/Main.hs`
+We can use ghci to test our changes as we go. Let's make a `greet` function! Add this to `src/Main.hs`
 
-    hello name = "Hello " ++ name
+    greet name = "Hello " ++ name ++ "!"
 
 Now go back to ghci and type `:r`
 
@@ -162,22 +158,22 @@ Now go back to ghci and type `:r`
     [1 of 1] Compiling Main   (/Users/seanhess/projects/practical-haskell/getting-started/src/Main.hs, interpreted )
     Ok, modules loaded: Main.
 
-We can test `hello` without it being used in `main`
+We can test `greet` without it being used in `main`
 
-    Main> hello "bobby"
-    "Hello bobby"
+    Main> greet "bobby"
+    "Hello bobby!"
 
 Let's add it to our main program! Edit `src/Main.hs`
 
     main = do
-      putStrLn (hello "bobby")
-      putStrLn (hello "World!")
+      putStrLn (greet "bobby")
+      putStrLn (greet "World")
 
 Reload again with `:r` and then run `main`
 
     Main> :r
     Main> main
-    Hello bobby
+    Hello bobby!
     Hello World!
 
 Building an Executable
@@ -205,7 +201,7 @@ Assignment
 
 Read [chapter 2 of Learn You a Haskell](http://learnyouahaskell.com/starting-out) and make your program show the result of adding two numbers.
 
-Use the `getLine` function to read a name from the command-line, and print out a message saying hello to that name. Will require using the Prelude Documentation, and probably some googling.
+Use the `getLine` function to read a name from the command-line, and print out a greeting to that name. Will require using the Prelude Documentation, and probably some googling.
 
 Answers: [numbers](https://github.com/seanhess/practical-haskell/blob/master/01-getting-started/src/AssignmentNumbers.hs) [getLine](https://github.com/seanhess/practical-haskell/blob/master/01-getting-started/src/AssignmentGetLine.hs)
 
