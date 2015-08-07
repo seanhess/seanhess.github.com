@@ -63,7 +63,7 @@ Getting a Text Editor Plugin
 
 The hdevtools homepage has a list of [available editor plugins](https://github.com/schell/hdevtools#text-editor-integration), including Vim, Emacs, and Atom. Follow the instructions to get set up!
 
-You should be able to get errors highlighting on save, and see what the type is for different parts of code. Here's what it looks like in my editor:
+You should be able to get errors highlighting on save, and see what the type is for different parts of code. Here's what it looks like in my editor as I edit code and hit save.
 
 <img src="http://i.imgur.com/iKpRqPS.gif"/>
 
