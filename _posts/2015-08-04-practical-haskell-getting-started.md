@@ -79,7 +79,7 @@ Next let's create a [`stack.yaml`](https://github.com/commercialhaskell/stack/wi
     packages:
     - '.'
     extra-deps: []
-    resolver: nightly-2015-06-16
+    resolver: nightly-2015-08-07
 
 Finally, create a file `src/Main.hs` with your source code:
 
@@ -105,7 +105,7 @@ Stack will install the correct version of GHC for our project. This is cool beca
 
 Which results in:
 
-    Downloaded nightly-2015-06-16 build plan.    
+    Downloaded nightly-2015-08-07 build plan.    
     Caching build plan
     Fetched package
     Populated index cache.
