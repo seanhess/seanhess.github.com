@@ -189,6 +189,11 @@ It will tell you where the executable is, but it's easier to run it with `stack 
     Hello bobby!
     Hello World!
 
+Text Editor Integration
+-----------------------
+
+You can configure your text editor to underline errors for you. Check out [Editor Setup][editor-setup]
+
 Where to go from here
 ---------------------
 
@@ -211,6 +216,6 @@ Assignment
 
 Answers: [numbers](https://github.com/seanhess/practical-haskell/blob/master/01-getting-started/src/AssignmentNumbers.hs) [getLine](https://github.com/seanhess/practical-haskell/blob/master/01-getting-started/src/AssignmentGetLine.hs)
 
-
 [stack]: https://github.com/commercialhaskell/stack
 [source]: https://github.com/seanhess/practical-haskell/tree/master/01-getting-started
+[editor-setup]: /2015/08/05/practical-haskell-editors.html
