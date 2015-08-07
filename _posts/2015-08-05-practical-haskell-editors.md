@@ -72,7 +72,7 @@ Limitations
 
 Hdevtools doesn't provide any autocomplete information.
 
-You can't use Atom's Haskell-IDE until ghc-mod gets up to speed.
+You can't use Atom's Haskell-IDE until ghc-mod gets up to speed. The error highlighting provided by the other plugins are the most useful feature though. 
 
 Assignment
 ----------
