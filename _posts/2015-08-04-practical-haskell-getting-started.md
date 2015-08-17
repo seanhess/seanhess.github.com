@@ -10,6 +10,9 @@ Haskell is famous for having a steep learning curve. As a web developer we're us
 
 This is the first of a tutorial series intended to introduce Haskell by coding things that work.
 
+1. [Getting Started][getting-started]
+2. [Importing Code][importing-code]
+
 In this article we will show you how to get Haskell installed, how to set up a new project, and run your code.
 
 Tools and Names
@@ -177,95 +180,6 @@ Reload again with `:r` and then run `main`
     Hello bobby!
     Hello World!
 
-Importing other code
---------------------
-
-Haskell's core library, called [base][base], contains many useful functions. Many of the most common functions are in the [Prelude][prelude], and are automatically imported in your code. `putStrLn` is one of these. A few others are `+`: the addition operator, and `show`: which converts something to a `String`.
-
-    printNumbers = do
-      putStrLn (show (3+4)) 
-
-Only the [Prelude][prelude] is imported automatically. If you want to use anything else, you need to import it. Imports belong at the top of your program. Let's import `readFile` and write a program that prints out our stack config file
-
-    import System.IO (readFile)
-
-    printConfig = do
-      contents <- readFile "stack.yaml"
-      putStrLn contents
-
-Go ahead and add the above to `src/Main.hs`. Reload them in GHCI with `:r`, and then run them by typing their names:
-
-    *Main> printNumbers
-    7
-
-    *Main> printConfig
-    flags: {}
-    ... etc
-
-You can add them to your main program if you like. Edit `src/Main.hs` and add them to the `main` function.
-
-    main = do
-      putStrLn (greet "bobby")
-      putStrLn (greet "World")
-      printNumbers
-      printConfig
-
-If you get stuck, check out [the full source][source].
-
-Finding 3rd party code
-----------------------
-
-[Base][base] is pretty cool, but the magic really happens when you import code that doesn't come standard. Haskell has a wealth of 3rd party modules. Try googling for something, like "Haskell Time". The first hit points us to the [time library](https://hackage.haskell.org/package/time).
-
-On that page you can click to the homepage, or to the documentation for a particular module. Let's click into [Data.Time.Clock](https://hackage.haskell.org/package/time-1.5.0.1/docs/Data-Time-Clock.html). There's a function in there called `getCurrentTime` that gets the system clock time. Let's try to use it.
-
-Importing 3rd party code
-------------------------
-
-Before we can use `getCurrentTime` we need to add the `time` package to our project. Open your `.cabal` file and add `time` to the build-depends field
-
-    name:                my-project
-    version:             0.1.0.0
-    ...
-
-    executable my-project
-      ...
-      build-depends:       base,
-                           time
-
-Head over to your terminal and run `stack build` to get stack to install it into your project.
-
-    $ stack build
-    ...
-
-Now we can use `getCurrentTime` in a program. Add this to `src/Main.hs`
-
-    import Data.Time (getCurrentTime)
-
-    printTime = do
-      time <- getCurrentTime
-      putStrLn (show time)
-
-Now restart ghci, reload it with main, and see what happens!
-
-    $ stack ghci
-    Configuring GHCi with the following packages: my-project
-    GHCi, version 7.10.2: http://www.haskell.org/ghc/  :? for help
-
-    Prelude> :load src/Main.hs
-    [1 of 1] Compiling Main             ( src/Main.hs, interpreted )
-    Ok, modules loaded: Main.
-
-    *Main> printTime
-    2015-08-17 18:41:55.068122 UTC
-
-You can add this to your main function if you want, as before. In `src/Main.hs`
-
-    main = do
-      putStrLn (greet "bobby")
-      putStrLn (greet "World")
-      printTime
-
 Building an Executable
 ----------------------
 
@@ -278,7 +192,6 @@ It will tell you where the executable is, but it's easier to run it with `stack 
     $ stack exec my-project
     Hello bobby!
     Hello World!
-    2015-08-17 18:41:55.068122 UTC
 
 Text Editor Integration
 -----------------------
