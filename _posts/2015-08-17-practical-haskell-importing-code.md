@@ -32,7 +32,15 @@ Only the [Prelude][prelude] is imported automatically. If you want to use anythi
       contents <- readFile "stack.yaml"
       putStrLn contents
 
-Go ahead and add the above to `src/Main.hs`. Reload them in GHCI with `:r`, and then run them by typing their names:
+Go ahead and add both of the above functions to `src/Main.hs`, which you created in [Getting Started][getting-started]. Load them into GHCI and let's try it out.
+
+    $ stack ghci
+    Configuring GHCi with the following packages: my-project
+    GHCi, version 7.10.2: http://www.haskell.org/ghc/  :? for help
+
+    Prelude> :load src/Main.hs
+    [1 of 1] Compiling Main             ( src/Main.hs, interpreted )
+    Ok, modules loaded: Main.
 
     *Main> printNumbers
     7
@@ -118,7 +126,7 @@ Stack fixes this problem by fetching our code from [Stackage][stackage], which h
     extra-deps: []
     resolver: lts-3.1
 
-So everything in lts-3.1 is knows to work together. You can see all the available packages in lts-3.1 right here: https://www.stackage.org/lts-3.1.
+So everything in lts-3.1 is knows to work together. You can see all the available packages in lts-3.1 right here: [https://www.stackage.org/lts-3.1](https://www.stackage.org/lts-3.1)
 
 What if it's not on stackage?
 -----------------------------
@@ -160,3 +168,4 @@ Now you should be able to make a program, import 3rd party code, build an execut
 [getting-started]: http://seanhess.github.io/2015/08/04/practical-haskell-getting-started.html
 [prelude]: https://hackage.haskell.org/package/base/docs/Prelude.html
 [base]: http://hackage.haskell.org/package/base
+[source]: https://github.com/seanhess/practical-haskell/tree/master/02-importing-code
