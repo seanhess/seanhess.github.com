@@ -201,7 +201,9 @@ You can configure your text editor to underline errors for you. Check out [Edito
 Where to go from here
 ---------------------
 
-Hopefully I'll add more tutorials in the series soon, but here are some resources to keep you busy.
+Next up: [Importing Code][importing-code].
+
+Here are some other resources:
 
 * [Learn You a Haskell for Great Good](http://learnyouahaskell.com/) - Good (free) introductory Haskell book.
 * [Prelude Documentation][prelude] - All the functions that come built in
@@ -218,16 +220,12 @@ Assignment
 
 Answers: [getLine](https://github.com/seanhess/practical-haskell/blob/master/01-getting-started/src/AssignmentGetLine.hs)
 
-Next Up: Importing Code
------------------------
-
-In the [next article we learn to import code from other modules][importing-code]
-
 [stack]: https://github.com/commercialhaskell/stack
 [source]: https://github.com/seanhess/practical-haskell/tree/master/01-getting-started
 [editor-setup]: /2015/08/05/practical-haskell-editors.html
 [prelude]: https://hackage.haskell.org/package/base/docs/Prelude.html
 [base]: http://hackage.haskell.org/package/base
+[lyah]: http://learnyouahaskell.com/chapters
 
 [importing-code]: http://seanhess.github.io/2015/08/17/practical-haskell-importing-code.html
 [getting-started]: http://seanhess.github.io/2015/08/04/practical-haskell-getting-started.html
