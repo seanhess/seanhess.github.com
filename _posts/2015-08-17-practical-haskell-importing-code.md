@@ -158,3 +158,5 @@ Now you should be able to make a program, import 3rd party code, build an execut
 [stackage]: https://www.stackage.org/
 [importing-code]: http://seanhess.github.io/2015/08/17/practical-haskell-importing-code.html
 [getting-started]: http://seanhess.github.io/2015/08/04/practical-haskell-getting-started.html
+[prelude]: https://hackage.haskell.org/package/base/docs/Prelude.html
+[base]: http://hackage.haskell.org/package/base
