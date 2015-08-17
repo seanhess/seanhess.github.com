@@ -225,3 +225,6 @@ Answers: [numbers](https://github.com/seanhess/practical-haskell/blob/master/01-
 [editor-setup]: /2015/08/05/practical-haskell-editors.html
 [prelude]: https://hackage.haskell.org/package/base/docs/Prelude.html
 [base]: http://hackage.haskell.org/package/base
+
+[importing-code]: http://seanhess.github.io/2015/08/17/practical-haskell-importing-code.html
+[getting-started]: http://seanhess.github.io/2015/08/04/practical-haskell-getting-started.html

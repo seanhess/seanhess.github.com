@@ -155,6 +155,6 @@ Now you should be able to make a program, import 3rd party code, build an execut
 
 2. Find a 3rd party module from [stackage LTS](http://stackage.org/lts) and use it to write a small program.
 
-[importing-code]: ./
-[getting-started]: http://seanhess.github.io/2015/08/04/practical-haskell-getting-started.html
 [stackage]: https://www.stackage.org/
+[importing-code]: http://seanhess.github.io/2015/08/17/practical-haskell-importing-code.html
+[getting-started]: http://seanhess.github.io/2015/08/04/practical-haskell-getting-started.html
