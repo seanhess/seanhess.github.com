@@ -210,6 +210,8 @@ You can add them to your main program if you like. Edit `src/Main.hs` and add th
       printNumbers
       printConfig
 
+If you get stuck, check out [the full source][source].
+
 Finding 3rd party code
 ----------------------
 
@@ -271,7 +273,7 @@ When you are ready to ship, you can build an executable with `stack build`
 
     $ stack build
 
-It will tell you where the executable is, but it's easier to run it with `stack exec`
+It will tell you where the executable is, but it's easier to run it with `stack exec`. It will run anything in your `main` function.
 
     $ stack exec my-project
     Hello bobby!
@@ -308,5 +310,5 @@ Answers: [numbers](https://github.com/seanhess/practical-haskell/blob/master/01-
 [stack]: https://github.com/commercialhaskell/stack
 [source]: https://github.com/seanhess/practical-haskell/tree/master/01-getting-started
 [editor-setup]: /2015/08/05/practical-haskell-editors.html
-[prelude]: https://hackage.haskell.org/package/base-4.8.1.0/docs/Prelude.html
+[prelude]: https://hackage.haskell.org/package/base/docs/Prelude.html
 [base]: http://hackage.haskell.org/package/base
