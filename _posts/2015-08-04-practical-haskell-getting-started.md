@@ -216,7 +216,7 @@ Assignment
 
 3. Keep hacking on this project and make something of your own. Please share a link in the comments.
 
-Answers: [numbers](https://github.com/seanhess/practical-haskell/blob/master/01-getting-started/src/AssignmentNumbers.hs) [getLine](https://github.com/seanhess/practical-haskell/blob/master/01-getting-started/src/AssignmentGetLine.hs)
+Answers: [getLine](https://github.com/seanhess/practical-haskell/blob/master/01-getting-started/src/AssignmentGetLine.hs)
 
 Next Up: Importing Code
 -----------------------
