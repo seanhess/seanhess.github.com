@@ -24,29 +24,25 @@ First, head into a global folder that isn't a haskell project and run `stack set
 
     $ cd ~
     $ stack setup
-    Using latest snapshot resolver: lts-2.21
-    Writing global (non-project-specific) config file to: /Users/seanhess/.stack/global/stack.yaml
-    Note: You can change the snapshot via the resolver field there.
-    Downloading lts-2.21 build plan ...
-
-We need to change the resolver in our global `stack.yaml` file so we get the latest version of hdevtools. Open `~/.stack/global/stack.yaml` and change the resolver field to a recent nightly build.
-
-    flags: {}
-    packages: []
-    extra-deps: []
-    resolver: nightly-2015-08-07
-
-Now run stack setup again
-
-    $ stack setup
+    Run from outside a project, using implicit global config
+    Using resolver: lts-3.1 from global config file: /Users/seanhess/.stack/global/stack.yaml
+    stack will use a locally installed GHC
+    For more information on paths, see 'stack path' and 'stack exec env'
+    To use this GHC and packages outside of a project, consider using:
+    stack ghc, stack ghci, stack runghc, or stack exec
 
 Then install hdevtools
 
     $ stack install hdevtools
-    Using resolver: nightly-2015-08-07 from global config file: /Users/seanhess/.stack/global/stack.yaml
-    Copying from /Users/seanhess/.stack/snapshots/x86_64-osx/nightly-2015-08-07/7.10.2/bin/hdevtools to /Users/seanhess/.local/bin/hdevtools
+    Run from outside a project, using implicit global config
+    Using resolver: lts-3.1 from global config file: /Users/seanhess/.stack/global/stack.yaml
+    NOTE: the install command is functionally equivalent to 'build --copy-bins'
+    syb-0.5.1: download
+    ...
+    Completed all 5 actions.
+    Copying from /Users/seanhess/.stack/snapshots/x86_64-osx/lts-3.1/7.10.2/bin/hdevtools to /Users/seanhess/.local/bin/hdevtools
 
-    Installed executables to /Users/seanhess/.local/bin/:
+    Copied executables to /Users/seanhess/.local/bin/:
     - hdevtools
 
 We need to add `~/.local/bin` to our PATH so our text editor can find the `hdevtools` executable. On OSX, open `~/.bash_profile` and add this line:
@@ -56,7 +52,7 @@ We need to add `~/.local/bin` to our PATH so our text editor can find the `hdevt
 Now open a new terminal window and see if it worked!
 
     $ hdevtools --version
-    hdevtools: version 0.1.1.9 (ghc-7.10.2-x86_64-darwin, cabal-1.22.4.0)
+    hdevtools: version 0.1.2.1 (ghc-7.10.2-x86_64-darwin, cabal-1.22.4.0)
 
 Getting a Text Editor Plugin
 ----------------------------
@@ -72,7 +68,7 @@ Limitations
 
 Hdevtools doesn't provide any autocomplete information.
 
-You can't use Atom's Haskell-IDE until ghc-mod gets up to speed. The error highlighting provided by the other plugins are the most useful feature though. 
+You can't use Atom's Haskell-IDE until ghc-mod gets up to speed. The error highlighting provided by the other plugins are the most useful feature though.
 
 Assignment
 ----------
