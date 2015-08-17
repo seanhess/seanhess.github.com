@@ -96,8 +96,8 @@ Your project folder should now look like this:
 
 [Here's the full source if you get stuck][source].
 
-Installing Dependencies and GHC
--------------------------------
+Installing GHC
+---------------
 
 Stack will install the correct version of GHC for our project. This is cool because everyone working on your project will be on the same version. Let's give it a shot: run this in your project folder
 
@@ -107,13 +107,14 @@ Which results in:
 
     Downloaded lts-3.1 build plan.    
     Caching build plan
-    Fetched package
+    Fetched package index.
     Populated index cache.
-    Downloaded ghc-7.10.2.                   
-    Installed GHC.     
-    Would add the following to PATH: /Users/seanhess/.stack/programs/x86_64-osx/ghc-7.10.2/bin
-
-You can add the folder to your PATH, but we don't need it because we're going to use stack commands instead.
+    Downloaded ghc-7.10.2.
+    Installed GHC.
+    stack will use a locally installed GHC
+    For more information on paths, see 'stack path' and 'stack exec env'
+    To use this GHC and packages outside of a project, consider using:
+    stack ghc, stack ghci, stack runghc, or stack exec
 
 Run the Code!
 -------------
@@ -176,10 +177,97 @@ Reload again with `:r` and then run `main`
     Hello bobby!
     Hello World!
 
+Importing other code
+--------------------
+
+Haskell's core library, called [base][base], contains many useful functions. Many of the most common functions are in the [Prelude][prelude], and are automatically imported in your code. `putStrLn` is one of these. A few others are `+`: the addition operator, and `show`: which converts something to a `String`.
+
+    printNumbers = do
+      putStrLn (show (3+4)) 
+
+Only the [Prelude][prelude] is imported automatically. If you want to use anything else, you need to import it. Imports belong at the top of your program. Let's import `readFile` and write a program that prints out our stack config file
+
+    import System.IO (readFile)
+
+    printConfig = do
+      contents <- readFile "stack.yaml"
+      putStrLn contents
+
+Go ahead and add the above to `src/Main.hs`. Reload them in GHCI with `:r`, and then run them by typing their names:
+
+    *Main> printNumbers
+    7
+
+    *Main> printConfig
+    flags: {}
+    ... etc
+
+You can add them to your main program if you like. Edit `src/Main.hs` and add them to the `main` function.
+
+    main = do
+      putStrLn (greet "bobby")
+      putStrLn (greet "World")
+      printNumbers
+      printConfig
+
+Finding 3rd party code
+----------------------
+
+[Base][base] is pretty cool, but the magic really happens when you import code that doesn't come standard. Haskell has a wealth of 3rd party modules. Try googling for something, like "Haskell Time". The first hit points us to the [time library](https://hackage.haskell.org/package/time).
+
+On that page you can click to the homepage, or to the documentation for a particular module. Let's click into [Data.Time.Clock](https://hackage.haskell.org/package/time-1.5.0.1/docs/Data-Time-Clock.html). There's a function in there called `getCurrentTime` that gets the system clock time. Let's try to use it.
+
+Importing 3rd party code
+------------------------
+
+Before we can use `getCurrentTime` we need to add the `time` package to our project. Open your `.cabal` file and add `time` to the build-depends field
+
+    name:                my-project
+    version:             0.1.0.0
+    ...
+
+    executable my-project
+      ...
+      build-depends:       base,
+                           time
+
+Head over to your terminal and run `stack build` to get stack to install it into your project.
+
+    $ stack build
+    ...
+
+Now we can use `getCurrentTime` in a program. Add this to `src/Main.hs`
+
+    import Data.Time (getCurrentTime)
+
+    printTime = do
+      time <- getCurrentTime
+      putStrLn (show time)
+
+Now restart ghci, reload it with main, and see what happens!
+
+    $ stack ghci
+    Configuring GHCi with the following packages: my-project
+    GHCi, version 7.10.2: http://www.haskell.org/ghc/  :? for help
+
+    Prelude> :load src/Main.hs
+    [1 of 1] Compiling Main             ( src/Main.hs, interpreted )
+    Ok, modules loaded: Main.
+
+    *Main> printTime
+    2015-08-17 18:41:55.068122 UTC
+
+You can add this to your main function if you want, as before. In `src/Main.hs`
+
+    main = do
+      putStrLn (greet "bobby")
+      putStrLn (greet "World")
+      printTime
+
 Building an Executable
 ----------------------
 
-When you are done, you can build an executable with `stack build`
+When you are ready to ship, you can build an executable with `stack build`
 
     $ stack build
 
@@ -188,6 +276,7 @@ It will tell you where the executable is, but it's easier to run it with `stack 
     $ stack exec my-project
     Hello bobby!
     Hello World!
+    2015-08-17 18:41:55.068122 UTC
 
 Text Editor Integration
 -----------------------
@@ -200,7 +289,7 @@ Where to go from here
 Hopefully I'll add more tutorials in the series soon, but here are some resources to keep you busy.
 
 * [Learn You a Haskell for Great Good](http://learnyouahaskell.com/) - Good (free) introductory Haskell book.
-* [Prelude Documentation](https://hackage.haskell.org/package/base-4.8.1.0/docs/Prelude.html) - All the functions that come built in
+* [Prelude Documentation][prelude] - All the functions that come built in
 * [Complete source code][source] for this tutorial
 
 Assignment
@@ -219,3 +308,5 @@ Answers: [numbers](https://github.com/seanhess/practical-haskell/blob/master/01-
 [stack]: https://github.com/commercialhaskell/stack
 [source]: https://github.com/seanhess/practical-haskell/tree/master/01-getting-started
 [editor-setup]: /2015/08/05/practical-haskell-editors.html
+[prelude]: https://hackage.haskell.org/package/base-4.8.1.0/docs/Prelude.html
+[base]: http://hackage.haskell.org/package/base
