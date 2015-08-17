@@ -113,6 +113,8 @@ You can add this to your main function if you want, as before. In `src/Main.hs`
       putStrLn (greet "World")
       printTime
 
+[Source Code][source]
+
 Stackage and Hackage
 ----------------------
 
