@@ -15,7 +15,7 @@ In this article we will show you how to get Haskell installed, how to set up a n
 Tools and Names
 ---------------
 
-*GHC* is the semi-official compiler for Haskell. It takes Haskell source code and turns it into an executable.
+*GHC* is the compiler for Haskell. It takes Haskell source code and turns it into an executable.
 
 *Cabal* is the package description format. You'll have a file called `my-project.cabal` with information about your project. There's an executable called cabal too, but we are going to use stack instead.
 
