@@ -210,15 +210,18 @@ Hopefully I'll add more tutorials in the series soon, but here are some resource
 Assignment
 ----------
 
-1. Read [chapter 2 of Learn You a Haskell](http://learnyouahaskell.com/starting-out) and make your program show the result of adding two numbers.
+1. Read [chapter 3 of Learn You as Haskell](http://learnyouahaskell.com/types-and-typeclasses) and add type definitions to `main` and `greet`
 
-2. Read [chapter 3 of Learn You as Haskell](http://learnyouahaskell.com/types-and-typeclasses) and add type definitions to `main` and `greet`
+2. Use the `getLine` function to read a name from the command-line, and print out a greeting to that name. Will require using the Prelude Documentation, and probably some googling.
 
-3. Use the `getLine` function to read a name from the command-line, and print out a greeting to that name. Will require using the Prelude Documentation, and probably some googling.
-
-4. Keep hacking on this project and make something of your own. Please share a link in the comments.
+3. Keep hacking on this project and make something of your own. Please share a link in the comments.
 
 Answers: [numbers](https://github.com/seanhess/practical-haskell/blob/master/01-getting-started/src/AssignmentNumbers.hs) [getLine](https://github.com/seanhess/practical-haskell/blob/master/01-getting-started/src/AssignmentGetLine.hs)
+
+Next Up: Importing Code
+-----------------------
+
+In the [next article we learn to import code from other modules][importing-code]
 
 [stack]: https://github.com/commercialhaskell/stack
 [source]: https://github.com/seanhess/practical-haskell/tree/master/01-getting-started
