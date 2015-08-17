@@ -75,7 +75,13 @@ Assignment
 
 Play around with the various features your editor provides on the project you created in [Getting Started][getting-started]
 
+Next
+----
+
+Next up, let's [learn how to import code][importing-code]
+
 [getting-started]: http://seanhess.github.io/2015/08/04/practical-haskell-getting-started.html
+[importing-code]: http://seanhess.github.io/2015/08/17/practical-haskell-importing-code.html
 [ghc-mod]: http://www.mew.org/~kazu/proj/ghc-mod/en/
 [hdevtools]: https://github.com/schell/hdevtools/
 [stack]: https://github.com/commercialhaskell/stack
