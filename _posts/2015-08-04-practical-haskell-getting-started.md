@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Practical Haskell - Getting Started
+title: Practical Haskell - Getting Started with Stack
 ---
 
 {{ page.title }}
@@ -10,7 +10,7 @@ Haskell is famous for having a steep learning curve. As a web developer we're us
 
 This is the first of a tutorial series intended to introduce Haskell by coding things that work.
 
-1. [**Getting Started**][getting-started]
+1. [**Getting Started with Stack**][getting-started]
 2. [Importing Code][importing-code]
 3. [Using Monads][using-monads]
 4. [Build a JSON API][json-api]

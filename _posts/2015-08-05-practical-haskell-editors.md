@@ -6,7 +6,7 @@ title: Practical Haskell - Editor Setup with Stack
 {{ page.title }}
 ================
 
-In [Getting Started][getting-started] we showed you how to install GHC and [stack][stack], set up a project, and write a little code.
+In [Getting Started with Stack][getting-started] we showed you how to install GHC and [stack][stack], set up a project, and write a little code.
 
 We can use GHCI without editor integration for a pretty good workflow, but configuring your text editor to underline errors can be very helpful. This article will show you how to get it all working with [stack][stack].
 

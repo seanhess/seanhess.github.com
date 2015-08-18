@@ -8,7 +8,7 @@ title: Practical Haskell - Importing Code
 
 This article is part of a tutorial series intended to introduce Haskell by coding things that work.
 
-1. [Getting Started][getting-started]
+1. [Getting Started with Stack][getting-started]
 2. [**Importing Code**][importing-code]
 3. [Using Monads][using-monads]
 4. [Build a JSON API][json-api]
@@ -106,7 +106,7 @@ Now restart ghci, reload it with main, and see what happens!
     Configuring GHCi with the following packages: my-project
     GHCi, version 7.10.2: http://www.haskell.org/ghc/  :? for help
 
-    Prelude> :load Main
+    Prelude> :load 
     [1 of 1] Compiling Main             ( src/Main.hs, interpreted )
     Ok, modules loaded: Main.
 

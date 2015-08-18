@@ -8,7 +8,7 @@ title: Practical Haskell - Using Monads
 
 This is part of a tutorial series intended to introduce Haskell by coding things that work. In this article we will teach you how to use Monads without panicking.
 
-1. [Getting Started][getting-started]
+1. [Getting Started with Stack][getting-started]
 2. [Importing Code][importing-code]
 3. [**Using Monads**][using-monads]
 4. [Build a JSON API][json-api]

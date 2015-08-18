@@ -8,7 +8,7 @@ title: Practical Haskell - Building a JSON API
 
 This is part of a tutorial series intended to introduce Haskell by coding things that work. In this article we will be building a simple JSON API using [Scotty][scotty] and [Aeson][aeson].
 
-1. [Getting Started][getting-started]
+1. [Getting Started with Stack][getting-started]
 2. [Importing Code][importing-code]
 3. [Using Monads][using-monads]
 4. [**Build a JSON API**][json-api]
