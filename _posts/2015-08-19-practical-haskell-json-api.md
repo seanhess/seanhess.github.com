@@ -269,10 +269,9 @@ Assignment
 
 2. Move your hard-coded users into a file. Read that file into memory when the server starts and use it to return responses.
 
-* read: http://learnyouahaskell.com/input-and-output
-
-[aeson]: https://hackage.haskell.org/package/aeson/docs/Data-Aeson.html
+[aeson]: https://hackage.haskell.org/package/aeson-0.9.0.1/docs/Data-Aeson.html
 [scotty]: https://github.com/scotty-web/scotty
+[scotty-docs]: https://hackage.haskell.org/package/scotty-0.10.2/docs/Web-Scotty.html
 [getting-started]: http://seanhess.github.io/2015/08/04/practical-haskell-getting-started.html
 [source]: https://github.com/seanhess/practical-haskell/tree/master/04-rest-api
 
