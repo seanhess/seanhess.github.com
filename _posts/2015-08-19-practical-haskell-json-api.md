@@ -265,9 +265,7 @@ Check out the [Scotty docs][scotty] to see what else you can do. Remember, anyth
 Assignment
 ----------
 
-1. Create a route that accepts a `User` via `POST`, and prints it back out.
-
-2. Move your hard-coded users into a file. Read that file into memory when the server starts and use it to return responses.
+Create a route that accepts a `User` via `POST`, and prints it back out.
 
 [aeson]: https://hackage.haskell.org/package/aeson-0.9.0.1/docs/Data-Aeson.html
 [scotty]: https://github.com/scotty-web/scotty
