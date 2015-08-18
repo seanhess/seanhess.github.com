@@ -250,7 +250,6 @@ Read [Input and Output](http://learnyouahaskell.com/input-and-output) from Learn
 [importing-code]: http://seanhess.github.io/2015/08/17/practical-haskell-importing-code.html
 [using-monads]: http://seanhess.github.io/2015/08/18/practical-haskell-using-monads.html
 [json-api]: http://seanhess.github.io/2015/08/19/practical-haskell-json-api.html
-
 [lyah]: http://learnyouahaskell.com/chapters
 
 [control-monad]: https://hackage.haskell.org/package/base/docs/Control-Monad.html
