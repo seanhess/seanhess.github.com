@@ -79,7 +79,7 @@ We can test it using our web browser: navigate to [http://localhost:3000/message
 What's with the nested do blocks?
 ---------------------------------
 
-Remember from [Using Monads][using-monads] that each do block can only contain one type of actions. `main` always has IO actions, so both `putStrLn` and `scotty` must return an IO action.
+Remember from [Using Monads][using-monads] that each do block can only contain one type of action. `main` always has IO actions, so both `putStrLn` and `scotty` must return an IO action.
 
     scotty :: Port -> ScottyM () -> IO ()
 
@@ -266,6 +266,8 @@ Assignment
 ----------
 
 Create a route that accepts a `User` via `POST`, and prints it back out.
+
+[Answers](https://github.com/seanhess/practical-haskell/blob/master/04-rest-api/src/Assignments.hs)
 
 [aeson]: https://hackage.haskell.org/package/aeson-0.9.0.1/docs/Data-Aeson.html
 [scotty]: https://github.com/scotty-web/scotty

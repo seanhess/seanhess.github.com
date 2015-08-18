@@ -246,6 +246,8 @@ Build a program that asks the user for a message and a number on the command lin
 
 Read [Input and Output](http://learnyouahaskell.com/input-and-output) from Learn You a Haskell. Implement the unix `cat` command, which takes a command-line argument as a path to a file and prints out its contents. Refer to [Getting Started][getting-started] to see how to use `stack exec`.
 
+[Answers](https://github.com/seanhess/practical-haskell/blob/master/03-using-monads/src/Assignments.hs)
+
 [getting-started]: http://seanhess.github.io/2015/08/04/practical-haskell-getting-started.html
 [importing-code]: http://seanhess.github.io/2015/08/17/practical-haskell-importing-code.html
 [using-monads]: http://seanhess.github.io/2015/08/18/practical-haskell-using-monads.html
