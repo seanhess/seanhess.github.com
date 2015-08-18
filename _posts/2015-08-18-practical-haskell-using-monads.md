@@ -35,7 +35,7 @@ You probably have a pretty good feel for what this is doing. Trust that feeling!
 Functions that return Actions
 -----------------------------
 
-`putStrLn` is a function that prints out a message to the console, right? Not quite. Let's look at it's type. What does it return?
+`putStrLn` is a function that prints out a message to the console, right? Not quite. Let's look at its type. What does it return?
 
     putStrLn :: String -> IO ()
 
@@ -97,7 +97,7 @@ You can use result from an action with the `<-` operator.
       name <- getLine
       putStrLn ("Hello " ++ name)
 
-`name` is no longer an action. It's type is just `String`, not `IO String` like `getLine` was. You can use it anywhere below.
+`name` is no longer an action. Its type is just `String`, not `IO String` like `getLine` was. You can use it anywhere below.
 
 A do-block always yields whatever its last action yields. We can use `return` to wrap a normal value, like a `String` into an action that does nothing other than yield it.
 
@@ -120,7 +120,7 @@ Within a given do-block, all actions must be the same type. So for an `IO` block
       -- error! String is not an IO a!
       "whatever"
 
-      -- error! It's type is String -> IO ()
+      -- error! Its type is String -> IO ()
       putStrLn
 
 Let's look at some examples of different kinds of monads, each with their own actions.
