@@ -162,8 +162,8 @@ Each type of Monad combines actions differently. We already looked at `IO`. It p
 
 The do-block here always yields `Nothing`, because of that `Nothing` in the second to last step.
 
-Let's try it
--------------
+Time to code
+------------
 
 Add `beCareful` and `sayHello` to `src/Main.hs`
 
@@ -243,6 +243,8 @@ Assignment
 ----------
 
 Build a program that asks the user for a message and a number on the command line, and print out that message N times. Use the control functions from [`Control.Monad`][control-monad], like `mapM`, or `replicateM`
+
+Read [Input and Output](http://learnyouahaskell.com/input-and-output) from Learn You a Haskell. Implement the unix `cat` command, which takes a command-line argument as a path to a file and prints out its contents. Refer to [Getting Started][getting-started] to see how to use `stack exec`.
 
 [getting-started]: http://seanhess.github.io/2015/08/04/practical-haskell-getting-started.html
 [importing-code]: http://seanhess.github.io/2015/08/17/practical-haskell-importing-code.html
