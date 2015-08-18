@@ -16,7 +16,7 @@ This is part of a tutorial series intended to introduce Haskell by coding things
 Before you Begin
 ----------------
 
-This article assumes you have a project set up with stack, that you know how to import a 3rd party module, that you know how to write a simple IO program, and how to write a simple function.
+This article assumes you have a project set up with stack, that you know how to import a 3rd party module, how to write a simple IO program, and how to write a simple function.
 
 We recommend you work through all 3 previous tutorials. In [Getting Started][getting-started] we teach you how to build an run Haskell projects, in [Importing Code][importing-code] we show you how to import other modules, and in [Using Monads][using-monads] we teach you how to use `do` notation.
 
@@ -39,7 +39,7 @@ Let's start with a simple IO program. Replace `src/Main.hs` with the following
     main = do
       putStrLn "Starting Server..."
 
-First, let's import scotty. Add this line to the top
+Before we can use it, we need to import scotty. Add this line to the top:
 
     import Web.Scotty
     main = do
@@ -79,17 +79,17 @@ We can test it using our web browser: navigate to [http://localhost:3000/message
 What's with the nested do blocks?
 ---------------------------------
 
-Remember from [Using Monads][using-monads] that each do block can only contain one type of actions. `main` always has IO actions, so both `putStrLn` and `scotty` return an IO action.
+Remember from [Using Monads][using-monads] that each do block can only contain one type of actions. `main` always has IO actions, so both `putStrLn` and `scotty` must return an IO action.
 
     scotty :: Port -> ScottyM () -> IO ()
 
-But look at that, in order to return an `IO` action, we need to pass a `ScottyM` action as the second parameter. Our program is equivalent to this:
+But it looks like in order to return an `IO` action, we need to pass a `ScottyM` action as the second parameter. Our program is equivalent to this:
 
     main = do
       putStrLn "Starting Server..."
       scotty 3000 someScottyMAction
 
-That nested do block after the port number is just a `ScottyM` action. So we could have done this instead:
+That nested do block after the port number is just a `ScottyM` action. We could have done this instead:
 
     routes :: ScottyM ()
     routes = do
@@ -104,7 +104,7 @@ The same thing goes for the handlers. Look at the type of `get`:
 
     get :: RoutePattern -> ActionM () -> ScottyM ()
 
-So they need an `ActionM ()` as their second parameter. So we could have written routes like this:
+Same thing again, we pass a `ActionM ()` as the last parameter. We could have written routes like this:
 
     routes :: ScottyM ()
     routes = do
@@ -117,7 +117,7 @@ So they need an `ActionM ()` as their second parameter. So we could have written
 More Features: Route Parameters
 -------------------------------
 
-We can add route parameters with `:xxx` in the url, just like Sinatra and express. To read the param in our handler, we use the `param` function. Edit the `/hello` route to be this:
+We can add route parameters with `:xxx` in the url, just like Sinatra and express. To read it in our handler, we use the [`param`](https://hackage.haskell.org/package/scotty-0.10.2/docs/Web-Scotty.html#g:4) function. Edit the `/hello` route to be this:
 
     get "/hello/:name" $ do
         name <- param "name"
@@ -136,9 +136,9 @@ If you get stuck, be sure to [check out the source][source]
 Define Types for your API
 -------------------------
 
-We can make data types that describe our API. Here we have a `User` object with two fields. Add these to `src/Main.hs` at the top level
+We can make data types that describe our API. Here we have a `User` object with two fields. Add these to `src/Main.hs` at the top level.
 
-    data User = User { userId :: Int, userName :: String }
+    data User = User { userId :: Int, userName :: String } deriving (Show)
 
 We can define some hard-coded users
 
@@ -173,7 +173,7 @@ You can tell Aeson how to convert your objects to JSON manually, but it's easier
 
 Now we can have our data type "derive" Generic
 
-    data User = User { userId :: Int, userName :: String } deriving (Generic)
+    data User = User { userId :: Int, userName :: String } deriving (Show, Generic)
 
 Then add this below to make any `User` JSON serializable.
 
@@ -183,9 +183,9 @@ Then add this below to make any `User` JSON serializable.
 Now `User` can be encoded or decoded. Let's see if it works. Reload in GHCI and test:
 
     *Main> :r
-    *Main> import Data.Aeson
+    *Main> import Data.Aeson (encode)
     *Main Data.Aeson> encode bob
-    "{\"userId\":1,\"userName\":\"bob\"}"
+    "{\"userName\":\"bob\",\"userId\":1}"
 
 Return Users from our API
 -------------------------
@@ -227,7 +227,7 @@ Here's what `src/Main.hs` should look like when you're done. Check out the [full
     import GHC.Generics
     import Web.Scotty
 
-    data User = User { userId :: Int, userName :: String } deriving (Generic)
+    data User = User { userId :: Int, userName :: String } deriving (Show, Generic)
     instance ToJSON User
     instance FromJSON User
 
@@ -250,24 +250,24 @@ Here's what `src/Main.hs` should look like when you're done. Check out the [full
             name <- param "name"
             text ("hello " <> name <> "!")
 
-          get "/users" $ do
-            json allUsers
+        get "/users" $ do
+          json allUsers
 
-          get "/users/:id" $ do
-            id <- param "id"
-            json (filter matchesId allUsers)
+        get "/users/:id" $ do
+          id <- param "id"
+          json (filter matchesId allUsers)
 
 Playing around
 --------------
 
-Check out the [Scotty docs][scotty] to see what else you can do. Remember, anything that returns `ScottyM a` can be used in the middle `do` block, and anything that returns an `ActionM a` can be used in the handlers.
+Check out the [Scotty docs][scotty] to see what else you can do. Remember, anything that returns `ScottyM a` can be used in the routes `do` block, and anything that returns an `ActionM a` can be used in the handlers.
 
 Assignment
 ----------
 
-Create a route that accepts a `User` via `POST`, and prints it back out.
+1. Create a route that accepts a `User` via `POST`, and prints it back out.
 
-Move your hard-coded users into a file. Read that file into memory when the server starts and use it to return responses.
+2. Move your hard-coded users into a file. Read that file into memory when the server starts and use it to return responses.
 
 * read: http://learnyouahaskell.com/input-and-output
 
