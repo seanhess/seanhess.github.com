@@ -215,7 +215,7 @@ Assignment
 
 2. Use the `getLine` function to read a name from the command-line, and print out a greeting to that name. Will require using the Prelude Documentation, and probably some googling.
 
-Answers: [getLine](https://github.com/seanhess/practical-haskell/blob/master/01-getting-started/src/AssignmentGetLine.hs)
+[Answers](https://github.com/seanhess/practical-haskell/blob/master/01-getting-started/src/Assignments.hs)
 
 [stack]: https://github.com/commercialhaskell/stack
 [source]: https://github.com/seanhess/practical-haskell/tree/master/01-getting-started
