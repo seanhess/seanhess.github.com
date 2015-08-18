@@ -210,11 +210,9 @@ Other resources:
 Assignment
 ----------
 
-1. Read [chapter 3 of Learn You as Haskell](http://learnyouahaskell.com/types-and-typeclasses) and add type definitions to `main` and `greet`
+1. Read [chapter 3 of Learn You a Haskell](http://learnyouahaskell.com/types-and-typeclasses) and add type definitions to `main` and `greet`
 
 2. Use the `getLine` function to read a name from the command-line, and print out a greeting to that name. Will require using the Prelude Documentation, and probably some googling.
-
-3. Keep hacking on this project and make something of your own. Please share a link in the comments.
 
 Answers: [getLine](https://github.com/seanhess/practical-haskell/blob/master/01-getting-started/src/AssignmentGetLine.hs)
 

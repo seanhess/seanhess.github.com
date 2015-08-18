@@ -171,7 +171,7 @@ Now you should be able to make a program, import 3rd party code, build an execut
 
 1. Read chapters 2, 3, 4, and 9 of [Learn You a Haskell](http://learnyouahaskell.com), and write a program that does something with IO. Feel free to read more if you like, but don't read past chapter 10.
 
-2. Find a 3rd party module from [stackage LTS](http://stackage.org/lts) and use it to write a small program.
+2. Find a 3rd party module from [stackage LTS](http://stackage.org/lts) and use it to write a small program. Consider
 
 [stackage]: https://www.stackage.org/
 [importing-code]: http://seanhess.github.io/2015/08/17/practical-haskell-importing-code.html

@@ -6,13 +6,11 @@ title: Practical Haskell - Using Monads
 {{ page.title }}
 ================
 
-This article is part of a tutorial series intended to introduce Haskell by coding things that work.
+This is part of a tutorial series intended to introduce Haskell by coding things that work. In this article we will teach you how to use Monads without panicking.
 
 1. [Getting Started][getting-started]
 2. [Importing Code][importing-code]
 3. [**Using Monads**][using-monads]
-
-In this article we will teach you how to use Monads without panicking.
 
 Before you Begin
 ----------------
@@ -153,7 +151,7 @@ The do-block here always yields `Nothing`, because of the second to last step.
 Other monads in the wild
 ------------------------
 
-The Parsec libary uses `Parser` actions to define a grammer for parsing. Here's one to parse an IPv4 address. It combines actions by matching them against an input. If the input doesn't match any of the steps, it exits and tells its parent it didn't match. 
+The Parsec libary uses `Parser` actions to define a grammer for parsing. Here's one to parse an IPv4 address. It combines actions by matching them against an input. If the input doesn't match any of the steps, it exits and tells its parent it didn't match.
 
     data IP = IP Word8 Word8 Word8 Word8 deriving Show
 
@@ -188,7 +186,7 @@ So there you go. Don't worry about it. You can use `do` notation, monads, and wr
 Assignment
 ----------
 
-Build a program that asks the user for a message and a number on the command line, and print out that message N times. Use the functions from [`Control.Monad`][control-monad].
+Build a program that asks the user for a message and a number on the command line, and print out that message N times. Use the control functions from [`Control.Monad`][control-monad], like `mapM`, or `replicateM`
 
 [importing-code]: http://seanhess.github.io/2015/08/17/practical-haskell-importing-code.html
 [getting-started]: http://seanhess.github.io/2015/08/04/practical-haskell-getting-started.html
