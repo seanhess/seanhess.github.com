@@ -84,7 +84,7 @@ We can see this from the type. When we call `putStrLn` with one argument, it ret
 Actions can have results
 ------------------------
 
-Ok, so now we understand that actions are values. Those actions can sometimes yield something when they are performed. Let's look at the type of `getLine`. What does it return?
+Ok, now we know that actions are values. Those actions can sometimes yield something when they are performed. Let's look at the type of `getLine`. What does it return?
 
     getLine :: IO String
 
@@ -96,9 +96,9 @@ You can use result from an action with the `<-` operator.
       name <- getLine
       putStrLn ("Hello " ++ name)
 
-`name` is no longer an action. Its type is just `String`, not `IO String` like `getLine` was. You can use it anywhere below.
+`name` is no longer an action. Its type is just `String`, not `IO String` like `getLine` was. It's the difference between a plan to go to the grocery store (`getLine`) and actually coming back with the groceries (`name`)
 
-A do-block always yields whatever its last action yields. We can use `return` to wrap a normal value, like a `String` into an action that does nothing other than yield it.
+A do-block always yields whatever its last action does. If we put `return` last, we can make it yield any simple value.
 
     sayHello :: IO String
     sayHello = do
@@ -109,7 +109,8 @@ A do-block always yields whatever its last action yields. We can use `return` to
 Different types of Actions
 --------------------------
 
-Within a given do-block, all actions must be the same type. So for an `IO` block like what `main` returns, every line has to have the type `IO a`. You can't put regular values there (without let), nor can you put other actions there.
+Within a given do-block, all actions must be the same type. So for an `IO` block like what `main` returns, every line has to have the type `IO a`. You can't put regular values there (without let), because they aren't actions.
+
 
     main :: IO ()
     main = do
@@ -119,15 +120,23 @@ Within a given do-block, all actions must be the same type. So for an `IO` block
       -- error! String is not an IO a!
       "whatever"
 
-      -- error! Its type is String -> IO ()
+Remember that functions like `putStrLn` aren't `IO` actions, they *return* `IO` actions. So this won't work:
+nor can you put other actions there.
+
+    main = do
+
+      -- error! putStrLn is a function with type String -> IO ()
       putStrLn
 
-Let's look at some examples of different kinds of monads, each with their own actions.
+      -- good. If we give it one argument, it's now an IO action
+      putStrLn "Hello"
 
-To use the Maybe monad, each step must be of type `Maybe a`.
+Let's look at some examples of different kinds of monads, each with their own actions. To use the Maybe monad, each step must be of type `Maybe a`. You can't mix different kinds of actions in the same do block.
 
-    beCareful :: Maybe Int
-    beCareful = do
+    doesNotWork :: Maybe Int
+    doesNotWork = do
+
+      -- these work, because they are all Maybe a
       Just 6
       Nothing
 
@@ -135,6 +144,10 @@ To use the Maybe monad, each step must be of type `Maybe a`.
       putStrLn "Hello"
 
       return 5
+
+    main = do
+      -- error! this is type Maybe Int, not IO a
+      Just 6
 
 Monads decide how to combine actions
 ------------------------------------
@@ -147,7 +160,49 @@ Each type of Monad combines actions differently. We already looked at `IO`. It p
       Nothing
       return 5
 
-The do-block here always yields `Nothing`, because of the second to last step.
+The do-block here always yields `Nothing`, because of that `Nothing` in the second to last step.
+
+Let's try it
+-------------
+
+Add `beCareful` and `sayHello` to `src/Main.hs`
+
+    $ stack ghci
+    Prelude> :load src/Main.hs
+
+    *Main> beCareful
+    Nothing
+
+    *Main> sayHello
+    woot
+    Hello woot
+    "woot"
+
+Now try mixing them up. Add an `IO` action into `beCareful`.
+
+    beCareful :: Maybe Int
+    beCareful = do
+      Just 6
+      putStrLn "oops"
+      Nothing
+      return 5
+
+What happens when we reload GHCI?
+
+    *Main> :r
+    [1 of 1] Compiling Main             ( src/Main.hs, interpreted )
+
+    src/Main.hs:11:3:
+        Couldn't match expected type ‘Maybe a0’ with actual type ‘IO ()’
+        In a stmt of a 'do' block: putStrLn "oops"
+        In the expression:
+          do { Just 6;
+              putStrLn "oops";
+              Nothing;
+              return 5 }
+    Failed, modules loaded: none.
+
+Hopefully that error message makes sense to you now.
 
 Other monads in the wild
 ------------------------
