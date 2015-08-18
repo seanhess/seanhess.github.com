@@ -42,7 +42,7 @@ Go ahead and add both of the above functions to `src/Main.hs`, which you created
     Configuring GHCi with the following packages: my-project
     GHCi, version 7.10.2: http://www.haskell.org/ghc/  :? for help
 
-    Prelude> :load src/Main.hs
+    Prelude> :load Main
     [1 of 1] Compiling Main             ( src/Main.hs, interpreted )
     Ok, modules loaded: Main.
 
@@ -106,7 +106,7 @@ Now restart ghci, reload it with main, and see what happens!
     Configuring GHCi with the following packages: my-project
     GHCi, version 7.10.2: http://www.haskell.org/ghc/  :? for help
 
-    Prelude> :load src/Main.hs
+    Prelude> :load Main
     [1 of 1] Compiling Main             ( src/Main.hs, interpreted )
     Ok, modules loaded: Main.
 

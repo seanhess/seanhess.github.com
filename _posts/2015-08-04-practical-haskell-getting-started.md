@@ -6,7 +6,7 @@ title: Practical Haskell - Getting Started
 {{ page.title }}
 ================
 
-Haskell is famous for having a steep learning curve. As a web developer we're used to clear tutorials that we can understand and complete within an hour or two. Haskell introduces many new concepts not found in other languages, but we can learn faster by spending as much time coding as we do reading.
+Haskell is famous for having a steep learning curve. As a web developer we're used to clear tutorials that we can understand and complete within an hour or two. Haskell introduces many new concepts not found in other languages, but we can learn it faster by spending as much time coding as we do reading.
 
 This is the first of a tutorial series intended to introduce Haskell by coding things that work.
 
@@ -141,7 +141,7 @@ There are [other great tutorials that will teach you how to use ghci](http://lea
 
 Use the `:load` command to load our code:
 
-    Prelude> :load src/Main.hs
+    Prelude> :load Main
     [1 of 1] Compiling Main             ( src/Main.hs, interpreted )
     Ok, modules loaded: Main.
 

@@ -67,7 +67,7 @@ Finally we need a GHC feature called OverloadedStrings that let's use string lit
 Let's run this just like last time. Fire up `stack ghci`, load our code, and run `main`
 
     $ stack ghci
-    Prelude> :load src/Main.hs
+    Prelude> :load Main
     *Main> main
     Starting Server...
     Setting phasers to stun... (port 3000) (ctrl-c to quit)

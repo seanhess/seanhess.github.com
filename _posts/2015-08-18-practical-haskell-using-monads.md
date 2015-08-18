@@ -168,7 +168,7 @@ Time to code
 Add `beCareful` and `sayHello` to `src/Main.hs`
 
     $ stack ghci
-    Prelude> :load src/Main.hs
+    Prelude> :load Main
 
     *Main> beCareful
     Nothing
