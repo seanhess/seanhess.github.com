@@ -11,7 +11,7 @@ This is part of a tutorial series intended to introduce Haskell by coding things
 1. [Getting Started][getting-started]
 2. [Importing Code][importing-code]
 3. [Using Monads][using-monads]
-4. [Build a JSON API][json-api]
+4. [**Build a JSON API**][json-api]
 
 Before you Begin
 ----------------
@@ -275,5 +275,9 @@ Move your hard-coded users into a file. Read that file into memory when the serv
 [scotty]: https://github.com/scotty-web/scotty
 [getting-started]: http://seanhess.github.io/2015/08/04/practical-haskell-getting-started.html
 [source]: https://github.com/seanhess/practical-haskell/tree/master/04-rest-api
-[json-api]: .
+
+[getting-started]: http://seanhess.github.io/2015/08/04/practical-haskell-getting-started.html
+[importing-code]: http://seanhess.github.io/2015/08/17/practical-haskell-importing-code.html
+[using-monads]: http://seanhess.github.io/2015/08/18/practical-haskell-using-monads.html
+[json-api]: http://seanhess.github.io/2015/08/19/practical-haskell-json-api.html
 

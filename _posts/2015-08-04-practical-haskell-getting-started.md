@@ -13,6 +13,7 @@ This is the first of a tutorial series intended to introduce Haskell by coding t
 1. [**Getting Started**][getting-started]
 2. [Importing Code][importing-code]
 3. [Using Monads][using-monads]
+4. [Build a JSON API][json-api]
 
 In this article we will show you how to get Haskell installed, how to set up a new project, and run your code.
 
@@ -223,6 +224,8 @@ Answers: [getLine](https://github.com/seanhess/practical-haskell/blob/master/01-
 [base]: http://hackage.haskell.org/package/base
 [lyah]: http://learnyouahaskell.com/chapters
 
-[importing-code]: http://seanhess.github.io/2015/08/17/practical-haskell-importing-code.html
 [getting-started]: http://seanhess.github.io/2015/08/04/practical-haskell-getting-started.html
+[importing-code]: http://seanhess.github.io/2015/08/17/practical-haskell-importing-code.html
 [using-monads]: http://seanhess.github.io/2015/08/18/practical-haskell-using-monads.html
+[json-api]: http://seanhess.github.io/2015/08/19/practical-haskell-json-api.html
+

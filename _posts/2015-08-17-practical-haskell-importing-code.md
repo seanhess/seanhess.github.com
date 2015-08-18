@@ -11,6 +11,7 @@ This article is part of a tutorial series intended to introduce Haskell by codin
 1. [Getting Started][getting-started]
 2. [**Importing Code**][importing-code]
 3. [Using Monads][using-monads]
+4. [Build a JSON API][json-api]
 
 In this article we're going to see how to include other code from Haskell's core libraries and from the web.
 
@@ -174,9 +175,12 @@ Now you should be able to make a program, import 3rd party code, build an execut
 2. Find a 3rd party module from [stackage LTS](http://stackage.org/lts) and use it to write a small program. Consider
 
 [stackage]: https://www.stackage.org/
-[importing-code]: http://seanhess.github.io/2015/08/17/practical-haskell-importing-code.html
+
 [getting-started]: http://seanhess.github.io/2015/08/04/practical-haskell-getting-started.html
+[importing-code]: http://seanhess.github.io/2015/08/17/practical-haskell-importing-code.html
+[using-monads]: http://seanhess.github.io/2015/08/18/practical-haskell-using-monads.html
+[json-api]: http://seanhess.github.io/2015/08/19/practical-haskell-json-api.html
+
 [prelude]: https://hackage.haskell.org/package/base/docs/Prelude.html
 [base]: http://hackage.haskell.org/package/base
 [source]: https://github.com/seanhess/practical-haskell/tree/master/02-importing-code
-[using-monads]: http://seanhess.github.io/2015/08/18/practical-haskell-using-monads.html
