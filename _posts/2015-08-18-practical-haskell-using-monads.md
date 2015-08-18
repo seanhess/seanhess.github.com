@@ -17,7 +17,9 @@ In this article we will teach you how to use Monads without panicking.
 Before you Begin
 ----------------
 
-This article assumes a basic understanding of Haskell Types. You should know how to add a type declaration to a simple function, and understand the difference between `String` `Maybe String` and `[String]`. Consider reading [Chapter 8 of Learn You a Haskell: Making Our Own Types and Typeclasses](http://learnyouahaskell.com/making-our-own-types-and-typeclasses). You'll probably need to have read Chapters 2 and 3 first.
+This article assumes a basic understanding of Haskell Types. You should know how to add a type declaration to a simple function, and understand the difference between `String`, `Maybe String`, and `[String]`. Consider reading [Chapter 8 of Learn You a Haskell: Making Our Own Types and Typeclasses](http://learnyouahaskell.com/making-our-own-types-and-typeclasses). You'll probably need to have read Chapters 2 and 3 first.
+
+Please work through [Getting Started][getting-started] so you know how to run code.
 
 Don't Panic
 -----------
@@ -30,8 +32,8 @@ Monads are not scary. You've been using them since the beginning of this tutoria
 
 You probably have a pretty good feel for what this is doing. Trust that feeling! There will be plenty of time to get the theory down. Today we're just going to learn how to use them practically.
 
-Actions vs Functions
----------------------
+Functions that return Actions
+-----------------------------
 
 `putStrLn` is a function that prints out a message to the console, right? Not quite. Let's look at it's type. What does it return?
 
@@ -50,7 +52,7 @@ What can we do with actions? They are values, like `String` or `Bool`, just fanc
       putStrLn "Take a nap"
       putStrLn "Learn Haskell"
 
-Look at the type of `main`. `IO ()` means that main is one `IO` action. We've combined 3 actions into one.
+Look at the type: `IO ()` means that main is one `IO` action. We've combined 3 actions into one.
 
 Calling the function doesn't perform the action
 -----------------------------------------------
@@ -87,7 +89,7 @@ Ok, so now we understand that actions are values. Those actions can sometimes yi
 
     getLine :: IO String
 
-It doesn't return a `String`, it returns an action, right? But what does that `String` mean, then? *It means that when the action is performed, it will yield a `String`*. Let's call that the *result* of the action.
+It doesn't return a `String`, it returns an action, right? Then what does that `String` mean? It means that *when the action is performed, it will yield a `String`*. Let's call that the *result* of the action.
 
 You can use result from an action with the `<-` operator.
 
@@ -108,7 +110,7 @@ A do-block always yields whatever its last action yields. We can use `return` to
 Different types of Actions
 --------------------------
 
-Within a given do-block, all actions must be the same type So for an `IO` block like what `main` returns, every line has to have the type `IO a`. You can't put regular values there (without let), nor can you put other actions there.
+Within a given do-block, all actions must be the same type. So for an `IO` block like what `main` returns, every line has to have the type `IO a`. You can't put regular values there (without let), nor can you put other actions there.
 
     main :: IO ()
     main = do
@@ -138,7 +140,7 @@ To use the Maybe monad, each step must be of type `Maybe a`.
 Monads decide how to combine actions
 ------------------------------------
 
-Each type of Monad combines actions differently. We already looked at `IO`. It performs the actions in order with `IO` side effects. `Maybe`, on the other hand, specifies that if any step is `Nothing`, the whole thing stops and exits with a `Nothing`. The do-block here always yields `Nothing`, because of the second to last step.
+Each type of Monad combines actions differently. We already looked at `IO`. It performs the actions in order with `IO` side effects. `Maybe`, on the other hand, specifies that if any step is `Nothing`, the whole thing stops and exits with a `Nothing`.
 
     beCareful :: Maybe Int
     beCareful = do
@@ -146,10 +148,12 @@ Each type of Monad combines actions differently. We already looked at `IO`. It p
       Nothing
       return 5
 
+The do-block here always yields `Nothing`, because of the second to last step.
+
 Other monads in the wild
 ------------------------
 
-The Parsec libary uses `Parser` actions to define a grammer for parsing. Here's how to parse an IPv4 address. Can you guess what the type of `decimal` and `char` are? It combines actions by matching them against an input. If the input doesn't match any of the steps, it exits and tells its parent it didn't match.
+The Parsec libary uses `Parser` actions to define a grammer for parsing. Here's one to parse an IPv4 address. It combines actions by matching them against an input. If the input doesn't match any of the steps, it exits and tells its parent it didn't match. 
 
     data IP = IP Word8 Word8 Word8 Word8 deriving Show
 
@@ -164,10 +168,12 @@ The Parsec libary uses `Parser` actions to define a grammer for parsing. Here's 
       d4 <- decimal
       return $ IP d1 d2 d3 d4
 
+Can you guess what the type of `decimal` and `char` are?
+
     char :: Parser Char
     decimal :: Parser Word8
 
-The Scotty library uses the `ScottyM` monad to define a web API. Here the steps are used to build an API description which is later matched against incoming requests. The first ones are given priority when matching
+The Scotty library uses the `ScottyM` monad to define a web API. Here each action is combined to create an API description which is later matched against incoming HTTP requests. The first ones are given priority when matching.
 
     routes :: ScottyM ()
     routes = do
@@ -177,7 +183,7 @@ The Scotty library uses the `ScottyM` monad to define a web API. Here the steps 
 Don't sweat the little stuff
 ----------------------------
 
-So there you go. Don't sweat it. You can use `do` notation, monads, and write programs. You don't have to understand exactly what monads are doing under the hood to have an intuition for how to use them.
+So there you go. Don't worry about it. You can use `do` notation, monads, and write programs. You don't have to understand exactly what monads are doing under the hood to have an intuition for how to use them. Later when you learn the theory, it'll be much easier if you've been using them.
 
 Assignment
 ----------
