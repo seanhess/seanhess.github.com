@@ -9,12 +9,14 @@ title: Practical Haskell - Importing Code
 This article is part of a tutorial series intended to introduce Haskell by coding things that work.
 
 1. [Getting Started][getting-started]
-2. [Importing Code][importing-code]
+2. [**Importing Code**][importing-code]
+
+In this article we're going to see how to include other code from Haskell's core libraries and from the web.
 
 Before You Begin
 ----------------
 
-In [Getting Started][getting-started] we showed you how to get everything installed and run some code. In this article we're going to see how to include other code from Haskell's core libraries and from the web. Before getting started make sure you follow the directions to [get stack installed](http://seanhess.github.io/2015/08/04/practical-haskell-getting-started.html#installing-stack) and to [set up a project](http://seanhess.github.io/2015/08/04/practical-haskell-getting-started.html#setting-up-a-new-project)
+In [Getting Started][getting-started] we showed you how to get everything installed and run some code. Before getting started make sure you follow the directions to [get stack installed](http://seanhess.github.io/2015/08/04/practical-haskell-getting-started.html#installing-stack) and to [set up a project](http://seanhess.github.io/2015/08/04/practical-haskell-getting-started.html#setting-up-a-new-project)
 
 Importing other code
 --------------------
@@ -24,7 +26,7 @@ Haskell's core library, called [base][base], contains many useful functions. Man
     printNumbers = do
       putStrLn (show (3+4)) 
 
-Only the [Prelude][prelude] is imported automatically. If you want to use anything else, you need to import it. Imports belong at the top of your program. Let's import `readFile` and write a program that prints out our stack config file
+Only the [Prelude][prelude] module is imported automatically. If you want to use any other module, you need to import it. Imports belong at the top of your program. Let's import `readFile` from the module `System.IO` and write a program that prints out our stack config file
 
     import System.IO (readFile)
 
@@ -47,7 +49,10 @@ Go ahead and add both of the above functions to `src/Main.hs`, which you created
 
     *Main> printConfig
     flags: {}
-    ... etc
+    packages:
+    - '.'
+    extra-deps: []
+    resolver: lts-3.1
 
 You can add them to your main program if you like. Edit `src/Main.hs` and add them to the `main` function.
 
@@ -157,9 +162,11 @@ my-project.cabal
       build-depends:       base,
                            rethinkdb
 
+Now anyone who clones my repository can just run `stack build` and get exactly the same dependencies as me.
+
 Assignment
 ----------
-Now you should be able to make a program, import 3rd party code, build an executable, and interact with GHCI. It's time to start learning Haskell in earnest.
+Now you should be able to make a program, import 3rd party code, build an executable, and interact with GHCI. It's time to start learning some Haskell theory.
 
 1. Read chapters 2, 3, 4, and 9 of [Learn You a Haskell](http://learnyouahaskell.com), and write a program that does something with IO. Feel free to read more if you like, but don't read past chapter 10.
 

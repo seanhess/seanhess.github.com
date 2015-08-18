@@ -10,7 +10,7 @@ Haskell is famous for having a steep learning curve. As a web developer we're us
 
 This is the first of a tutorial series intended to introduce Haskell by coding things that work.
 
-1. [Getting Started][getting-started]
+1. [**Getting Started**][getting-started]
 2. [Importing Code][importing-code]
 
 In this article we will show you how to get Haskell installed, how to set up a new project, and run your code.
@@ -193,21 +193,18 @@ It will tell you where the executable is, but it's easier to run it with `stack 
     Hello bobby!
     Hello World!
 
-Text Editor Integration
------------------------
 
-You can configure your text editor to underline errors for you. Check out [Editor Setup][editor-setup]
+What's next
+-----------
 
-Where to go from here
----------------------
+In the next article, we should you how to [import code from other modules][importing-code].
 
-Next up: [Importing Code][importing-code].
-
-Here are some other resources:
+Other resources:
 
 * [Learn You a Haskell for Great Good](http://learnyouahaskell.com/) - Good (free) introductory Haskell book.
 * [Prelude Documentation][prelude] - All the functions that come built in
 * [Complete source code][source] for this tutorial
+* Configure your text editor to underline errors for you. Check out [Editor Setup][editor-setup]
 
 Assignment
 ----------
