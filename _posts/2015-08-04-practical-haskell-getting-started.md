@@ -139,7 +139,7 @@ There are [other great tutorials that will teach you how to use ghci](http://lea
     Prelude> 5 == 5
     True
 
-Use the `:load` command to load our code:
+We can Use the `:load` command to load our code. Note that you can tab-complete module names.
 
     Prelude> :load Main
     [1 of 1] Compiling Main             ( src/Main.hs, interpreted )
