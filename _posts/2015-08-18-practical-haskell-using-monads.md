@@ -84,7 +84,7 @@ We can see this from the type. When we call `putStrLn` with one argument, it ret
 Actions can have results
 ------------------------
 
-Ok, now we know that actions are values. Those actions can sometimes yield something when they are performed. Let's look at the type of `getLine`. What does it return?
+Actions can yield something when they are performed. Let's look at the type of `getLine`. What does it return?
 
     getLine :: IO String
 
@@ -96,9 +96,9 @@ You can use result from an action with the `<-` operator.
       name <- getLine
       putStrLn ("Hello " ++ name)
 
-`name` is no longer an action. Its type is just `String`, not `IO String` like `getLine` was. It's the difference between a plan to go to the grocery store (`getLine`) and actually coming back with the groceries (`name`)
+`name` is no longer an action. Its type is just `String`, not `IO String` like `getLine` was. It's the difference between a plan to go to the grocery store (`getLine`) and the groceries you picked by actually going (`name`)
 
-A do-block always yields whatever its last action does. If we put `return` last, we can make it yield any simple value.
+A do-block always yields whatever its last action does. If we put `return` last, we can make our do-block yield any simple value.
 
     sayHello :: IO String
     sayHello = do
@@ -109,7 +109,7 @@ A do-block always yields whatever its last action does. If we put `return` last,
 Different types of Actions
 --------------------------
 
-Within a given do-block, all actions must be the same type. So for an `IO` block like what `main` returns, every line has to have the type `IO a`. You can't put regular values there (without let), because they aren't actions.
+Within a given do-block, all actions must be the same type. So for an `IO` block like the one in `main`, every line has to have the type `IO a`. You can't put regular values there (without let), because they aren't actions.
 
 
     main :: IO ()
@@ -121,7 +121,6 @@ Within a given do-block, all actions must be the same type. So for an `IO` block
       "whatever"
 
 Remember that functions like `putStrLn` aren't `IO` actions, they *return* `IO` actions. So this won't work:
-nor can you put other actions there.
 
     main = do
 
@@ -145,6 +144,7 @@ Let's look at some examples of different kinds of monads, each with their own ac
 
       return 5
 
+    main :: IO ()
     main = do
       -- error! this is type Maybe Int, not IO a
       Just 6
