@@ -12,6 +12,7 @@ This is the first of a tutorial series intended to introduce Haskell by coding t
 
 1. [**Getting Started**][getting-started]
 2. [Importing Code][importing-code]
+3. [Using Monads][using-monads]
 
 In this article we will show you how to get Haskell installed, how to set up a new project, and run your code.
 
@@ -226,3 +227,4 @@ Answers: [getLine](https://github.com/seanhess/practical-haskell/blob/master/01-
 
 [importing-code]: http://seanhess.github.io/2015/08/17/practical-haskell-importing-code.html
 [getting-started]: http://seanhess.github.io/2015/08/04/practical-haskell-getting-started.html
+[using-monads]: http://seanhess.github.io/2015/08/18/practical-haskell-using-monads.html

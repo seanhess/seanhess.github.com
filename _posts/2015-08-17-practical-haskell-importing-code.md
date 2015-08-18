@@ -10,6 +10,7 @@ This article is part of a tutorial series intended to introduce Haskell by codin
 
 1. [Getting Started][getting-started]
 2. [**Importing Code**][importing-code]
+3. [Using Monads][using-monads]
 
 In this article we're going to see how to include other code from Haskell's core libraries and from the web.
 
@@ -178,3 +179,4 @@ Now you should be able to make a program, import 3rd party code, build an execut
 [prelude]: https://hackage.haskell.org/package/base/docs/Prelude.html
 [base]: http://hackage.haskell.org/package/base
 [source]: https://github.com/seanhess/practical-haskell/tree/master/02-importing-code
+[using-monads]: http://seanhess.github.io/2015/08/18/practical-haskell-using-monads.html

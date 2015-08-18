@@ -10,7 +10,7 @@ This article is part of a tutorial series intended to introduce Haskell by codin
 
 1. [Getting Started][getting-started]
 2. [Importing Code][importing-code]
-3. [**Using Monads**][self]
+3. [**Using Monads**][using-monads]
 
 In this article we will teach you how to use Monads without panicking.
 
@@ -192,7 +192,7 @@ Build a program that asks the user for a message and a number on the command lin
 
 [importing-code]: http://seanhess.github.io/2015/08/17/practical-haskell-importing-code.html
 [getting-started]: http://seanhess.github.io/2015/08/04/practical-haskell-getting-started.html
-[self]: http://seanhess.github.io/2015/08/18/practical-haskell-do-io.html
+[using-monads]: http://seanhess.github.io/2015/08/18/practical-haskell-using-monads.html
 [lyah]: http://learnyouahaskell.com/chapters
 
 [control-monad]: https://hackage.haskell.org/package/base/docs/Control-Monad.html
