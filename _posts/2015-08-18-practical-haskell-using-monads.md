@@ -51,7 +51,14 @@ What can we do with actions? They are values, like `String` or `Bool`, just fanc
       putStrLn "Take a nap"
       putStrLn "Learn Haskell"
 
-Look at the type: `IO ()` means that main is one `IO` action. We've combined 3 actions into one.
+Look at the type: `IO ()` means that main is one `IO` action. That do block is combining 3 actions into one.
+
+Since the whole point of `do` is to combine actions, you can leave it out if there's only one. These are both equivalent:
+
+    main = do
+      putStrLn "Hello"
+
+    main = putStrLn "Hello"
 
 Calling the function doesn't perform the action
 -----------------------------------------------

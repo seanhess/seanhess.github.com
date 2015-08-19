@@ -31,7 +31,7 @@ Installing Stack
 
 The only thing you need to download is Stack. It will install everything else for you.
 
-* [Download Stack](https://github.com/commercialhaskell/stack#how-to-install)
+* <a href="https://github.com/commercialhaskell/stack#how-to-install" target="_blank">Download Stack</a>
 
 Then, follow the instructions on the download page for your operating system. Here's what I did on a mac:
 
@@ -52,22 +52,51 @@ Then, follow the instructions on the download page for your operating system. He
 Setting up a new project
 ------------------------
 
-We're going to need a few files to get our first project going: some haskell source code, a `stack.yaml` and a `.cabal` file.
+We're going to need a few files to get our first project going: some haskell source code, a `stack.yaml` and a `.cabal` file. We can create these files by hand, but stack has a template feature we can use instead. Let's call our project "my-project" and use the `simple` template.
 
-First, let's make a new directory
+    $ stack new my-project simple
+    Downloading template "simple" to create project "my-project" in my-project/ ...
+    Using the following authorship configuration:
+    author-email: example@example.com
+    author-name: Example Author Name
+    Copy these to /Users/seanhess/.stack/stack.yaml and edit to use different values.
+    Writing default config file to: /Users/seanhess/projects/practical-haskell/my-project/stack.yaml
+    Basing on cabal files:
+    - /Users/seanhess/projects/practical-haskell/my-project/my-project.cabal
 
-    $ mkdir my-project
-    $ cd my-project
+    Checking against build plan lts-3.1
+    Selected resolver: lts-3.1
+    Wrote project config to: /Users/seanhess/projects/practical-haskell/my-project/stack.yaml
 
-Now create a file called `my-project.cabal` and paste this in. Another day we'll edit this file to specify dependencies on other people's code.
+It creates a directory named `my-project`. Let's see what's inside:
+
+    LICENSE
+    Setup.hs
+    stack.yaml
+    my-project.cabal
+    src/
+      Main.hs
+
+The [`stack.yaml`](https://github.com/commercialhaskell/stack/wiki/stack.yaml) config file tells stack which version of GHC and your dependencies to use.
+
+    flags: {}
+    packages:
+    - '.'
+    extra-deps: []
+    resolver: lts-3.1
+
+We use the `my-project.cabal` config file to store settings like the project name, and license. In the next article, [Importing Code][importing-code], we'll edit this file to add dependencies.
 
     name:                my-project
     version:             0.1.0.0
-    synopsis:            My first Haskell Project
+    synopsis:            Simple project template from stack
     description:         Please see README.md
+    homepage:            http://github.com/githubuser/my-project#readme
     license:             BSD3
-    author:              Your name here
-    maintainer:          your.address@example.com
+    license-file:        LICENSE
+    author:              Sean Hess
+    maintainer:          seanhess@gmail.com
+    copyright:           2010 Author Here
     category:            Web
     build-type:          Simple
     cabal-version:       >=1.10
@@ -76,30 +105,15 @@ Now create a file called `my-project.cabal` and paste this in. Another day we'll
       hs-source-dirs:      src
       main-is:             Main.hs
       default-language:    Haskell2010
-      build-depends:       base
+      build-depends:       base >= 4.7 && < 5
 
-Next let's create a [`stack.yaml`](https://github.com/commercialhaskell/stack/wiki/stack.yaml) file in the same directory. The resolver tells stack which version of GHC and your dependencies to use.
+Last but not least, we have some source code. `src/Main.hs` is the main module for our program. This is where the Haskell happens.
 
-    flags: {}
-    packages:
-    - '.'
-    extra-deps: []
-    resolver: lts-3.1
+    module Main where
 
-Finally, create a file `src/Main.hs` with your source code:
-
+    main :: IO ()
     main = do
-      putStrLn "Hello"
-      putStrLn "World!"
-
-Your project folder should now look like this:
-
-    my-project.cabal
-    stack.yaml
-    src/
-      Main.hs
-
-[Here's the full source if you get stuck][source].
+      putStrLn "hello world"
 
 Installing GHC
 ---------------
@@ -148,8 +162,7 @@ We can Use the `:load` command to load our code. Note that you can tab-complete 
 Then we can run our program by typing `main`
 
     Main> main
-    Hello
-    World!
+    hello world
 
 Making Changes
 --------------
@@ -161,7 +174,7 @@ We can use ghci to test our changes as we go. Let's make a `greet` function! Add
 Now go back to ghci and type `:r`
 
     Main> :r
-    [1 of 1] Compiling Main   (/Users/seanhess/projects/practical-haskell/getting-started/src/Main.hs, interpreted )
+    [1 of 1] Compiling Main   (src/Main.hs, interpreted)
     Ok, modules loaded: Main.
 
 We can test `greet` without it being used in `main`
@@ -195,7 +208,6 @@ It will tell you where the executable is, but it's easier to run it with `stack 
     Hello bobby!
     Hello World!
 
-
 What's next
 -----------
 
@@ -211,7 +223,7 @@ Other resources:
 Assignment
 ----------
 
-1. Read [chapter 3 of Learn You a Haskell](http://learnyouahaskell.com/types-and-typeclasses) and add type definitions to `main` and `greet`
+1. Read [chapter 3 of Learn You a Haskell](http://learnyouahaskell.com/types-and-typeclasses) and add a type declaration to `greet`
 
 2. Use the `getLine` function to read a name from the command-line, and print out a greeting to that name. Will require using the Prelude Documentation, and probably some googling.
 
