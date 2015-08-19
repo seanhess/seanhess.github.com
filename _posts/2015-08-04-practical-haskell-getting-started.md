@@ -24,7 +24,7 @@ Tools and Names
 
 *Cabal* is the package description format. You'll have a file called `my-project.cabal` with information about your project. There's an executable called cabal too, but we are going to use stack instead.
 
-[*Stack*][stack] is the package manager. It reads `my-project.cabal` and `stack.yaml` to link in third party code. It will install GHC for you too.
+[*Stack*][stack] is a package manager. It reads `my-project.cabal` and `stack.yaml` to link in third party code. It will install GHC for you too.
 
 Installing Stack
 ----------------

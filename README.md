@@ -8,6 +8,7 @@ The following directories and their contents are Copyright Sean Hess. You may no
 
 * _posts/
 * images/
+* articles/
 
 All other directories and files are MIT Licensed. 
 
