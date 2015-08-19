@@ -172,7 +172,7 @@ The do-block here always yields `Nothing`, because of that `Nothing` in the seco
 Time to code
 ------------
 
-Add `beCareful` and `sayHello` to `src/Main.hs`
+Add `beCareful` and `sayHello` to `src/Main.hs`. Then head over to GHCI and try them out.
 
     $ stack ghci
     Prelude> :load Main
