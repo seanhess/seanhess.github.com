@@ -55,20 +55,9 @@ Setting up a new project
 We're going to need a few files to get our first project going: some haskell source code, a `stack.yaml` and a `.cabal` file. We can create these files by hand, but stack has a template feature we can use instead. Let's call our project "my-project" and use the `simple` template.
 
     $ stack new my-project simple
-    Downloading template "simple" to create project "my-project" in my-project/ ...
-    Using the following authorship configuration:
-    author-email: example@example.com
-    author-name: Example Author Name
-    Copy these to /Users/seanhess/.stack/stack.yaml and edit to use different values.
-    Writing default config file to: /Users/seanhess/projects/practical-haskell/my-project/stack.yaml
-    Basing on cabal files:
-    - /Users/seanhess/projects/practical-haskell/my-project/my-project.cabal
+    ...
 
-    Checking against build plan lts-3.1
-    Selected resolver: lts-3.1
-    Wrote project config to: /Users/seanhess/projects/practical-haskell/my-project/stack.yaml
-
-It creates a directory named `my-project`. Let's see what's inside:
+This creates a directory named `my-project`. Let's see what's inside:
 
     LICENSE
     Setup.hs
