@@ -135,14 +135,14 @@ Stack fixes this problem by fetching our code from [Stackage][stackage], which h
     extra-deps: []
     resolver: lts-3.1
 
-So everything in lts-3.1 is knows to work together. You can see all the available packages in lts-3.1 right here: [https://www.stackage.org/lts-3.1](https://www.stackage.org/lts-3.1)
+So everything in lts-3.1 is knows to work together. You can see all the available packages in lts-3.1 right here: [https://www.stackage.org/lts-3.1][lts-3.1]
 
 What if it's not on stackage?
 -----------------------------
 
-If you need the bleeding edge, or need to depend on a package not in stack, you can add them to your `extra-deps` field in `stack.yaml`, and tell it exactly what version to use. You still need to add them to your `.cabal` file too.
+If you need the bleeding edge, or need to depend on a package not on stackage, you can add them to your `extra-deps` field in `stack.yaml`, and tell it exactly which version to use. You still need to add them to your `.cabal` file too.
 
-For example, I use [RethinkDB](http://rethinkdb.com) for a database. The driver I use is here on hackage: https://hackage.haskell.org/package/rethinkdb, but it isn't in stackage lts-3.1. If I want to use it, I add it like this:
+For example, I use [RethinkDB](http://rethinkdb.com) for a database. The driver I use is here on hackage: https://hackage.haskell.org/package/rethinkdb, but it isn't in [LTS Haskell 3.1][lts-3.1]. If I want to use it, I add it like this:
 
 Stack.yaml
 
@@ -169,7 +169,7 @@ Now anyone who clones my repository can just run `stack build` and get exactly t
 Assignment
 ----------
 
-Find a 3rd party module for JSON from [LTS Haskell 3.1](http://stackage.org/lts) or Google. Click through to the "Module documentation" to find a function to encode JSON. Write a program to JSON serialize the following list and print it out. Use `print` instead of `putStrLn`.
+Find a 3rd party module for JSON from [LTS Haskell](http://stackage.org/lts) or Google. Click through to the "Module documentation" to find a function to encode JSON. Write a program to JSON serialize the following list and print it out. Use `print` instead of `putStrLn`.
 
     numbers :: [Int]
     numbers = [1,2,3,4]
@@ -191,6 +191,8 @@ In the next tutorial, [Using Monads][using-monads], we show how to use monads wi
 [importing-code]: http://seanhess.github.io/2015/08/17/practical-haskell-importing-code.html
 [using-monads]: http://seanhess.github.io/2015/08/18/practical-haskell-using-monads.html
 [json-api]: http://seanhess.github.io/2015/08/19/practical-haskell-json-api.html
+[lts]: http://stackage.org/lts
+[lts-3.1]: http://stackage.org/lts-3.1
 
 [prelude]: https://hackage.haskell.org/package/base/docs/Prelude.html
 [base]: http://hackage.haskell.org/package/base
