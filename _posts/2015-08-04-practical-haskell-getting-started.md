@@ -228,7 +228,7 @@ Assignment
 What's Next
 -----------
 
-In the next article, [Importing Code][importing-code], we should you how to import other built-in modules and use 3rd party code.
+In the next article, [Importing Code][importing-code], we show you how to use other built-in modules and 3rd party code.
 
 [stack]: https://github.com/commercialhaskell/stack
 [source]: https://github.com/seanhess/practical-haskell/tree/master/01-getting-started

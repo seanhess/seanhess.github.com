@@ -269,6 +269,11 @@ Create a route that accepts a `User` via `POST`, and prints it back out.
 
 [Answers](https://github.com/seanhess/practical-haskell/blob/master/04-rest-api/src/Assignments.hs)
 
+What's next
+-----------
+
+Feel free to suggest another tutorial in the comments!
+
 [aeson]: https://hackage.haskell.org/package/aeson-0.9.0.1/docs/Data-Aeson.html
 [scotty]: https://github.com/scotty-web/scotty
 [scotty-docs]: https://hackage.haskell.org/package/scotty-0.10.2/docs/Web-Scotty.html

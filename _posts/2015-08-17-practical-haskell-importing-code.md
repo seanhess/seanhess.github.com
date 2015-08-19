@@ -181,11 +181,6 @@ What's next
 
 In the next tutorial, [Using Monads][using-monads], we show how to use monads without panicking
 
-1. [Getting Started with Stack][getting-started]
-2. [**Importing Code**][importing-code]
-3. [Using Monads][using-monads]
-4. [Build a JSON API][json-api]
-
 [stackage]: https://www.stackage.org/
 [getting-started]: http://seanhess.github.io/2015/08/04/practical-haskell-getting-started.html
 [importing-code]: http://seanhess.github.io/2015/08/17/practical-haskell-importing-code.html

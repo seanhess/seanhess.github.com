@@ -255,6 +255,11 @@ Read [Input and Output](http://learnyouahaskell.com/input-and-output) from Learn
 
 [Answers](https://github.com/seanhess/practical-haskell/blob/master/03-using-monads/src/Assignments.hs)
 
+What's next
+-----------
+
+In the next tutorial, [Build a JSON API][json-api], we code a real webserver that responds to JSON requests over HTTP.
+
 [getting-started]: http://seanhess.github.io/2015/08/04/practical-haskell-getting-started.html
 [importing-code]: http://seanhess.github.io/2015/08/17/practical-haskell-importing-code.html
 [using-monads]: http://seanhess.github.io/2015/08/18/practical-haskell-using-monads.html
