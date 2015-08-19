@@ -208,12 +208,8 @@ It will tell you where the executable is, but it's easier to run it with `stack 
     Hello bobby!
     Hello World!
 
-What's next
+Other Resources
 -----------
-
-In the next article, we should you how to [import code from other modules][importing-code].
-
-Other resources:
 
 * [Learn You a Haskell for Great Good](http://learnyouahaskell.com/) - Good (free) introductory Haskell book.
 * [Prelude Documentation][prelude] - All the functions that come built in
@@ -228,6 +224,11 @@ Assignment
 2. Use the `getLine` function to read a name from the command-line, and print out a greeting to that name. Will require using the Prelude Documentation, and probably some googling.
 
 [Answers](https://github.com/seanhess/practical-haskell/blob/master/01-getting-started/src/Assignments.hs)
+
+What's Next
+-----------
+
+In the next article, [Importing Code][importing-code], we should you how to import other built-in modules and use 3rd party code.
 
 [stack]: https://github.com/commercialhaskell/stack
 [source]: https://github.com/seanhess/practical-haskell/tree/master/01-getting-started
