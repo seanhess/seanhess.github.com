@@ -168,14 +168,25 @@ Now anyone who clones my repository can just run `stack build` and get exactly t
 
 Assignment
 ----------
-Now you should be able to make a program, import 3rd party code, build an executable, and interact with GHCI. It's time to start learning some Haskell theory.
 
-1. Read chapters 2, 3, 4, and 9 of [Learn You a Haskell](http://learnyouahaskell.com), and write a program that does something with IO. Feel free to read more if you like, but don't read past chapter 10.
+Find a 3rd party module for JSON from [LTS Haskell 3.1](http://stackage.org/lts) or Google. Click through to the "Module documentation" to find a function to encode JSON. Write a program to JSON serialize the following list and print it out. Use `print` instead of `putStrLn`.
 
-2. Find a 3rd party module from [stackage LTS](http://stackage.org/lts) and use it to write a small program. Consider
+    numbers :: [Int]
+    numbers = [1,2,3,4]
+
+[Answer](https://github.com/seanhess/practical-haskell/blob/master/02-importing-code/src/Assignment.hs)
+
+What's next
+-----------
+
+In the next tutorial, [Using Monads][using-monads], we show how to use monads without panicking
+
+1. [Getting Started with Stack][getting-started]
+2. [**Importing Code**][importing-code]
+3. [Using Monads][using-monads]
+4. [Build a JSON API][json-api]
 
 [stackage]: https://www.stackage.org/
-
 [getting-started]: http://seanhess.github.io/2015/08/04/practical-haskell-getting-started.html
 [importing-code]: http://seanhess.github.io/2015/08/17/practical-haskell-importing-code.html
 [using-monads]: http://seanhess.github.io/2015/08/18/practical-haskell-using-monads.html
