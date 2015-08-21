@@ -44,10 +44,16 @@ Then, follow the instructions on the download page for your operating system. He
 
        $ chmod +x /usr/local/bin/stack
 
-4. Check to make sure it is working
+Alternatively on OSX you can install via homebrew:
 
-       $ stack --version
-       Version 0.1.3.1, Git revision 908b04205e6f436d4a5f420b1c6c646ed2b804d7
+    brew update
+    brew install haskell-stack
+
+Check to make sure it is working
+
+    $ stack --version
+    Version 0.1.3.1, Git revision 908b04205e6f436d4a5f420b1c6c646ed2b804d7
+
 
 Setting up a new project
 ------------------------
