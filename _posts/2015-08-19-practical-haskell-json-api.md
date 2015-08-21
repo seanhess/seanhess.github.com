@@ -36,18 +36,26 @@ A simple web server
 
 Let's start with a simple IO program. Replace `src/Main.hs` with the following
 
+    module Main where
+
     main = do
       putStrLn "Starting Server..."
 
 Before we can use it, we need to import scotty. Add this line to the top:
 
+    module Main where
+
     import Web.Scotty
+
     main = do
       ...
 
 Now, let's use the `scotty` function in `main` to start a scotty server:
 
+    module Main where
+
     import Web.Scotty
+
     main = do
         putStrLn "Starting Server..."
         scotty 3000 $ do
@@ -57,7 +65,10 @@ Now, let's use the `scotty` function in `main` to start a scotty server:
 Finally we need a GHC feature called OverloadedStrings that let's use string literals for other things (like routes, or text).
 
     {-# LANGUAGE OverloadedStrings #-}
+    module Main where
+
     import Web.Scotty
+
     main = do
         putStrLn "Starting Server..."
         scotty 3000 $ do
@@ -169,6 +180,7 @@ The [Aeson][aeson] library lets you serialize data objects to JSON and vice vers
 You can tell Aeson how to convert your objects to JSON manually, but it's easier to use some fancy GHC features. One of them, called Generics, lets you automatically do things based on the data type. Add these to the top:
 
     {-# LANGUAGE DeriveGeneric #-}
+    ...
     import GHC.Generics
 
 Now we can have our data type "derive" Generic
