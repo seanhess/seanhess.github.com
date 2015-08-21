@@ -72,7 +72,7 @@ Let's run this just like last time. Fire up `stack ghci`, load our code, and run
     Starting Server...
     Setting phasers to stun... (port 3000) (ctrl-c to quit)
 
-We can test it using our web browser: navigate to [http://localhost:3000/message](http://localhost:3000/message) and you should see the result:
+We can test it using our web browser: navigate to [http://localhost:3000/hello](http://localhost:3000/hello) and you should see the result:
 
     hello world!
 
