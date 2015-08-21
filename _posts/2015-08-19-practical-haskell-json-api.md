@@ -222,6 +222,8 @@ Here's what `src/Main.hs` should look like when you're done. Check out the [full
     {-# LANGUAGE OverloadedStrings #-}
     {-# LANGUAGE DeriveGeneric #-}
 
+    module Main where
+
     import Data.Monoid ((<>))
     import Data.Aeson (FromJSON, ToJSON)
     import GHC.Generics
