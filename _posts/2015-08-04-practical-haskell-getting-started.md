@@ -166,7 +166,7 @@ We can use ghci to test our changes as we go. Let's make a `greet` function! Add
 
     greet name = "Hello " ++ name ++ "!"
 
-Now go back to ghci and type `:r`
+Now go back to ghci and type `:reload` or `:r`
 
     Main> :r
     [1 of 1] Compiling Main   (src/Main.hs, interpreted)
