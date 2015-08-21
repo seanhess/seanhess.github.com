@@ -269,7 +269,7 @@ Here's what `src/Main.hs` should look like when you're done. Check out the [full
 
         get "/users/:id" $ do
           id <- param "id"
-          json $ filter (matchesId id) allUsers
+          json (filter (matchesId id) allUsers)
 
 Playing around
 --------------
