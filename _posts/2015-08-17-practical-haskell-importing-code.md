@@ -142,7 +142,7 @@ What if it's not on stackage?
 
 If you need the bleeding edge, or need to depend on a package not on stackage, you can add them to your `extra-deps` field in `stack.yaml`, and tell it exactly which version to use. You still need to add them to your `.cabal` file too.
 
-For example, I use [RethinkDB](http://rethinkdb.com) for a database. The driver I use is here on hackage: https://hackage.haskell.org/package/rethinkdb, but it isn't in [LTS Haskell 3.1][lts-3.1]. If I want to use it, I add it like this:
+For example, I use [RethinkDB](http://rethinkdb.com) for a database. The driver I use is [here on hackage](https://hackage.haskell.org/package/rethinkdb), but it isn't in [LTS Haskell 3.1][lts-3.1]. If I want to use it, I add it like this:
 
 Stack.yaml
 
