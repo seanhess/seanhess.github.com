@@ -10,10 +10,8 @@ I create well-crafted applications to solve business problems. I've worked profe
 
 [Please visit LinkedIn for more information](https://www.linkedin.com/in/seanhess)
 
-I.TV
-----
-
-[Read about my work at I.TV](https://www.linkedin.com/in/seanhess)
+[I.TV](https://www.linkedin.com/in/seanhess#experience-101774237)
+-----------------------------------------------------------------
 
 We created the best interactive TV Guide in the iOS app store. The time grid was highly optimized and silky smooth on older devices.
 
