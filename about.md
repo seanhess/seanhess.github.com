@@ -6,16 +6,16 @@ title: Sean Hess - About
 About Me
 ========
 
-<script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
-<script type="IN/MemberProfile" data-id="https://www.linkedin.com/in/seanhess" data-format="inline" data-related="false"></script>
+I create well-crafted applications to solve business problems. I've worked professionally in software and startups since 1999, and have a consistent track record of delivering quality solutions ahead of schedule.
+
+[Please visit LinkedIn for more information](https://www.linkedin.com/in/seanhess)
 
 I.TV
 ----
 
-At i.TV, I created and led a world-class engineering team to create our innovative second screen TV experiences on mobile, web, and the Nintendo platform. I created a productive and attractive work environment, built the team up to 8 of the best engineers in the state, and architected most of our systems.
+[Read about my work at I.TV](https://www.linkedin.com/in/seanhess)
 
-The TV guide and interactive TV experiences we created attracted millions of users, substantial revenue growth, and partnerships with AOL, Entertainment Weekly, Telus, and Nintendo.
+We created the best interactive TV Guide in the iOS app store. The time grid was highly optimized and silky smooth on older devices.
 
-I was primarily responsible for the engineering organization, but I was also deeply involved in product design, strategy, and our partnerships.
-
+<iframe width="560" height="315" src="https://www.youtube.com/embed/I4EXlmRrHT4" frameborder="0" allowfullscreen></iframe>
 
