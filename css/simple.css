@@ -144,6 +144,12 @@ footer .rss {
     max-width: 600px;
 }
 
+.content > p > img {
+    max-height: 400px;
+    margin: 0px auto;
+    max-width: 600px;
+}
+
 .mascot {
     margin-top:2em;
     float: left;
