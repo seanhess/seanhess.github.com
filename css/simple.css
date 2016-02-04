@@ -72,7 +72,7 @@ footer a {
     color:#FF7C80;
 }
 
-footer .contact {
+footer .footer-contact {
     margin-left: 20px;
     float: right;
 }
@@ -111,7 +111,7 @@ footer .rss {
     padding-bottom: 1px;
 }
 
-.content {
+.content, .footer-content {
 	margin: auto;
 	width: 80%;
     max-width: 600px;
