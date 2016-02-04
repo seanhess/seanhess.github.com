@@ -148,6 +148,7 @@ footer .rss {
     max-height: 400px;
     margin: 0px auto;
     max-width: 600px;
+    display: block;
 }
 
 .mascot {
