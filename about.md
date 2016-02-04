@@ -15,7 +15,7 @@ I.TV
 
 I was Cofounder and CTO of I.TV from 2009-2012. [Read more on LinkedIn](https://www.linkedin.com/in/seanhess#experience-101774237)
 
-We created the best interactive TV Guide in the iOS app store. The time grid was highly optimized and silky smooth on older devices.
+We created the best interactive TV Guide in the iOS app store. The timetable was highly optimized and silky smooth on older devices.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/I4EXlmRrHT4" frameborder="0" allowfullscreen></iframe>
 
