@@ -49,33 +49,6 @@ ol {
     padding-left: 1.4em;
 }
 
-.project { 
-    clear: both; 
-    height: 100px; 
-}
-
-.project h3, h2, h1, h4, h5 {
-    margin-bottom: 2px;
-}
-
-.project img {
-    display: block;
-    float: left;
-    width: 100px;
-    margin-right: 10px;
-    border-radius: 16px
-}
-
-.project .status {
-    color: #888;
-    font-family: "Courier", monospace;
-    /*font-size: 1.2em;*/
-    font-weight: bold;
-}
-
-.project .status.active {
-    color: #0A0;
-}
 
 sup {
 	line-height: 0;
@@ -144,7 +117,7 @@ footer .rss {
     max-width: 600px;
 }
 
-.content > p > img {
+.content > p img, #post > p img, #project > p img {
     max-height: 600px;
     margin: 0px auto;
     max-width: 600px;
@@ -285,4 +258,57 @@ ul.posts span {
 
 #home .stuff img {
     width: 100px;
+}
+
+
+/* ----------------------------- */
+
+.projects {
+  margin-bottom: 2em;
+}
+
+.project .status {
+  display: none;
+}
+
+.project { 
+  width: 180px;
+  display: inline-block;
+  margin-right: 15px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  vertical-align: top;
+}
+
+.project h3, h2, h1, h4, h5 {
+    margin-bottom: 2px;
+    margin-top: 8px;
+}
+
+.project img {
+    display: block;
+    width: 180px;
+    /*height: 180px;*/
+}
+
+.project-thumb {
+    width: 180px;
+    height: 180px;
+    overflow: hidden;
+}
+
+.project img.app {
+    border-radius: 30px;
+}
+
+.project .status {
+    color: #888;
+    font-family: "Courier", monospace;
+    /*font-size: 1.2em;*/
+    font-weight: bold;
+    display: none;
+}
+
+.project .status.active {
+    color: #0A0;
 }

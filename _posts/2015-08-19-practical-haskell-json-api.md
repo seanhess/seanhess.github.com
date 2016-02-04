@@ -36,44 +36,52 @@ A simple web server
 
 Let's start with a simple IO program. Replace `src/Main.hs` with the following
 
-    module Main where
+~~~ haskell
+module Main where
 
-    main = do
-      putStrLn "Starting Server..."
+main = do
+  putStrLn "Starting Server..."
+~~~
 
 Before we can use it, we need to import scotty. Add this line to the top:
 
-    module Main where
+~~~ haskell
+module Main where
 
-    import Web.Scotty
+import Web.Scotty
 
-    main = do
-      ...
+main = do
+  ...
+~~~
 
 Now, let's use the `scotty` function in `main` to start a scotty server:
 
-    module Main where
+~~~ haskell
+module Main where
 
-    import Web.Scotty
+import Web.Scotty
 
-    main = do
-        putStrLn "Starting Server..."
-        scotty 3000 $ do
-            get "/hello" $ do
-                text "hello world!"
+main = do
+    putStrLn "Starting Server..."
+    scotty 3000 $ do
+        get "/hello" $ do
+            text "hello world!"
+~~~
 
 Finally we need a GHC feature called OverloadedStrings that let's use string literals for other things (like routes, or text).
 
-    {-# LANGUAGE OverloadedStrings #-}
-    module Main where
+~~~ haskell
+{-# LANGUAGE OverloadedStrings #-}
+module Main where
 
-    import Web.Scotty
+import Web.Scotty
 
-    main = do
-        putStrLn "Starting Server..."
-        scotty 3000 $ do
-            get "/hello" $ do
-                text "hello world!"
+main = do
+    putStrLn "Starting Server..."
+    scotty 3000 $ do
+        get "/hello" $ do
+            text "hello world!"
+~~~
 
 Let's run this just like last time. Fire up `stack ghci`, load our code, and run `main`
 
@@ -92,51 +100,65 @@ What's with the nested do blocks?
 
 Remember from [Using Monads][using-monads] that each do block can only contain one type of action. `main` always has IO actions, so both `putStrLn` and `scotty` must return an IO action.
 
-    scotty :: Port -> ScottyM () -> IO ()
+~~~ haskell
+scotty :: Port -> ScottyM () -> IO ()
+~~~
 
 But it looks like in order to return an `IO` action, we need to pass a `ScottyM` action as the second parameter. Our program is equivalent to this:
 
-    main = do
-      putStrLn "Starting Server..."
-      scotty 3000 someScottyMAction
+~~~ haskell
+main = do
+  putStrLn "Starting Server..."
+  scotty 3000 someScottyMAction
+~~~
 
 That nested do block after the port number is just a `ScottyM` action. We could have done this instead:
 
-    routes :: ScottyM ()
-    routes = do
-      get "/hello" $ do
-        text "hello world!"
+~~~ haskell
+routes :: ScottyM ()
+routes = do
+  get "/hello" $ do
+    text "hello world!"
 
-    main = do
-      putStrLn "Starting Server..."
-      scotty 3000 routes
+main = do
+  putStrLn "Starting Server..."
+  scotty 3000 routes
+~~~
 
 The same thing goes for the handlers. Look at the type of `get`:
 
-    get :: RoutePattern -> ActionM () -> ScottyM ()
+~~~ haskell
+get :: RoutePattern -> ActionM () -> ScottyM ()
+~~~
 
 Same thing again, we pass a `ActionM ()` as the last parameter. We could have written routes like this:
 
-    routes :: ScottyM ()
-    routes = do
-      get "/hello" hello
+~~~ haskell
+routes :: ScottyM ()
+routes = do
+  get "/hello" hello
 
-    hello :: ActionM ()
-    hello = do
-      text "hello world!"
+hello :: ActionM ()
+hello = do
+  text "hello world!"
+~~~
 
 More Features: Route Parameters
 -------------------------------
 
 We can add route parameters with `:xxx` in the url, just like Sinatra and express. To read it in our handler, we use the [`param`](https://hackage.haskell.org/package/scotty-0.10.2/docs/Web-Scotty.html#g:4) function. Edit the `/hello` route to be this:
 
-    get "/hello/:name" $ do
-        name <- param "name"
-        text ("hello " <> name <> "!")
+~~~ haskell
+get "/hello/:name" $ do
+    name <- param "name"
+    text ("hello " <> name <> "!")
+~~~
 
 To get this to work we also need to import `<>`, which concatenates things that aren't strings. Add this to the top:
 
-    import Data.Monoid ((<>))
+~~~ haskell
+import Data.Monoid ((<>))
+~~~
 
 Let's test! Go over to GHCI and type Ctrl-C to stop `main`. Then reload with `:r` and type `main` again. Check it out: [http://localhost:3000/hello/bob](http://localhost:3000/hello/bob). Try out a few different names for that last parameter
 
@@ -149,63 +171,83 @@ Define Types for your API
 
 We can make data types that describe our API. Here we have a `User` object with two fields. Add these to `src/Main.hs` at the top level.
 
-    data User = User { userId :: Int, userName :: String } deriving (Show)
+~~~ haskell
+data User = User { userId :: Int, userName :: String } deriving (Show)
+~~~
 
 We can define some hard-coded users
 
-    bob :: User
-    bob = User { userId = 1, userName = "bob" }
+~~~ haskell
+bob :: User
+bob = User { userId = 1, userName = "bob" }
 
-    jenny :: User
-    jenny = User { userId = 2, userName = "jenny" }
+jenny :: User
+jenny = User { userId = 2, userName = "jenny" }
+~~~
 
 Or a list of users
 
-    allUsers :: [User]
-    allUsers = [bob, jenny]
+~~~ haskell
+allUsers :: [User]
+allUsers = [bob, jenny]
+~~~
 
 Let's see if it works! Reload in GHCI.
 
-    *Main> :r
-    *Main> bob
-    User { userId = 1, userName = "bob" }
+~~~ haskell
+*Main> :r
+*Main> bob
+User { userId = 1, userName = "bob" }
+~~~
 
 Let's do JSON with Aeson
 ------------------------
 
 The [Aeson][aeson] library lets you serialize data objects to JSON and vice versa. Let's install it the same way we did with scotty. Add it to `build-depends` and run `stack build` again. Then import it in your code:
 
-    import Data.Aeson (FromJSON, ToJSON)
+~~~ haskell
+import Data.Aeson (FromJSON, ToJSON)
+~~~
 
 You can tell Aeson how to convert your objects to JSON manually, but it's easier to use some fancy GHC features. One of them, called Generics, lets you automatically do things based on the data type. Add these to the top:
 
-    {-# LANGUAGE DeriveGeneric #-}
-    ...
-    import GHC.Generics
+~~~ haskell
+{-# LANGUAGE DeriveGeneric #-}
+...
+import GHC.Generics
+~~~
 
 Now we can have our data type "derive" Generic
 
-    data User = User { userId :: Int, userName :: String } deriving (Show, Generic)
+~~~ haskell
+data User = User { userId :: Int, userName :: String } deriving (Show, Generic)
+~~~
 
 Then add this below to make any `User` JSON serializable.
 
-    instance ToJSON User
-    instance FromJSON User
+~~~ haskell
+instance ToJSON User
+instance FromJSON User
+~~~
 
 Now `User` can be encoded or decoded. Let's see if it works. Reload in GHCI and test:
 
-    *Main> :r
-    *Main> import Data.Aeson (encode)
-    *Main Data.Aeson> encode bob
-    "{\"userName\":\"bob\",\"userId\":1}"
+~~~ haskell
+*Main> :r
+*Main> import Data.Aeson (encode)
+*Main Data.Aeson> encode bob
+"{\"userName\":\"bob\",\"userId\":1}"
+~~~
 
 Return Users from our API
 -------------------------
 
 Let's add a new route `/users` that will return a list of users. We'll use scotty's `json` function instead of `text`. It will automatically call `encode` for us.
 
-    get "/users" $ do
-      json allUsers
+~~~ haskell
+get "/users" $ do
+  json allUsers
+~~~
 
 Let's test it in the browser: [http://localhost:3000/users](http://localhost:3000/users)
 
@@ -213,14 +255,18 @@ Let's test it in the browser: [http://localhost:3000/users](http://localhost:300
 
 Or we can return all users with a given id. First, let's make a pure function that returns true if an id matches. Put this at the top level
 
-    matchesId :: Int -> User -> Bool
-    matchesId id user = userId user == id
+~~~ haskell
+matchesId :: Int -> User -> Bool
+matchesId id user = userId user == id
+~~~
 
 Now add a new route that uses that function:
 
-    get "/users/:id" $ do
-      id <- param "id"
-      json (filter (matchesId id) allUsers)
+~~~ haskell
+get "/users/:id" $ do
+  id <- param "id"
+  json (filter (matchesId id) allUsers)
+~~~
 
 Test it out: [http://localhost:3000/users/1](http://localhost:3000/users/1)
 
@@ -231,45 +277,47 @@ The complete program
 
 Here's what `src/Main.hs` should look like when you're done. Check out the [full source here][source]
 
-    {-# LANGUAGE OverloadedStrings #-}
-    {-# LANGUAGE DeriveGeneric #-}
+~~~ haskell
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE DeriveGeneric #-}
 
-    module Main where
+module Main where
 
-    import Data.Monoid ((<>))
-    import Data.Aeson (FromJSON, ToJSON)
-    import GHC.Generics
-    import Web.Scotty
+import Data.Monoid ((<>))
+import Data.Aeson (FromJSON, ToJSON)
+import GHC.Generics
+import Web.Scotty
 
-    data User = User { userId :: Int, userName :: String } deriving (Show, Generic)
-    instance ToJSON User
-    instance FromJSON User
+data User = User { userId :: Int, userName :: String } deriving (Show, Generic)
+instance ToJSON User
+instance FromJSON User
 
-    bob :: User
-    bob = User { userId = 1, userName = "bob" }
+bob :: User
+bob = User { userId = 1, userName = "bob" }
 
-    jenny :: User
-    jenny = User { userId = 2, userName = "jenny" }
+jenny :: User
+jenny = User { userId = 2, userName = "jenny" }
 
-    allUsers :: [User]
-    allUsers = [bob, jenny]
+allUsers :: [User]
+allUsers = [bob, jenny]
 
-    matchesId :: Int -> User -> Bool
-    matchesId id user = userId user == id
+matchesId :: Int -> User -> Bool
+matchesId id user = userId user == id
 
-    main = do
-      putStrLn "Starting Server..."
-      scotty 3000 $ do
-        get "/hello/:name" $ do
-            name <- param "name"
-            text ("hello " <> name <> "!")
+main = do
+  putStrLn "Starting Server..."
+  scotty 3000 $ do
+    get "/hello/:name" $ do
+        name <- param "name"
+        text ("hello " <> name <> "!")
 
-        get "/users" $ do
-          json allUsers
+    get "/users" $ do
+      json allUsers
 
-        get "/users/:id" $ do
-          id <- param "id"
-          json (filter (matchesId id) allUsers)
+    get "/users/:id" $ do
+      id <- param "id"
+      json (filter (matchesId id) allUsers)
+~~~
 
 Playing around
 --------------

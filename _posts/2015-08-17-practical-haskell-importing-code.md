@@ -25,16 +25,20 @@ Importing other code
 
 Haskell's core library, called [base][base], contains many useful functions. Many of the most common functions are in the [Prelude][prelude], and are automatically imported in your code. `putStrLn` is one of these. A few others are `+`: the addition operator, and `show`: which converts something to a `String`.
 
-    printNumbers = do
-      putStrLn (show (3+4)) 
+~~~ haskell
+printNumbers = do
+  putStrLn (show (3+4)) 
+~~~
 
 Only the [Prelude][prelude] module is imported automatically. If you want to use any other module, you need to import it. Imports belong at the top of your program. Let's import `readFile` from the module `System.IO` and write a program that prints out our stack config file
 
-    import System.IO (readFile)
+~~~ haskell
+import System.IO (readFile)
 
-    printConfig = do
-      contents <- readFile "stack.yaml"
-      putStrLn contents
+printConfig = do
+  contents <- readFile "stack.yaml"
+  putStrLn contents
+~~~
 
 Go ahead and add both of the above functions to `src/Main.hs`, which you created in [Getting Started][getting-started]. Load them into GHCI and let's try it out.
 
@@ -58,11 +62,13 @@ Go ahead and add both of the above functions to `src/Main.hs`, which you created
 
 You can add them to your main program if you like. Edit `src/Main.hs` and add them to the `main` function.
 
-    main = do
-      putStrLn (greet "bobby")
-      putStrLn (greet "World")
-      printNumbers
-      printConfig
+~~~ haskell
+main = do
+  putStrLn (greet "bobby")
+  putStrLn (greet "World")
+  printNumbers
+  printConfig
+~~~
 
 If you get stuck, check out [the full source][source].
 
@@ -94,11 +100,13 @@ Head over to your terminal and run `stack build` to get stack to install it into
 
 Now we can use `getCurrentTime` in a program. Add this to `src/Main.hs`
 
-    import Data.Time (getCurrentTime)
+~~~ haskell
+import Data.Time (getCurrentTime)
 
-    printTime = do
-      time <- getCurrentTime
-      putStrLn (show time)
+printTime = do
+  time <- getCurrentTime
+  putStrLn (show time)
+~~~
 
 Now restart ghci, reload it with main, and see what happens!
 
@@ -115,10 +123,12 @@ Now restart ghci, reload it with main, and see what happens!
 
 You can add this to your main function if you want, as before. In `src/Main.hs`
 
-    main = do
-      putStrLn (greet "bobby")
-      putStrLn (greet "World")
-      printTime
+~~~ haskell
+main = do
+  putStrLn (greet "bobby")
+  putStrLn (greet "World")
+  printTime
+~~~
 
 [Source Code][source]
 
@@ -171,8 +181,10 @@ Assignment
 
 Find a 3rd party module for JSON from [LTS Haskell](http://stackage.org/lts) or Google. Click through to the "Module documentation" to find a function to encode JSON. Write a program to JSON serialize the following list and print it out. Use `print` instead of `putStrLn`.
 
-    numbers :: [Int]
-    numbers = [1,2,3,4]
+~~~ haskell
+numbers :: [Int]
+numbers = [1,2,3,4]
+~~~
 
 [Answer](https://github.com/seanhess/practical-haskell/blob/master/02-importing-code/src/Assignment.hs)
 

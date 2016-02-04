@@ -34,14 +34,18 @@ Swift is like Haskell
 
 When I saw the [Swift][swift] spec, I was excited to see how many ideas they had incorporated from [Haskell][haskell]. Swift has a much stricter type system than Objective-C. One new feature is [Optional Typing](https://developer.apple.com/library/prerelease/mac/documentation/Swift/Conceptual/Swift_Programming_Language/Types.html#//apple_ref/doc/uid/TP40014097-CH31-XID_1109). You can decide whether a variable is ever allowed to be null. To specify this, you put a question mark after the variable declaration. 
 
-    // user can be nil
-    var user:User? 
-    user = nil
-    user = User("Bob")
+~~~ swift
+// user can be nil
+var user:User? 
+user = nil
+user = User("Bob")
+~~~
 
 A variable without the question mark cannot ever be null. You have to provide a value during initialization
 
-    var user:User = User("Bob")
+~~~ swift
+var user:User = User("Bob")
+~~~
 
 This is only one simple example of many ways in which Swift is more strict than Objective-C
 
@@ -50,21 +54,27 @@ Strict is annoying
 
 Having to deal with optional types in swift is annoying. If you're used to the old way of doing things, it seems like a step backwards. The following won't compile:
 
-    // No! user doesn't have a value!
-    var user:User
-    userLabel.text = user.firstName 
+~~~ swift
+// No! user doesn't have a value!
+var user:User
+userLabel.text = user.firstName 
+~~~
 
 The first thing you might realize is that you can code like a "normal" person if you throw in gratuitous punctuation. [Question marks](https://developer.apple.com/library/prerelease/mac/documentation/Swift/Conceptual/Swift_Programming_Language/Types.html#//apple_ref/doc/uid/TP40014097-CH31-XID_1109) make it work the old way:
 
-    // compiles and the label is blank
-    var user:User?
-    userLabel.text = user?.firstName
+~~~ swift
+// compiles and the label is blank
+var user:User?
+userLabel.text = user?.firstName
+~~~
 
 Or use [exclamation points](https://developer.apple.com/library/prerelease/mac/documentation/Swift/Conceptual/Swift_Programming_Language/Types.html#//apple_ref/doc/uid/TP40014097-CH31-XID_1112) to pretend it isn't null
 
-    // also compiles, but will crash on the 2nd line.
-    var user:User!
-    userLabel.text = user.firstName
+~~~ swift
+// also compiles, but will crash on the 2nd line.
+var user:User!
+userLabel.text = user.firstName
+~~~
 
 Why doesn't the program just let me code? The second example will crash if it runs! In what universe is this better than just leaving the field blank if user is nil?
 
@@ -87,22 +97,26 @@ An exercise in Laziness: Back to JSON
 
 In Wolf Pack, we wanted to sync our Core Data store with the REST API. This meant we had to call the API, parse each JSON object into an `NSManagedObject`, and save them. Here's some of the relevant code from [our User model](https://github.com/seanhess/wolfpack-ios/blob/master/Wolf%20Pack/Wolf%20Pack/MOUserExtension.swift#L41).
 
-    class func syncREST() {
-        let url = NSURL(string: "http://wolfpack-api.herokuapp.com/users")
-        loadRESTObjects(url) { json in
-            let id = json["_id"].string!
-            var user = self.fetchOrCreate(id)
-            user.updateFromJSON(json)
-        }
+~~~ swift
+class func syncREST() {
+    let url = NSURL(string: "http://wolfpack-api.herokuapp.com/users")
+    loadRESTObjects(url) { json in
+        let id = json["_id"].string!
+        var user = self.fetchOrCreate(id)
+        user.updateFromJSON(json)
     }
+}
+~~~
 
 And below is where we map the JSON to the fields. This is almost the most compact way to express this: Take the `firstName` field from the JSON and set it to our `firstName` property. Throw in some gratuitous punctuation to get it to compile:
-    
-    func updateFromJSON(json:JSONValue) {
-        self.firstName = json["firstName"].string!
-        self.imageUrl = json["imageUrl"].string!
-        // etc
-    }
+
+~~~ swift
+func updateFromJSON(json:JSONValue) {
+    self.firstName = json["firstName"].string!
+    self.imageUrl = json["imageUrl"].string!
+    // etc
+}
+~~~
 
 But what this code also says is: "Crash if you don't find `firstName` in the JSON object". Is this what we really want? [^1]
 
@@ -112,11 +126,13 @@ This isn't a theoretical question. This project requires an `imageUrl` when we g
 
 Here's what we really ended up wanting in this case: if `imageUrl` is missing, set it to a default:
 
-    if let value = json["imageUrl"].string {
-        self.imageUrl = value
-    } else {
-        self.imageUrl = "http://example.com/empty-avatar.png"
-    }
+~~~ swift
+if let value = json["imageUrl"].string {
+    self.imageUrl = value
+} else {
+    self.imageUrl = "http://example.com/empty-avatar.png"
+}
+~~~
 
 Swift encourages you to make these kinds of decisions up front. 
 

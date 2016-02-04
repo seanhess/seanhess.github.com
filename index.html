@@ -5,80 +5,23 @@ title: Sean Hess
 
 <div id="home">
   <h1>Sean Hess</h1>
+
+  <p>I create well-crafted applications to solve business problems. I've worked professionally in software and startups since 1999.</p>
+
+  <p><a href="https://www.linkedin.com/in/seanhess">Please visit LinkedIn for my work history and recommendations</a></p>
   
   <h2 id="posts">Posts</h2>
-  <ul class="posts">
-    {% for post in site.posts %}
-      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
-  </ul>
+  {% include posts.html %}
 
-  <h2 id="projects">Products</h2>
-  <section class="projects">
-    <article class="project">
-      <a href="http://webfiction.co">
-      <img src="http://i.imgur.com/Mmo8uxm.png">
-      <h4>Webfiction</h4>
-      </a>
-      <div class="status">2015</div>
-      <div>Read web fiction from around the web. Haskell, Servant and React. <a href="http://github.com/seanhess/serials">Source</a></div>
-    </article>
-    <article class="project">
-      <a href="https://github.com/seanhess/wizardwar#wizard-war">
-        <img src="http://i.imgur.com/bk7x8b9.png">
-        <h4>Wizard War</h4>
-      </a>
-      <div class="status">2013</div>
-      <div>Multiplayer iOS game with hidden spells and angry wizards. <a href="https://github.com/seanhess/wizardwar">Source</a></div>
-    </article>
-    <article class="project">
-      <a href="http://appstore.com/librosyaudiolibrosgratis">
-        <img src="http://i.imgur.com/IfkRh1W.png">
-        <h4>Libros y Audiolibros en Español</h4>
-      </a>
-      <div class="status">2013</div>
-      <div>Spanish book and audiobook reader and store for iOS. <a href="https://github.com/seanhess/librosapp">Source</a></div>
-    </article>
-    <article class="project">
-      <a href="http://bazookaguys.orbit.al">
-        <img src="http://i.imgur.com/GESHiMB.png">
-        <h4>Underwater Adventure Rocket Bazooka Guys II</h4>
-      </a>
-      <div class="status">2012-2013</div>
-      <div>A watery and deadly competitive multiplayer web game. <a href="https://github.com/seanhess/bazookaguys">Source</a></div>
-    </article>
-    <article class="project">
-      <a href="http://i.tv">
-        <img src="http://i.imgur.com/VU673cP.jpg">
-        <h4>I.TV</h4>
-      </a>
-      <div class="status">2009-2012</div>
-      <div>Interactive TV startup with millions in revenue and partnerships with Nintendo and others.</div>
-    </article>
-  </section>
-
-
+  <h2 id="projects">Projects</h2>
+  {% include projects.html %}
 
   <h2 id="experiments">Experiments</h2>
+  {% include experiments.html %}
 
-  <ul class="posts">
-    <li><span>2016</span> &raquo; <a href="https://github.com/seanhess/dont-fly-alaska-air">Don't Fly Alaska Air - Haskell Twitter Bot</a></li>
-
-  </ul>
 
   <h2>Talks</h2>
-  <ul class="posts">
-    <li><span>Jan 2016</span> &raquo; <a href="https://github.com/seanhess/elm-introduction">Introduction to Elm</a></li>
-    <li><span>May 2015</span> &raquo; <a href="https://github.com/seanhess/talk-innovate">OpenWest - How to refactor, experiment, and innovate on a deadline</a></li>
-    <li><span>Jun 2014</span> &raquo; <a href="https://github.com/seanhess/functional-javascript">UtahJS Conf - Functional Javascript: The Good Parts</a></li>
-    <li><span>Jan 2014</span> &raquo; <a href="https://github.com/seanhess/angularjs-typescript">Ng-Conf - How to use Typescript on your Angular application and be happy</a></li>
-    <li><span>May 2013</span> &raquo; <a href="https://github.com/seanhess/seanhess.github.com/blob/master/articles/reactivecocoa.md">CocoaHeads - Reactive Cocoa</a></li>
-    <li><span>Oct 2012</span> &raquo; <a href="https://github.com/seanhess/html5-drag-drop-anything">HTML5DevConf - HTML5 Drag and Drop Anything</a></li>
-    <li><span>Sep 2012</span> &raquo; <a href="http://github.com/seanhess/the-issues-angularjs-demo">UtahJS - AngularJS Demo App "The Issues"</a></li>
-    <li><span>May 2012</span> &raquo; <a href="http://www.html5devconf.com/speakers/sean_hess.html">HTML5DevConf</a>, <a href="http://fluentconf.com/fluent2012/public/schedule/detail/24643">Fluent</a> - How to deploy a node.js app to production (<a href="http://www.slideshare.net/embwbam/how-to-deploy-node-to-production">Slides</a>, <a href="http://github.com/seanhess/ratinatorly">Code</a>)</li>
-    <li><span>Jan 2012</span> &raquo; <a href="http://nodesummit.com/agenda/">Node Summit - Large Scale Web Panel</a></li>
-    <!-- <li><span>June 2012</span> &raquo; <a href="http://conf.utahjs.com/sessions/javascript-is-functional-right-what-we-should-learn-from-functional-programming/">UtahJS - Javascript is functional, right? Learn from functional programming.</a></li>-->
-  </ul>
+  {% include talks.html %}
 
   <!--
   <h2>Stuff I Like</h2>

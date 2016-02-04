@@ -104,11 +104,13 @@ We use the `my-project.cabal` config file to store settings like the project nam
 
 Last but not least, we have some source code. `src/Main.hs` is the main module for our program. This is where the Haskell happens.
 
-    module Main where
+~~~ haskell
+module Main where
 
-    main :: IO ()
-    main = do
-      putStrLn "hello world"
+main :: IO ()
+main = do
+  putStrLn "hello world"
+~~~
 
 Installing GHC
 ---------------
@@ -164,7 +166,9 @@ Making Changes
 
 We can use ghci to test our changes as we go. Let's make a `greet` function! Add this to `src/Main.hs`
 
-    greet name = "Hello " ++ name ++ "!"
+~~~ haskell
+greet name = "Hello " ++ name ++ "!"
+~~~
 
 Now go back to ghci and type `:reload` or `:r`
 
@@ -179,9 +183,11 @@ We can test `greet` without it being used in `main`
 
 Let's add it to our main program! Edit `src/Main.hs`
 
-    main = do
-      putStrLn (greet "bobby")
-      putStrLn (greet "World")
+~~~ haskell
+main = do
+  putStrLn (greet "bobby")
+  putStrLn (greet "World")
+~~~
 
 Reload again with `:r` and then run `main`
 

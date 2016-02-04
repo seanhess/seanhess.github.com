@@ -4,3 +4,4 @@ _examples/
 .DS_Store
 Notes.txt
 *.sublime*
+Gemfile.lock
