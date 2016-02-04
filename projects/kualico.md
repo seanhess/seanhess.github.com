@@ -3,6 +3,8 @@ layout: project
 title: Project - Kuali.co
 ---
 
+<meta property="og:image" content="/projects/kualico-student-2.png"/>
+
 {{ page.title }}
 ================
 
