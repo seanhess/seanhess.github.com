@@ -6,9 +6,11 @@ title: Sean Hess - About
 About Me
 ========
 
-I create well-crafted applications to solve business problems. I've worked professionally in software and startups since 1999, and have a consistent track record of delivering quality solutions ahead of schedule.
+I create well-crafted applications to solve business problems. I've worked professionally in software and startups since 1999.</p>
 
-[Please visit LinkedIn for my work history and recommendations](https://www.linkedin.com/in/seanhess)
+[Work History and Recommendations](https://www.linkedin.com/in/seanhess)
 
-<h2>Products</h2>
+<h2 id="projects">Projects</h2>
+{% include projects.html %}
 
+<br />
