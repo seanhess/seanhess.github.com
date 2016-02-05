@@ -1,12 +1,12 @@
 ---
-layout: default
+layout: project
 title: Sean Hess - About
 ---
 
 About Me
 ========
 
-I create well-crafted applications to solve business problems. I've worked professionally in software and startups since 1999.</p>
+I create well-crafted applications to solve business problems. I've worked professionally in software and startups since 1999.
 
 [Work History and Recommendations](https://www.linkedin.com/in/seanhess)
 
