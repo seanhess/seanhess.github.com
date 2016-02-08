@@ -297,6 +297,10 @@ ul.posts span {
     overflow: hidden;
 }
 
+.project-thumb.border {
+  outline: solid 1px #CCC;
+}
+
 .project img.app {
     border-radius: 30px;
 }
