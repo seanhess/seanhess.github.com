@@ -13,7 +13,7 @@ We can use GHCI without editor integration for a pretty good workflow, but confi
 The bleeding edge
 -----------------
 
-There are two main editor plugins: [ghc-mod][ghc-mod] and [hdevtools][hdevtools]. ghc-mod is great, but at the time of this writing [they don't support stack](https://github.com/kazu-yamamoto/ghc-mod/issues/498), so we can't use them with the project setup we introduced in [Getting Started][getting-started]. But hdevtools works great!
+There are two main editor plugins: [ghc-mod][ghc-mod] and [hdevtools][hdevtools]. ghc-mod is great, ~~but at the time of this writing [they don't support stack](https://github.com/kazu-yamamoto/ghc-mod/issues/498), so we can't use them with the project setup we introduced in [Getting Started][getting-started].~~ But hdevtools works great!
 
 **Update**: ghc-mod has been updated to work with stack. For atom users, I'd now recommend using [ide-haskell](https://atom.io/packages/ide-haskell), which should have instructions to install all dependencies. Then refer to this article: [Using ghc-mod with stack](https://github.com/atom-haskell/haskell-ghc-mod/wiki/Using-with-stack). Basically you install ghc-mod locally for each project:
 
