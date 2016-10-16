@@ -10,12 +10,16 @@ In [Getting Started with Stack][getting-started] we showed you how to install GH
 
 We can use GHCI without editor integration for a pretty good workflow, but configuring your text editor to underline errors can be very helpful. This article will show you how to get it all working with [stack][stack].
 
-**Edit:** Added instructions to add GHC to your path
-
 The bleeding edge
 -----------------
 
 There are two main editor plugins: [ghc-mod][ghc-mod] and [hdevtools][hdevtools]. ghc-mod is great, but at the time of this writing [they don't support stack](https://github.com/kazu-yamamoto/ghc-mod/issues/498), so we can't use them with the project setup we introduced in [Getting Started][getting-started]. But hdevtools works great!
+
+**Update**: ghc-mod has been updated to work with stack. For atom users, I'd now recommend using [ide-haskell](https://atom.io/packages/ide-haskell), which should have instructions to install all dependencies. Then refer to this article: [Using ghc-mod with stack](https://github.com/atom-haskell/haskell-ghc-mod/wiki/Using-with-stack). Basically you install ghc-mod locally for each project:
+
+    cd my-project
+    stack install ghc-mod
+
 
 Installing GHC and Hdevtools globally
 -------------------------------------
@@ -104,7 +108,9 @@ Limitations
 
 Hdevtools doesn't provide any autocomplete information.
 
-You can't use Atom's Haskell-IDE until ghc-mod gets up to speed. The error highlighting provided by the other plugins are the most useful feature though.
+~~You can't use Atom's Haskell-IDE until ghc-mod gets up to speed. The error highlighting provided by the other plugins are the most useful feature though.~~
+
+GHC-mod now supports stack. Refer to the instructions at the beginning of the article for atom users.
 
 Assignment
 ----------
@@ -119,5 +125,5 @@ Next up, let's [learn how to import code][importing-code]
 [getting-started]: http://seanhess.github.io/2015/08/04/practical-haskell-getting-started.html
 [importing-code]: http://seanhess.github.io/2015/08/17/practical-haskell-importing-code.html
 [ghc-mod]: http://www.mew.org/~kazu/proj/ghc-mod/en/
-[hdevtools]: https://github.com/schell/hdevtools/
+[hdevtools]: https://github.com/hdevtools/hdevtools/
 [stack]: https://github.com/commercialhaskell/stack
