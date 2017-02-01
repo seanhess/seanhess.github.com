@@ -267,7 +267,7 @@ parseIP = do
 Can you guess what the type of `decimal` and `char` are?
 
 ~~~ haskell
-char :: Parser Char
+char :: Char -> Parser Char
 decimal :: Parser Word8
 ~~~
 
