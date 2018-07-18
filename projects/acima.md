@@ -1,4 +1,3 @@
-
 ---
 layout: project
 title: Project - Acima Credit
