@@ -72,7 +72,7 @@ This creates a directory named `my-project`. Let's see what's inside:
     src/
       Main.hs
 
-The [`stack.yaml`](https://github.com/commercialhaskell/stack/wiki/stack.yaml) config file tells stack which version of GHC and your dependencies to use.
+The [`stack.yaml`](https://docs.haskellstack.org/en/stable/yaml_configuration/) config file tells stack which version of GHC and your dependencies to use.
 
     flags: {}
     packages:
